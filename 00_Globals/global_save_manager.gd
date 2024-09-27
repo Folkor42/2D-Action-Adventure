@@ -105,12 +105,24 @@ func add_persistant_location( value : String, coords : Vector2 ) -> void:
 		current_save.locations.append( {"name"=value,"pos_x"=coords.x,"pos_y" = coords.y} )
 	pass
 
-func add_persistent_drop( value : String, scene : String, coords : Vector2, item : ItemData ) -> void:
+func add_persistent_drop( value : String, pre_exist : String, scene : String, coords : Vector2, item : ItemData ) -> void:
 	if check_persistant_drops( value ) == false:
-		current_save.drops.append( {"name"=value,"scene" = scene, "pos_x"=coords.x,"pos_y" = coords.y,"item_data"=item} )
+		current_save.drops.append( {
+			"name"=value,
+			"pre_exist" = pre_exist,
+			"scene" = scene, 
+			"pos_x"=coords.x,
+			"pos_y" = coords.y,
+			"item_data"=item} )
 	else:
 		remove_persistent_drop( value )
-		current_save.drops.append( {"name"=value,"scene" = scene, "pos_x"=coords.x,"pos_y" = coords.y,"item_data"=item} )
+		current_save.drops.append( {
+			"name"=value,
+			"pre_exist"=pre_exist,
+			"scene" = scene, 
+			"pos_x"=coords.x,
+			"pos_y" = coords.y,
+			"item_data"=item} )
 	pass
 func check_persistant_drops( value: String ) -> bool:
 	for i in current_save.drops:

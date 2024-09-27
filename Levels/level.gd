@@ -10,15 +10,17 @@ func _ready():
 	LevelManager.level_load_started.connect( _free_level )
 	AudioManager.play_music( music )
 	scene = get_tree().current_scene.scene_file_path
-	check_for_previous_drops()
+	
 	tree_exited.connect( store_drops )
+	check_for_previous_drops()
+	
 	pass
 
 func store_drops() -> void:
 	SaveManager.remove_persistent_drop( scene )
 	for c in get_children():
-		if c is ItemPickup:
-			SaveManager.add_persistent_drop( c.name_path, scene, c.global_position, c.item_data )
+		if c is ItemPickup and c.pre_exist == "NO":
+			SaveManager.add_persistent_drop( c.name_path, c.pre_exist, scene, c.global_position, c.item_data )
 	print( SaveManager.current_save )
 
 func _free_level() -> void:
@@ -27,7 +29,9 @@ func _free_level() -> void:
 	pass
 
 func check_for_previous_drops():
-	for d in SaveManager.current_save.drops:
+	var drops = SaveManager.current_save.drops
+	for i in range ( drops.size(), 0, -1):
+		var d = drops [i-1]
 		if d["scene"] == scene:
 			print ("Found Item")
 			add_drop(d["item_data"],d["pos_x"],d["pos_y"])

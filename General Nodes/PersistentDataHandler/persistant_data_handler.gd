@@ -20,7 +20,7 @@ func clear_drop_value() -> void:
 	pass
 	
 func set_drop_value(global_position,item_data : ItemData) -> void:
-	SaveManager.add_persistent_drop( _get_name() , scene , global_position, item_data )
+	SaveManager.add_persistent_drop( _get_name() , "NO", scene , global_position, item_data )
 	print (item_data.resource_name)
 	pass
 
