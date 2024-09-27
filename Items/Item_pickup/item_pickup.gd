@@ -9,13 +9,15 @@ signal picked_up
 @onready var sprite_2d : Sprite2D = $Sprite2D
 @onready var audio_stream_player_2d : AudioStreamPlayer2D = $AudioStreamPlayer2D
 @onready var item_drop: PersistantDataHandler = $ItemDrop
+var name_path 
 
 func _ready() -> void:
 	_update_texture()
 	if Engine.is_editor_hint():
 		return
 	area_2d.body_entered.connect ( _on_body_entered )
-	item_drop.set_drop_value(global_position,item_data)
+	#item_drop.set_drop_value(global_position,item_data)
+	name_path = get_tree().current_scene.scene_file_path + "/" + get_parent().name + "/" + name
 
 func _physics_process(delta: float) -> void:
 	var collision_info = move_and_collide( velocity * delta )
@@ -43,7 +45,7 @@ func item_picked_up ( _name : String ) -> void:
 	picked_up.emit()
 	PlayerHud.update_display_pickup (_name)
 	await audio_stream_player_2d.finished
-	item_drop.clear_drop_value()
+	#item_drop.clear_drop_value()
 	queue_free()
 	pass
 	

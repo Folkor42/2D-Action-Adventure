@@ -26,7 +26,8 @@ func drop_item() -> void:
 	has_dropped = true
 	var drop = PICKUP.instantiate() as ItemPickup
 	drop.item_data = item_data
-	add_child( drop )
+	drop.global_position = global_position
+	get_parent().call_deferred("add_child", drop)
 	drop.picked_up.connect( _on_drop_pickup )
 	audio.play()
 	pass

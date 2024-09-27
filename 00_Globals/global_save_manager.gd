@@ -15,7 +15,6 @@ var current_save : Dictionary = {
 	},
 	items = [],
 	drops = [],
-	saved_drops = [],
 	persistence = [],
 	locations= [],
 	quests = []
@@ -106,13 +105,19 @@ func add_persistant_location( value : String, coords : Vector2 ) -> void:
 		current_save.locations.append( {"name"=value,"pos_x"=coords.x,"pos_y" = coords.y} )
 	pass
 
-func add_persistant_item( value : String, scene : String, coords : Vector2, item : ItemData ) -> void:
+func add_persistent_drop( value : String, scene : String, coords : Vector2, item : ItemData ) -> void:
 	if check_persistant_drops( value ) == false:
 		current_save.drops.append( {"name"=value,"scene" = scene, "pos_x"=coords.x,"pos_y" = coords.y,"item_data"=item} )
 	else:
-		remove_persistant_drop( value )
+		remove_persistent_drop( value )
 		current_save.drops.append( {"name"=value,"scene" = scene, "pos_x"=coords.x,"pos_y" = coords.y,"item_data"=item} )
 	pass
+func check_persistant_drops( value: String ) -> bool:
+	for i in current_save.drops:
+		if i["name"] == value:
+			print ("Match")
+			return true
+	return false
 
 func check_persistant_locations( value: String ) -> bool:
 	for i in current_save.locations:
@@ -121,13 +126,6 @@ func check_persistant_locations( value: String ) -> bool:
 			return true
 	return false
 	
-func check_persistant_drops( value: String ) -> bool:
-	for i in current_save.drops:
-		if i["name"] == value:
-			print ("Match")
-			return true
-	return false
-
 func get_persistant_location( value: String ) -> Vector2:
 	for i in current_save.locations:
 		if i["name"] == value:
@@ -140,9 +138,9 @@ func remove_persistant_location( value ) -> void:
 		if i["name"] == value:
 			current_save.locations.erase (i)
 
-func remove_persistant_drop( value ) -> void:
+func remove_persistent_drop( value ) -> void:
 	for i in current_save.drops:
-		if i["name"] == value:
+		if i["scene"] == value:
 			current_save.drops.erase (i)
 
 func get_drop_save_data () -> Array:

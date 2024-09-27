@@ -11,7 +11,15 @@ func _ready():
 	AudioManager.play_music( music )
 	scene = get_tree().current_scene.scene_file_path
 	check_for_previous_drops()
+	tree_exited.connect( store_drops )
 	pass
+
+func store_drops() -> void:
+	SaveManager.remove_persistent_drop( scene )
+	for c in get_children():
+		if c is ItemPickup:
+			SaveManager.add_persistent_drop( c.name_path, scene, c.global_position, c.item_data )
+	print( SaveManager.current_save )
 
 func _free_level() -> void:
 	PlayerManager.unparent_player ( self )
@@ -19,20 +27,11 @@ func _free_level() -> void:
 	pass
 
 func check_for_previous_drops():
-	var drops = SaveManager.current_save.drops
-	for i in range(drops.size(), 0, -1):
-		var d = SaveManager.current_save.drops[i-1]
+	for d in SaveManager.current_save.drops:
 		if d["scene"] == scene:
+			print ("Found Item")
 			add_drop(d["item_data"],d["pos_x"],d["pos_y"])
-			SaveManager.current_save.drops.erase(d)
-	var saved_drops = SaveManager.current_save.saved_drops
-	for i in range(saved_drops.size(), 0, -1):
-		var d = SaveManager.current_save.saved_drops[i-1]
-		if d["scene"] == scene:
-			print ("Found SAVED item for this scene.")
-			d["item_data"]=parse_save_data(d["item"])
-			add_drop(d["item_data"],d["posx"],d["posy"])
-			SaveManager.current_save.saved_drops.erase(d)
+		SaveManager.remove_persistent_drop(d["name"])
 	pass
 
 func add_drop( item, pos_x, pos_y) -> void:
