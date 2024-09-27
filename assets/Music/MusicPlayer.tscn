@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dmwfblkjnv4gb"]
+
+[ext_resource type="AudioStream" uid="uid://g1lnyqronh71" path="res://assets/Music/Light Ambience 2.mp3" id="1_7qvlm"]
+
+[node name="MusicPlayer" type="AudioStreamPlayer2D"]
+process_mode = 3
+stream = ExtResource("1_7qvlm")
+autoplay = true
+max_polyphony = 2

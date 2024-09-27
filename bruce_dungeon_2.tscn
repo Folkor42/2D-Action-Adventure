@@ -1,0 +1,50 @@
+[gd_scene load_steps=10 format=3 uid="uid://c77bh8j4sjewj"]
+
+[ext_resource type="Script" path="res://Levels/level.gd" id="1_b3vib"]
+[ext_resource type="PackedScene" uid="uid://c5l0npjs1vnw" path="res://assets/Tile Maps/dungeon.tscn" id="2_fy4th"]
+[ext_resource type="PackedScene" uid="uid://cqtftu4m687ui" path="res://Levels/level_transition.tscn" id="3_q51n7"]
+[ext_resource type="PackedScene" uid="uid://6itqmku4udbn" path="res://Levels/player_spawn.tscn" id="4_rws7i"]
+[ext_resource type="PackedScene" uid="uid://b0btxn5ny71h8" path="res://Props/interactables/dungeon/LockedDoor.tscn" id="5_mgi0n"]
+[ext_resource type="PackedScene" uid="uid://d1aynbiq7j5ny" path="res://Enemies/Slime/Bruce-Zombie-Warrior.tscn" id="5_xdxia"]
+[ext_resource type="PackedScene" uid="uid://bh56dlvnhs1fw" path="res://General Nodes/EnemyCounter/enemy_counter.tscn" id="6_o860t"]
+[ext_resource type="PackedScene" uid="uid://durc8q4exbelu" path="res://General Nodes/ItemDropper/ItemDropper.tscn" id="8_rynvs"]
+[ext_resource type="Resource" uid="uid://b36q1y3urywy2" path="res://Items/Key_dungeon.tres" id="9_succ7"]
+
+[node name="Bruce-dungeon-2" type="Node2D"]
+script = ExtResource("1_b3vib")
+
+[node name="Dungeon" parent="." instance=ExtResource("2_fy4th")]
+layer_0/tile_data = PackedInt32Array(524294, 0, 5, 589830, 0, 6, 655366, 0, 7, 524295, 65536, 5, 589831, 65536, 6, 655367, 65536, 7, 524296, 131072, 5, 589832, 131072, 6, 655368, 131072, 7, 524297, 196608, 5, 589833, 196608, 6, 655369, 655360, 6, 393222, 0, 3, 458758, 0, 4, 393223, 0, 1, 458759, 196608, 2, 393224, 0, 3, 458760, 0, 4, 393225, 196608, 2, 458761, 0, 4, 262152, 393216, 2, 327688, 65536, 3, 262153, 196608, 2, 327689, 65536, 4, 262150, 65536, 3, 327686, 65536, 1, 262151, 393216, 2, 327687, 131072, 2, 196614, 196608, 2, 196615, 393216, 2, 131079, 131072, 2, 131080, 0, 4, 196616, 393216, 2, 196617, 196608, 2, 131081, 196608, 2, 131078, 0, 0, 196613, 131072, 1, 262149, 196608, 2, 327685, 131072, 1, 393221, 65536, 0, 458757, 65536, 1, 458756, 65536, 2, 393220, 0, 4, 327684, 0, 0, 262148, 65536, 3, 196612, 65536, 0, 131077, 65536, 0, 131076, 0, 3, 131082, 196608, 1, 196618, 0, 2, 262154, 65536, 4, 327690, 0, 0, 393226, 0, 4, 458762, 131072, 2, 327691, 131072, 2, 131083, 0, 0, 196619, 0, 4, 262155, 65536, 1, 327682, 0, 0, 393218, 0, 0, 393217, 589824, 3, 327681, 589824, 2, 393219, 0, 0, 327683, 0, 0, 131075, 131072, 1, 262146, 65536, 1, 262145, 589824, 1, 196609, 589824, 5, 196610, 65536, 0, 196611, 131072, 0, 262147, 131072, 1, 131074, 65536, 1, 131073, 589824, 4, 393227, 0, 0, 458763, 0, 1, 524299, 0, 2, 393228, 65536, 0, 458764, 65536, 1, 524300, 0, 0, 393229, 131072, 0, 458765, 131072, 1, 524301, 131072, 2, 196620, 0, 0, 262156, 0, 1, 327692, 0, 2, 196621, 65536, 0, 262157, 65536, 1, 327693, 65536, 2, 196622, 983040, 1, 262158, 983040, 2, 327694, 983040, 1, 12, 0, 0, 65548, 0, 1, 131084, 0, 2, 13, 0, 0, 65549, 65536, 1, 131085, 65536, 2, 14, 983040, 2, 65550, 983040, 3, 131086, 983040, 4, -65527, 0, 0, 9, 0, 1, 65545, 0, 2, -65526, 65536, 0, 10, 65536, 1, 65546, 65536, 2, -65525, 131072, 0, 11, 131072, 1, 65547, 131072, 2, 65542, 0, 2, 65543, 65536, 2, 65544, 131072, 2, -65533, 131072, 1, 3, 131072, 2, 65539, 131072, 0, -65532, 65536, 0, 4, 65536, 1, 65540, 65536, 2, 65541, 131072, 2, -131071, 589824, 0, -65535, 589824, 1, 1, 589824, 2, -131070, 655360, 0, -65534, 65536, 1, 2, 65536, 2, -131069, 720896, 0, 65537, 589824, 3, 65538, 65536, 0, 524298, 0, 0, 524302, 983040, 4, 458766, 983040, 3, 393230, 983040, 2, 524293, 0, 0, 524292, 0, 0, 524291, 0, 0, 458755, 0, 0, 458753, 589824, 4, 458754, 0, 0, 524290, 0, 0, 589826, 0, 0, 524289, 589824, 5, 589825, 589824, 5, 589827, 0, 0, 589828, 0, 0, 589829, 0, 0, 655365, 196608, 7, 655364, 131072, 7, 655363, 65536, 7, 655362, 0, 7, 655361, 589824, 6, 589834, 0, 0, 589835, 0, 0, 589836, 0, 0, 589837, 0, 0, 589838, 983040, 5, 655374, 983040, 6, 655373, 196608, 7, 655372, 131072, 7, 655371, 65536, 7, 655370, 0, 7, -131068, 786432, 0, -131067, 786432, 0, -131066, 262144, 7, -131064, 393216, 7, -131063, 458752, 7, -131062, 917504, 0, -131065, 327680, 7, -131061, 786432, 0, -131060, 851968, 0, -65524, 0, 0, -65523, 0, 0, -131059, 917504, 0, -131058, 983040, 0, -65522, 983040, 1, -65531, 65536, 0, 5, 65536, 1, 6, 65536, 1, 7, 0, 1, 8, 0, 1, -65528, 65536, 0, -65529, 0, 0, -65530, 0, 0, -262138, 262144, 5, -196602, 262144, 6, -262137, 327680, 5, -196601, 327680, 6, -262136, 393216, 5, -196600, 393216, 6, -262135, 458752, 5, -196599, 458752, 6)
+
+[node name="SouthDoor" parent="." instance=ExtResource("3_q51n7")]
+position = Vector2(256, 272)
+level = "res://dungeon_bruce.tscn"
+target_transition_area = "NorthDoor"
+center_player = true
+side = 3
+
+[node name="PlayerSpawn" parent="." instance=ExtResource("4_rws7i")]
+position = Vector2(261, 206)
+
+[node name="LockedDoor" parent="." instance=ExtResource("5_mgi0n")]
+position = Vector2(221, -47)
+
+[node name="EnemyCounter" parent="." instance=ExtResource("6_o860t")]
+
+[node name="Bruce Zombie Warrior" parent="EnemyCounter" instance=ExtResource("5_xdxia")]
+position = Vector2(145, 91)
+
+[node name="Bruce Zombie Warrior2" parent="EnemyCounter" instance=ExtResource("5_xdxia")]
+position = Vector2(417, 84)
+
+[node name="Bruce Zombie Warrior3" parent="EnemyCounter" instance=ExtResource("5_xdxia")]
+position = Vector2(85, 306)
+
+[node name="Bruce Zombie Warrior4" parent="EnemyCounter" instance=ExtResource("5_xdxia")]
+position = Vector2(430, 305)
+
+[node name="ItemDropper" parent="." instance=ExtResource("8_rynvs")]
+position = Vector2(175, 159)
+item_data = ExtResource("9_succ7")
+
+[connection signal="enemies_defeated" from="EnemyCounter" to="ItemDropper" method="drop_item"]

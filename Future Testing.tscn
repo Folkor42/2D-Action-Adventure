@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://ddk3fiktby0cd"]
+
+[ext_resource type="Script" path="res://Levels/level.gd" id="1_2krr1"]
+[ext_resource type="PackedScene" uid="uid://bgtod07o6p5jg" path="res://TileMaps/Grass01.tscn" id="2_1bvjv"]
+[ext_resource type="PackedScene" uid="uid://6itqmku4udbn" path="res://Levels/player_spawn.tscn" id="3_p4a57"]
+[ext_resource type="PackedScene" uid="uid://cqtftu4m687ui" path="res://Levels/level_transition.tscn" id="4_pjp6b"]
+
+[node name="Playground" type="Node2D"]
+script = ExtResource("1_2krr1")
+
+[node name="Grass01" parent="." instance=ExtResource("2_1bvjv")]
+layer_0/tile_data = PackedInt32Array(0, 655360, 4, 65536, 655360, 5, 1, 720896, 4, 65537, 720896, 5, 2, 786432, 4, 65538, 786432, 5, 3, 851968, 4, 65539, 851968, 5, 4, 917504, 4, 65540, 917504, 5, 131072, 655360, 5, 131073, 720896, 5, 131074, 786432, 5, 131075, 851968, 5, 131076, 917504, 5, 196608, 655360, 5, 196609, 720896, 5, 196610, 786432, 5, 196611, 851968, 5, 196612, 196608, 1, 262144, 655360, 5, 262145, 720896, 5, 262146, 786432, 5, 262147, 851968, 5, 262148, 720896, 6, 327680, 655360, 5, 327681, 720896, 5, 327682, 786432, 5, 327683, 851968, 5, 327684, 917504, 5, 393216, 655360, 6, 458752, 655360, 7, 393217, 720896, 6, 458753, 720896, 7, 393218, 786432, 6, 458754, 786432, 7, 393219, 851968, 6, 458755, 851968, 7, 393220, 917504, 6, 458756, 917504, 7, 393221, 655360, 6, 458757, 655360, 7, 393222, 720896, 6, 458758, 720896, 7, 393223, 786432, 6, 458759, 786432, 7, 393224, 851968, 6, 458760, 851968, 7, 393225, 917504, 6, 458761, 917504, 7, 5, 655360, 4, 6, 720896, 4, 7, 786432, 4, 8, 851968, 4, 9, 917504, 4, 65541, 655360, 5, 65542, 720896, 5, 65543, 786432, 5, 65544, 851968, 5, 65545, 917504, 5, 131077, 655360, 5, 131078, 720896, 5, 131079, 786432, 5, 131080, 851968, 5, 131081, 917504, 5, 196613, 131072, 1, 196614, 720896, 5, 196615, 786432, 5, 196616, 851968, 5, 196617, 917504, 5, 262149, 786432, 6, 262150, 720896, 5, 262151, 786432, 5, 262152, 851968, 5, 262153, 917504, 5, 327685, 655360, 5, 327686, 720896, 5, 327687, 786432, 5, 327688, 851968, 5, 327689, 917504, 5)
+
+[node name="PlayerSpawn" parent="." instance=ExtResource("3_p4a57")]
+position = Vector2(80, 197)
+
+[node name="Island1" parent="." instance=ExtResource("4_pjp6b")]
+position = Vector2(63, 53)
+level = "res://Future Testing 1.tscn"
+target_transition_area = "Island1"
+center_player = true
+
+[node name="Island2" parent="." instance=ExtResource("4_pjp6b")]
+position = Vector2(226, 184)
+level = "res://Future Testing 2.tscn"
+target_transition_area = "Island2"
+center_player = true

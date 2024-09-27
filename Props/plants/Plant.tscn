@@ -1,0 +1,45 @@
+[gd_scene load_steps=9 format=3 uid="uid://b2wa6h01y1u05"]
+
+[ext_resource type="Script" path="res://Props/plants/plant.gd" id="1_1ovd3"]
+[ext_resource type="Texture2D" uid="uid://ctbviluah4fcp" path="res://Props/sprites/Props.png" id="1_2n0mm"]
+[ext_resource type="Resource" uid="uid://3x506ndblw7e" path="res://Items/gem.tres" id="2_qm16l"]
+[ext_resource type="PackedScene" uid="uid://celtqki70mpck" path="res://General Nodes/HitBox/hit_box.tscn" id="3_dic0m"]
+[ext_resource type="Script" path="res://Enemies/scripts/drop_data.gd" id="3_u081j"]
+
+[sub_resource type="Resource" id="Resource_pph6u"]
+script = ExtResource("3_u081j")
+item = ExtResource("2_qm16l")
+probability = 25.0
+min_amount = 1
+max_amount = 1
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f5nu0"]
+size = Vector2(28, 30)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v2w0o"]
+size = Vector2(24, 16)
+
+[node name="Plant" type="Node2D"]
+y_sort_enabled = true
+position = Vector2(0, -14)
+script = ExtResource("1_1ovd3")
+drops = Array[ExtResource("3_u081j")]([SubResource("Resource_pph6u")])
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_2n0mm")
+hframes = 16
+vframes = 3
+
+[node name="HitBox" parent="." instance=ExtResource("3_dic0m")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_f5nu0")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 9)
+shape = SubResource("RectangleShape2D_v2w0o")
+debug_color = Color(0.862552, 0.248541, 0.654018, 0.42)

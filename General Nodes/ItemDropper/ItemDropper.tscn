@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://durc8q4exbelu"]
+
+[ext_resource type="Script" path="res://General Nodes/ItemDropper/ItemDropper.gd" id="1_5kjaa"]
+[ext_resource type="Script" path="res://General Nodes/PersistentDataHandler/persistant_data_handler.gd" id="2_bde53"]
+[ext_resource type="AudioStream" uid="uid://cnsht5653a2u2" path="res://General Nodes/ItemDropper/dungeon_discovery.wav" id="2_ppblq"]
+
+[node name="ItemDropper" type="Node2D"]
+script = ExtResource("1_5kjaa")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -4)
+
+[node name="Label" type="Label" parent="Sprite2D"]
+offset_left = -40.0
+offset_top = -40.0
+offset_right = 47.0
+offset_bottom = -17.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+text = "ITEM DROP"
+horizontal_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_ppblq")
+
+[node name="PersistantDataHandler" type="Node" parent="."]
+script = ExtResource("2_bde53")

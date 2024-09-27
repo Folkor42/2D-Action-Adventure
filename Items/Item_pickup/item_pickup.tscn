@@ -1,0 +1,79 @@
+[gd_scene load_steps=9 format=3 uid="uid://b1e4t5l6ae54n"]
+
+[ext_resource type="Script" path="res://Items/Item_pickup/item_pickup.gd" id="1_kxk5s"]
+[ext_resource type="Texture2D" uid="uid://bbn1y3etw8abv" path="res://player/assets/Shadow.png" id="2_djuss"]
+[ext_resource type="AudioStream" uid="uid://1npfch01cr23" path="res://Items/Item_pickup/item_pickup.wav" id="2_fhpij"]
+[ext_resource type="PackedScene" uid="uid://cduxmy5l020sm" path="res://General Nodes/PersistentDataHandler/persistent_data_handler.tscn" id="4_4ve0m"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5o20u"]
+
+[sub_resource type="Animation" id="Animation_hdjtv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_34pao"]
+resource_name = "bounce"
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.55, 0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(-2, -2, -2, -2, -2, -2, -2),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -6), Vector2(0, 0), Vector2(0, -3), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bvpp3"]
+_data = {
+"RESET": SubResource("Animation_hdjtv"),
+"bounce": SubResource("Animation_34pao")
+}
+
+[node name="ItemPickup" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 16
+motion_mode = 1
+script = ExtResource("1_kxk5s")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_5o20u")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="Shadow" type="Sprite2D" parent="Sprite2D"]
+modulate = Color(0, 0, 0, 0.6)
+show_behind_parent = true
+position = Vector2(0, 7)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_djuss")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_fhpij")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_5o20u")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_bvpp3")
+}
+autoplay = "RESET"
+
+[node name="ItemDrop" parent="." instance=ExtResource("4_4ve0m")]

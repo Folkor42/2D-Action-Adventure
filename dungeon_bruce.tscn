@@ -1,0 +1,54 @@
+[gd_scene load_steps=11 format=3 uid="uid://b13eoffsps27p"]
+
+[ext_resource type="Script" path="res://Levels/level.gd" id="1_n6ykr"]
+[ext_resource type="PackedScene" uid="uid://c5l0npjs1vnw" path="res://assets/Tile Maps/dungeon.tscn" id="2_q2mhx"]
+[ext_resource type="PackedScene" uid="uid://6itqmku4udbn" path="res://Levels/player_spawn.tscn" id="3_fopya"]
+[ext_resource type="PackedScene" uid="uid://dencaf8xx08iu" path="res://Enemies/Slime/slime.tscn" id="4_h2rmx"]
+[ext_resource type="PackedScene" uid="uid://durc8q4exbelu" path="res://General Nodes/ItemDropper/ItemDropper.tscn" id="6_hv71x"]
+[ext_resource type="PackedScene" uid="uid://dwy6wfti8q67p" path="res://Enemies/Goblin/goblin.tscn" id="6_pye3a"]
+[ext_resource type="PackedScene" uid="uid://b0btxn5ny71h8" path="res://Props/interactables/dungeon/LockedDoor.tscn" id="7_h11et"]
+[ext_resource type="Resource" uid="uid://b36q1y3urywy2" path="res://Items/Key_dungeon.tres" id="7_wr1ty"]
+[ext_resource type="PackedScene" uid="uid://cqtftu4m687ui" path="res://Levels/level_transition.tscn" id="8_jmcnb"]
+[ext_resource type="PackedScene" uid="uid://bh56dlvnhs1fw" path="res://General Nodes/EnemyCounter/enemy_counter.tscn" id="8_vn7ql"]
+
+[node name="Dungeon-Bruce" type="Node2D"]
+script = ExtResource("1_n6ykr")
+
+[node name="Dungeon" parent="." instance=ExtResource("2_q2mhx")]
+layer_0/tile_data = PackedInt32Array(0, 589824, 0, 65536, 589824, 1, 131072, 589824, 2, 1, 655360, 0, 65537, 655360, 1, 131073, 655360, 2, 2, 720896, 0, 65538, 720896, 1, 131074, 720896, 2, 3, 786432, 0, 65539, 786432, 1, 131075, 786432, 2, 196608, 589824, 3, 262144, 589824, 3, 327680, 589824, 3, 196609, 655360, 3, 262145, 655360, 3, 327681, 655360, 3, 196610, 720896, 3, 262146, 720896, 3, 327682, 720896, 3, 196611, 196608, 0, 262147, 196608, 1, 327683, 196608, 2, 196612, 0, 0, 262148, 0, 1, 327684, 0, 2, 196613, 65536, 0, 262149, 65536, 1, 327685, 65536, 2, 196614, 131072, 0, 262150, 131072, 1, 327686, 131072, 2, 196615, 196608, 0, 262151, 196608, 1, 327687, 196608, 2, 4, 786432, 0, 65540, 786432, 1, 131076, 786432, 2, 5, 786432, 0, 65541, 786432, 1, 131077, 786432, 2, 9, 458752, 5, 65545, 458752, 6, 131081, 458752, 7, 10, 786432, 0, 65546, 786432, 1, 131082, 786432, 2, 11, 786432, 0, 65547, 786432, 1, 131083, 786432, 2, 12, 786432, 0, 65548, 786432, 1, 131084, 786432, 2, 13, 851968, 0, 65549, 851968, 1, 131085, 851968, 2, 14, 917504, 0, 65550, 917504, 1, 131086, 917504, 2, 15, 983040, 0, 65551, 983040, 1, 131087, 983040, 2, 196620, 0, 0, 262156, 0, 1, 327692, 0, 2, 196621, 851968, 3, 262157, 851968, 3, 327693, 851968, 3, 196622, 917504, 3, 262158, 917504, 3, 327694, 917504, 3, 196623, 983040, 3, 262159, 983040, 3, 327695, 983040, 3, 196616, 0, 0, 262152, 0, 1, 327688, 0, 2, 196617, 65536, 0, 262153, 65536, 1, 327689, 65536, 2, 196618, 131072, 0, 262154, 131072, 1, 327690, 131072, 2, 196619, 196608, 0, 262155, 196608, 1, 327691, 196608, 2, 655360, 589824, 4, 720896, 589824, 5, 786432, 589824, 6, 655361, 655360, 4, 720897, 655360, 5, 786433, 655360, 6, 655362, 720896, 4, 720898, 720896, 5, 786434, 720896, 6, 655363, 786432, 4, 720899, 786432, 5, 786435, 786432, 6, 655364, 786432, 4, 720900, 786432, 5, 786436, 786432, 6, 655365, 786432, 4, 720901, 786432, 5, 786437, 786432, 6, 655366, 786432, 4, 720902, 786432, 5, 786438, 786432, 6, 655367, 786432, 4, 720903, 786432, 5, 786439, 786432, 6, 655368, 786432, 4, 720904, 786432, 5, 786440, 786432, 6, 655369, 786432, 4, 720905, 786432, 5, 786441, 786432, 6, 655370, 786432, 4, 720906, 786432, 5, 786442, 786432, 6, 655371, 786432, 4, 720907, 786432, 5, 786443, 786432, 6, 655372, 786432, 4, 720908, 786432, 5, 786444, 786432, 6, 655373, 851968, 4, 720909, 851968, 5, 786445, 851968, 6, 655374, 917504, 4, 720910, 917504, 5, 786446, 917504, 6, 655375, 983040, 4, 720911, 983040, 5, 786447, 983040, 6, 393219, 0, 0, 458755, 0, 0, 524291, 0, 1, 393220, 65536, 0, 458756, 65536, 0, 524292, 65536, 1, 393221, 131072, 0, 458757, 131072, 0, 524293, 131072, 1, 393222, 196608, 0, 458758, 0, 0, 524294, 0, 1, 393223, 0, 0, 458759, 65536, 0, 524295, 65536, 1, 393224, 65536, 0, 458760, 131072, 0, 524296, 131072, 1, 393225, 0, 0, 458761, 0, 0, 524297, 0, 1, 393226, 65536, 0, 458762, 65536, 0, 524298, 65536, 1, 393227, 131072, 0, 458763, 131072, 0, 524299, 131072, 1, 393228, 196608, 0, 458764, 196608, 0, 524300, 196608, 1, 589827, 0, 2, 589828, 65536, 2, 589829, 131072, 2, 589830, 0, 2, 589831, 65536, 2, 589832, 131072, 2, 589833, 0, 2, 589834, 65536, 2, 589835, 131072, 2, 589836, 196608, 2, 393229, 851968, 3, 393230, 917504, 3, 393231, 983040, 3, 458765, 851968, 3, 458766, 917504, 3, 458767, 983040, 3, 524301, 851968, 3, 524302, 917504, 3, 524303, 983040, 3, 589837, 851968, 3, 589838, 917504, 3, 589839, 983040, 3, 393216, 589824, 3, 393217, 655360, 3, 393218, 720896, 3, 458752, 589824, 3, 458753, 655360, 3, 458754, 720896, 3, 524288, 589824, 3, 524289, 655360, 3, 524290, 720896, 3, 589824, 589824, 3, 589825, 655360, 3, 589826, 720896, 3, 6, 262144, 5, 65542, 262144, 6, 131078, 262144, 7, 7, 327680, 5, 65543, 327680, 6, 131079, 327680, 7, 8, 393216, 5, 65544, 393216, 6, 131080, 393216, 7)
+
+[node name="PlayerSpawn" parent="." instance=ExtResource("3_fopya")]
+position = Vector2(274, 301)
+
+[node name="LockedDoor" parent="." instance=ExtResource("7_h11et")]
+position = Vector2(224, 80)
+
+[node name="NorthDoor" parent="." instance=ExtResource("8_jmcnb")]
+position = Vector2(256, 80)
+level = "res://bruce_dungeon_2.tscn"
+target_transition_area = "SouthDoor"
+center_player = true
+side = 2
+
+[node name="EnemyCounter" parent="." instance=ExtResource("8_vn7ql")]
+
+[node name="Goblin" parent="EnemyCounter" instance=ExtResource("6_pye3a")]
+position = Vector2(195, 295)
+
+[node name="Slime" parent="EnemyCounter" instance=ExtResource("4_h2rmx")]
+position = Vector2(116, 120)
+
+[node name="Slime2" parent="EnemyCounter" instance=ExtResource("4_h2rmx")]
+position = Vector2(401, 118)
+
+[node name="Slime3" parent="EnemyCounter" instance=ExtResource("4_h2rmx")]
+position = Vector2(116, 304)
+
+[node name="Slime4" parent="EnemyCounter" instance=ExtResource("4_h2rmx")]
+position = Vector2(398, 309)
+
+[node name="ItemDropper" parent="." instance=ExtResource("6_hv71x")]
+position = Vector2(250, 213)
+item_data = ExtResource("7_wr1ty")
+
+[connection signal="enemies_defeated" from="EnemyCounter" to="ItemDropper" method="drop_item"]

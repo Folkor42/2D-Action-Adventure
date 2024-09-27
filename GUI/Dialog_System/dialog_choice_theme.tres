@@ -1,0 +1,65 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://c88p35ccy5hva"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e45qo"]
+content_margin_left = 5.0
+content_margin_top = 3.0
+content_margin_right = 5.0
+bg_color = Color(0, 0, 0, 0.156863)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uhd4e"]
+content_margin_left = 5.0
+content_margin_top = 3.0
+content_margin_right = 5.0
+bg_color = Color(0, 0, 0, 0.752941)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j8tuy"]
+content_margin_left = 5.0
+content_margin_top = 3.0
+content_margin_right = 5.0
+bg_color = Color(0.44644, 0.487427, 0.185001, 0.188235)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gculn"]
+content_margin_left = 5.0
+content_margin_top = 3.0
+content_margin_right = 5.0
+bg_color = Color(0, 0, 0, 0.470588)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8it65"]
+content_margin_left = 5.0
+content_margin_top = 3.0
+content_margin_right = 5.0
+bg_color = Color(0, 0, 0, 0.878431)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+anti_aliasing = false
+
+[resource]
+Button/colors/font_color = Color(0.894118, 0.862745, 0.796078, 1)
+Button/styles/disabled = SubResource("StyleBoxFlat_e45qo")
+Button/styles/focus = SubResource("StyleBoxFlat_uhd4e")
+Button/styles/hover = SubResource("StyleBoxFlat_j8tuy")
+Button/styles/normal = SubResource("StyleBoxFlat_gculn")
+Button/styles/pressed = SubResource("StyleBoxFlat_8it65")
+VBoxContainer/constants/separation = 5
