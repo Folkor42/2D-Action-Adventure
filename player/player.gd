@@ -17,8 +17,8 @@ signal DirectionChanged ( new_direction : Vector2 )
 signal player_damaged ( hurt_box : HurtBox )
 
 var invulnerable : bool = false
-var hp : int = 22
-var max_hp : int = 22
+var hp : int = 6
+var max_hp : int = 6
 
 func _ready():
 	PlayerManager.player = self
@@ -77,12 +77,9 @@ func AnimDirection() -> String:
 func _take_damage ( hurt_box : HurtBox ) -> void:
 	if invulnerable == true:
 		return
-	update_hp( -hurt_box.damage )
 	if hp > 0:
+		update_hp( -hurt_box.damage )
 		player_damaged.emit( hurt_box )
-	else:
-		player_damaged.emit( hurt_box )
-		update_hp( 99 )
 	pass
 	
 func update_hp ( delta : int ) -> void:
@@ -97,4 +94,15 @@ func make_invulnerable ( _duration : float = 1.0 ) -> void:
 	await get_tree().create_timer( _duration ).timeout
 	invulnerable = false
 	hit_box.monitoring = true
+	pass
+
+func _unhandled_input(event):
+	if event.is_action_pressed("test"):
+		update_hp(-99)
+		player_damaged.emit( %AttackHurtBox )
+	pass
+	
+func revive_player() -> void:
+	update_hp( 99 )
+	state_machine.ChangeState( $StateMachine/Idle )
 	pass
