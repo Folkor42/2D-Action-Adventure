@@ -761,6 +761,22 @@ tracks/2/keys = {
 "values": [Vector2(13, 16)]
 }
 
+[sub_resource type="Animation" id="Animation_r6inn"]
+resource_name = "death"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [74, 76]
+}
+
 [sub_resource type="Animation" id="Animation_rk36x"]
 resource_name = "idle_down"
 length = 0.4
@@ -911,22 +927,6 @@ tracks/0/keys = {
 "values": [13, 16]
 }
 
-[sub_resource type="Animation" id="Animation_r6inn"]
-resource_name = "death"
-length = 0.4
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [74, 76]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_iigjh"]
 _data = {
 "RESET": SubResource("Animation_yctyk"),
@@ -1041,7 +1041,6 @@ visible = false
 shape = SubResource("CircleShape2D_goj8y")
 
 [node name="Shadow" type="Sprite2D" parent="."]
-visible = false
 modulate = Color(0, 0, 0, 0.686275)
 show_behind_parent = true
 texture = ExtResource("2_x4wqo")
@@ -1148,7 +1147,6 @@ max_polyphony = 4
 bus = &"SoundFX"
 
 [node name="Interactions" type="Node2D" parent="."]
-visible = false
 script = ExtResource("10_jvyjm")
 
 [node name="Area2D" type="Area2D" parent="Interactions"]
@@ -1162,6 +1160,7 @@ shape = SubResource("RectangleShape2D_88gqk")
 debug_color = Color(0.329412, 0.615686, 0.301961, 0.592157)
 
 [node name="PushArea" type="Area2D" parent="Interactions"]
+visible = false
 collision_layer = 0
 collision_mask = 16
 monitorable = false
@@ -1173,6 +1172,7 @@ shape = SubResource("RectangleShape2D_v1b6k")
 debug_color = Color(0.249799, 0.538684, 0.896599, 0.592157)
 
 [node name="HitBox" parent="." instance=ExtResource("13_jflad")]
+visible = false
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
