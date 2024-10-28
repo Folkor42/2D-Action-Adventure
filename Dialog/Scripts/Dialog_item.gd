@@ -4,14 +4,15 @@ class_name DialogItem extends Node
 
 @export var npc_info : NPCResource
 
-var editor_selection : EditorSelection
+var editor_selection
 var example_dialog : DialogSystemNode
 
 
 
 func _ready():
 	if Engine.is_editor_hint():
-		editor_selection = EditorInterface.get_selection()
+		#editor_selection = EditorInterface.get_selection()
+		editor_selection = Engine.get_singleton("EditorInterface")
 		editor_selection.selection_changed.connect( _on_selection_changed )
 		return
 	check_npc_data()
