@@ -1037,7 +1037,6 @@ wall_min_slide_angle = 0.174533
 script = ExtResource("1_jfhlr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 shape = SubResource("CircleShape2D_goj8y")
 
 [node name="Shadow" type="Sprite2D" parent="."]
