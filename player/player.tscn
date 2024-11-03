@@ -1063,25 +1063,21 @@ autoplay = "no_attack"
 
 [node name="AttackHurtBox" parent="Sprite2D" instance=ExtResource("10_f5yu8")]
 unique_name_in_owner = true
-visible = false
 position = Vector2(0, -7)
 collision_mask = 256
 monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/AttackHurtBox"]
-visible = false
 position = Vector2(0, 25)
 shape = SubResource("CircleShape2D_i8235")
 debug_color = Color(0.67451, 0.176471, 0.188235, 0.294118)
 
 [node name="ChargeHurtBox" parent="Sprite2D" instance=ExtResource("10_f5yu8")]
 unique_name_in_owner = true
-visible = false
 collision_mask = 256
 monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/ChargeHurtBox"]
-visible = false
 position = Vector2(0, 16)
 shape = SubResource("CapsuleShape2D_gs0ff")
 debug_color = Color(0.67451, 0.176471, 0.188235, 0.294118)
@@ -1160,7 +1156,6 @@ shape = SubResource("RectangleShape2D_88gqk")
 debug_color = Color(0.329412, 0.615686, 0.301961, 0.592157)
 
 [node name="PushArea" type="Area2D" parent="Interactions"]
-visible = false
 collision_layer = 0
 collision_mask = 16
 monitorable = false
@@ -1172,11 +1167,9 @@ shape = SubResource("RectangleShape2D_v1b6k")
 debug_color = Color(0.249799, 0.538684, 0.896599, 0.592157)
 
 [node name="HitBox" parent="." instance=ExtResource("13_jflad")]
-visible = false
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
-visible = false
 position = Vector2(0, -10)
 shape = SubResource("CircleShape2D_5hbu6")
 
@@ -1189,7 +1182,6 @@ libraries = {
 script = ExtResource("17_vwdh7")
 
 [node name="ItemMagnet" parent="." instance=ExtResource("18_2qpeh")]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ItemMagnet"]
 position = Vector2(0, -14)
