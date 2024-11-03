@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bct025exww8io"]
+[gd_scene load_steps=7 format=3 uid="uid://bct025exww8io"]
 
 [ext_resource type="Script" path="res://Levels/level.gd" id="1_edmbt"]
 [ext_resource type="PackedScene" uid="uid://c5l0npjs1vnw" path="res://assets/Tile Maps/dungeon.tscn" id="2_vq3q5"]
 [ext_resource type="PackedScene" uid="uid://6itqmku4udbn" path="res://Levels/player_spawn.tscn" id="3_k64ae"]
 [ext_resource type="PackedScene" uid="uid://cqtftu4m687ui" path="res://Levels/level_transition.tscn" id="4_7tsmy"]
 [ext_resource type="PackedScene" uid="uid://cdwgxk66kpnyg" path="res://Props/torches/torch_dungeon.tscn" id="5_s3vse"]
+[ext_resource type="PackedScene" uid="uid://balfbifhlcnsd" path="res://Levels/Dungeon1/DarkWizard/energy_orb.tscn" id="6_ano0p"]
 
 [node name="Dungeon03" type="Node2D"]
 position = Vector2(0, -1)
@@ -28,7 +29,7 @@ side = 3
 position = Vector2(64, 215)
 
 [node name="Torch Dungeon2" parent="." instance=ExtResource("5_s3vse")]
-position = Vector2(446, 216)
+position = Vector2(447, 216)
 
 [node name="Torch Dungeon3" parent="." instance=ExtResource("5_s3vse")]
 position = Vector2(64, 38)
@@ -41,3 +42,15 @@ position = Vector2(9, -9)
 color = Color(0.3024, 0.36, 0.34368, 1)
 energy = 0.8
 blend_mode = 2
+
+[node name="EnergyOrb" parent="." instance=ExtResource("6_ano0p")]
+position = Vector2(62, 9)
+
+[node name="EnergyOrb2" parent="." instance=ExtResource("6_ano0p")]
+position = Vector2(62, 188)
+
+[node name="EnergyOrb3" parent="." instance=ExtResource("6_ano0p")]
+position = Vector2(444, 9)
+
+[node name="EnergyOrb4" parent="." instance=ExtResource("6_ano0p")]
+position = Vector2(444, 188)
