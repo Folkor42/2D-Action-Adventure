@@ -96,8 +96,8 @@ func make_invulnerable ( _duration : float = 1.0 ) -> void:
 	hit_box.monitoring = true
 	pass
 
-func _unhandled_input(event):
-	#if event.is_action_pressed("test"):
+func _unhandled_input(_event):
+	#if _event.is_action_pressed("test"):
 		#PlayerManager.shake_camera()
 	pass
 	
