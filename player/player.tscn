@@ -1139,6 +1139,7 @@ exhaust_audio = ExtResource("17_uu30q")
 position_smoothing_enabled = true
 editor_draw_limits = true
 script = ExtResource("11_bqo1l")
+shake_decay = 1.5
 
 [node name="Audio" type="Node" parent="."]
 
