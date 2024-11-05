@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://uqhh1ka0cukk"]
+[gd_scene load_steps=16 format=3 uid="uid://uqhh1ka0cukk"]
 
 [ext_resource type="Script" path="res://Levels/level.gd" id="1_g7gpy"]
 [ext_resource type="PackedScene" uid="uid://bgtod07o6p5jg" path="res://TileMaps/Grass01.tscn" id="2_pcgif"]
@@ -14,6 +14,7 @@
 [ext_resource type="Resource" uid="uid://d1gnresmkuws" path="res://NPCs/NPC-Resources/Hero.tres" id="11_udy43"]
 [ext_resource type="Script" path="res://Dialog/Scripts/dialog_branch.gd" id="12_cofvg"]
 [ext_resource type="Resource" uid="uid://cilw0ibei8yb7" path="res://NPCs/NPC-Resources/npc_01.tres" id="13_kag7m"]
+[ext_resource type="PackedScene" uid="uid://bn23a0iffxksv" path="res://Props/pot/pot.tscn" id="15_7768e"]
 
 [node name="Zelda01" type="Node2D"]
 script = ExtResource("1_g7gpy")
@@ -128,3 +129,9 @@ text = "Nice Bro!
 
 Happy to have a hero!"
 npc_info = ExtResource("13_kag7m")
+
+[node name="Pot" parent="." instance=ExtResource("15_7768e")]
+position = Vector2(365, 167)
+
+[node name="Pot2" parent="." instance=ExtResource("15_7768e")]
+position = Vector2(297, 168)

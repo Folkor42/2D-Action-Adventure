@@ -50,3 +50,6 @@ func play_audio ( _audio : AudioStream ) -> void:
 func shake_camera ( tramua : float = 1 ) -> void:
 	camera_shook.emit( tramua )
 	pass
+
+func emit_interact_pressed() -> void:
+	interact_pressed.emit()
