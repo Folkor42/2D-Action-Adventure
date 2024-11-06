@@ -15,6 +15,7 @@ func _ready() -> void:
 	if Engine.is_editor_hint():
 		return
 	area_2d.body_entered.connect ( _on_body_entered )
+	await get_tree().create_timer(1).timeout
 	item_drop.set_drop_value(global_position,item_data)
 
 func _physics_process(delta: float) -> void:
