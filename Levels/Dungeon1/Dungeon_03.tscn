@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bct025exww8io"]
+[gd_scene load_steps=8 format=3 uid="uid://bct025exww8io"]
 
 [ext_resource type="Script" path="res://Levels/level.gd" id="1_edmbt"]
 [ext_resource type="PackedScene" uid="uid://c5l0npjs1vnw" path="res://assets/Tile Maps/dungeon.tscn" id="2_vq3q5"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cqtftu4m687ui" path="res://Levels/level_transition.tscn" id="4_7tsmy"]
 [ext_resource type="PackedScene" uid="uid://cdwgxk66kpnyg" path="res://Props/torches/torch_dungeon.tscn" id="5_s3vse"]
 [ext_resource type="PackedScene" uid="uid://brdgwmw38vuyy" path="res://Levels/Dungeon1/DarkWizard/energy_beam.tscn" id="6_f2wlq"]
+[ext_resource type="PackedScene" uid="uid://ceqlt5anxjy2b" path="res://Levels/Dungeon1/DarkWizard/dark_wizard.tscn" id="7_a4axs"]
 
 [node name="Dungeon03" type="Node2D"]
 position = Vector2(0, -1)
@@ -46,3 +47,6 @@ blend_mode = 2
 [node name="EnergyBeam" parent="." instance=ExtResource("6_f2wlq")]
 position = Vector2(256, 151)
 use_timer = true
+
+[node name="Dark Wizard" parent="." instance=ExtResource("7_a4axs")]
+position = Vector2(255, 28)
