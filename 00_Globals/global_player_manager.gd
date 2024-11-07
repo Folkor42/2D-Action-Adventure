@@ -6,6 +6,7 @@ const INVENTORY_DATA : InventoryData = preload ("res://GUI/Pause_Menu/Inventory/
 signal interact_pressed
 signal camera_shook ( trama : float )
 
+var interact_handled : bool = true
 var player : Player
 var player_spawned : bool = false
 
@@ -51,5 +52,6 @@ func shake_camera ( tramua : float = 1 ) -> void:
 	camera_shook.emit( tramua )
 	pass
 
-func emit_interact_pressed() -> void:
+func interact() -> void:
+	interact_handled=false
 	interact_pressed.emit()

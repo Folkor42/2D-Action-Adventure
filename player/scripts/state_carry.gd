@@ -23,13 +23,19 @@ func Enter() -> void:
 func Exit() -> void:
 	if throwable:
 		#throw direciton
-		
+		if player.direction == Vector2.ZERO:
+			throwable.throw_direction = player.cardinal_direction
+		else:
+			throwable.throw_direction = player.direction
 		#stunned? drop instead of throw
 		if state_machine.next_state == State_Stun:
-			#drop item
+			throwable.throw_direction=throwable.throw_direction.rotated( PI )
+			throwable.drop()
 			pass
 		else:
-			# throw the item
+			player.audio.stream = throw_audio
+			player.audio.play()
+			throwable.throw()
 			pass
 		pass
 	pass

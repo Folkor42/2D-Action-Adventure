@@ -12,6 +12,7 @@ var direction : Vector2 = Vector2.ZERO
 @onready var audio = $Audio/AudioStreamPlayer2D
 @onready var pickup: State_Pickup = $StateMachine/Pickup
 @onready var held_item: Sprite2D = $Sprite2D/HeldItem
+@onready var carry = $StateMachine/Carry
 
 
 
@@ -111,4 +112,5 @@ func revive_player() -> void:
 func pickup_item ( _t : Throwable ) -> void:
 	state_machine.ChangeState(pickup)
 	#store throwable object
+	carry.throwable=_t
 	pass
