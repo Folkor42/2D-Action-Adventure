@@ -10,6 +10,9 @@ var direction : Vector2 = Vector2.ZERO
 @onready var hit_box : HitBox = $HitBox
 @onready var effect_animation_player : AnimationPlayer = $EffectAnimationPlayer
 @onready var audio = $Audio/AudioStreamPlayer2D
+@onready var pickup: State_Pickup = $StateMachine/Pickup
+@onready var held_item: Sprite2D = $Sprite2D/HeldItem
+@onready var carry = $StateMachine/Carry
 
 
 
@@ -104,4 +107,10 @@ func _unhandled_input(_event):
 func revive_player() -> void:
 	update_hp( 99 )
 	state_machine.ChangeState( $StateMachine/Idle )
+	pass
+
+func pickup_item ( _t : Throwable ) -> void:
+	state_machine.ChangeState(pickup)
+	#store throwable object
+	carry.throwable=_t
 	pass

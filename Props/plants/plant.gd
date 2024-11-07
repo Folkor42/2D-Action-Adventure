@@ -2,6 +2,7 @@ class_name Plant extends Node2D
 
 @export_category("Item Drops")
 @export var drops : Array [ DropData ]
+@onready var animation_player = $AnimationPlayer
 
 const PICKUP = preload("res://Items/Item_pickup/item_pickup.tscn")
 
@@ -11,7 +12,9 @@ func _ready():
 	pass
 
 func TakeDamage( _hurt_box : HurtBox ) -> void:
+	animation_player.play("destroy")
 	drop_items()
+	await animation_player.animation_finished
 	queue_free()
 
 func drop_items() -> void:

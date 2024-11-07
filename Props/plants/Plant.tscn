@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://b2wa6h01y1u05"]
+[gd_scene load_steps=14 format=3 uid="uid://b2wa6h01y1u05"]
 
 [ext_resource type="Script" path="res://Props/plants/plant.gd" id="1_1ovd3"]
 [ext_resource type="Texture2D" uid="uid://ctbviluah4fcp" path="res://Props/sprites/Props.png" id="1_2n0mm"]
 [ext_resource type="Resource" uid="uid://3x506ndblw7e" path="res://Items/gem.tres" id="2_qm16l"]
 [ext_resource type="PackedScene" uid="uid://celtqki70mpck" path="res://General Nodes/HitBox/hit_box.tscn" id="3_dic0m"]
 [ext_resource type="Script" path="res://Enemies/scripts/drop_data.gd" id="3_u081j"]
+[ext_resource type="PackedScene" uid="uid://q76iv0eifoxn" path="res://Props/interactables/throwable/throwable.tscn" id="6_2oxb2"]
 
 [sub_resource type="Resource" id="Resource_pph6u"]
 script = ExtResource("3_u081j")
@@ -18,6 +19,47 @@ size = Vector2(28, 30)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v2w0o"]
 size = Vector2(24, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p4v6u"]
+size = Vector2(30, 20)
+
+[sub_resource type="Animation" id="Animation_ouuab"]
+resource_name = "destroy"
+length = 0.25
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 10, 0]
+}
+
+[sub_resource type="Animation" id="Animation_8qfwp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8mwnc"]
+_data = {
+"RESET": SubResource("Animation_8qfwp"),
+"destroy": SubResource("Animation_ouuab")
+}
 
 [node name="Plant" type="Node2D"]
 y_sort_enabled = true
@@ -43,3 +85,14 @@ collision_layer = 16
 position = Vector2(0, 9)
 shape = SubResource("RectangleShape2D_v2w0o")
 debug_color = Color(0.862552, 0.248541, 0.654018, 0.42)
+
+[node name="Throwable" parent="." instance=ExtResource("6_2oxb2")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Throwable"]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_p4v6u")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_8mwnc")
+}
