@@ -35,6 +35,10 @@ window/size/window_width_override=960
 window/size/window_height_override=540
 window/stretch/mode="canvas_items"
 
+[editor]
+
+movie_writer/movie_file="C:/Game Development/DW_Test.avi"
+
 [gui]
 
 theme/custom_font="res://GUI/Fonts/Abaddon Light.ttf"

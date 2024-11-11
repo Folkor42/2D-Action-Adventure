@@ -7,9 +7,12 @@ class_name EnemyStateChase extends EnemyState
 @export var vision_area : VisionArea
 @export var attack_area : HurtBox
 @export var state_aggro_duration : float = 0.5
+@export var state_attack_delay : float = 2.0
 @export var next_state : EnemyState
+@export var attack : EnemyState
 
 var _timer : float = 0.0
+var _cooldown_timer : float = 0.0
 var _direction : Vector2
 var _can_see_player : bool = false
 
@@ -21,6 +24,7 @@ func init() -> void:
 
 func enter() -> void:
 	_timer = state_aggro_duration
+	_cooldown_timer = state_attack_delay
 	enemy.UpdateAnimation( anim_name )
 	if attack_area:
 		print("Player in attack area")
@@ -37,6 +41,10 @@ func exit() -> void:
 	pass
 
 func process( _delta : float ) -> EnemyState:
+	_cooldown_timer -= _delta
+	if _cooldown_timer <= 0:
+		_cooldown_timer = state_attack_delay
+		return attack
 	if PlayerManager.player.hp <=0:
 		return next_state
 	var new_dir : Vector2 = enemy.global_position.direction_to( PlayerManager.player.global_position )
