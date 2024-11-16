@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://cn5rteoxnoscc"]
 
 [ext_resource type="Script" path="res://SplashScreen.gd" id="1_fc5nc"]
-[ext_resource type="Texture2D" uid="uid://cc4crv5qvsm11" path="res://assets/Nyeweb Games 1.png" id="2_2txab"]
+[ext_resource type="Texture2D" uid="uid://cegmkvw67glme" path="res://assets/NyeDigitalGames.png" id="2_8c41b"]
 
 [sub_resource type="Animation" id="Animation_da3gj"]
 length = 0.001
@@ -20,7 +20,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_q42qv"]
 resource_name = "default"
-length = 2.0
+length = 3.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -28,7 +28,7 @@ tracks/0/path = NodePath("NyeWeb Games Logo/Sprite2D:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1.5, 2),
+"times": PackedFloat32Array(0, 1, 2, 3),
 "transitions": PackedFloat32Array(1, 1, 1, 0.5),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -42,16 +42,18 @@ _data = {
 
 [node name="SplashScreen" type="Control"]
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_fc5nc")
 
 [node name="NyeWeb Games Logo" type="Control" parent="."]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -69,8 +71,8 @@ libraries = {
 autoplay = "default"
 
 [node name="Sprite2D" type="Sprite2D" parent="NyeWeb Games Logo"]
-position = Vector2(238.5, 134.5)
-scale = Vector2(0.446289, 0.245117)
-texture = ExtResource("2_2txab")
+position = Vector2(241, 135)
+scale = Vector2(0.647368, 0.75)
+texture = ExtResource("2_8c41b")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="NyeWeb Games Logo"]
