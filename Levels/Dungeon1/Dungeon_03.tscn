@@ -1,10 +1,11 @@
-[gd_scene load_steps=33 format=3 uid="uid://bct025exww8io"]
+[gd_scene load_steps=38 format=3 uid="uid://bct025exww8io"]
 
 [ext_resource type="Script" path="res://Levels/level.gd" id="1_edmbt"]
 [ext_resource type="PackedScene" uid="uid://c5l0npjs1vnw" path="res://assets/Tile Maps/dungeon.tscn" id="2_vq3q5"]
 [ext_resource type="PackedScene" uid="uid://6itqmku4udbn" path="res://Levels/player_spawn.tscn" id="3_k64ae"]
 [ext_resource type="PackedScene" uid="uid://cqtftu4m687ui" path="res://Levels/level_transition.tscn" id="4_7tsmy"]
 [ext_resource type="PackedScene" uid="uid://cdwgxk66kpnyg" path="res://Props/torches/torch_dungeon.tscn" id="5_s3vse"]
+[ext_resource type="Script" path="res://Levels/Dungeon1/DarkWizard/scripts/DarkWizardBoss.gd" id="6_881mt"]
 [ext_resource type="PackedScene" uid="uid://brdgwmw38vuyy" path="res://Levels/Dungeon1/DarkWizard/energy_beam.tscn" id="6_f2wlq"]
 [ext_resource type="Texture2D" uid="uid://bkenvsnuofm88" path="res://Levels/Dungeon1/DarkWizard/sprites/boss-cloak.png" id="6_gbhjr"]
 [ext_resource type="Script" path="res://General Nodes/PersistentDataHandler/persistant_data_handler.gd" id="6_nacra"]
@@ -25,6 +26,21 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(1, 0.5)
 
+[sub_resource type="Animation" id="Animation_q2xxw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0]
+}
+
 [sub_resource type="Animation" id="Animation_g0sqp"]
 resource_name = "down"
 length = 0.3
@@ -42,8 +58,10 @@ tracks/0/keys = {
 "values": [0, 2]
 }
 
-[sub_resource type="Animation" id="Animation_q2xxw"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_v1n88"]
+resource_name = "side"
+length = 0.3
+loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -51,10 +69,10 @@ tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [0]
+"values": [6, 8]
 }
 
 [sub_resource type="Animation" id="Animation_5yhbh"]
@@ -72,23 +90,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [3, 5]
-}
-
-[sub_resource type="Animation" id="Animation_v1n88"]
-resource_name = "side"
-length = 0.3
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [6, 8]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lvipt"]
@@ -265,82 +266,6 @@ tracks/5/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(-20, 4)]
-}
-
-[sub_resource type="Animation" id="Animation_ynyr4"]
-resource_name = "disappear"
-length = 0.6
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CloakSprite:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.6),
-"transitions": PackedFloat32Array(-2, -2, -2),
-"update": 0,
-"values": [Vector2(0, -34), Vector2(0, -30), Vector2(0, -40)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("CloakSprite/Hand01:frame")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [0, 1]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("CloakSprite/Hand01:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.6),
-"transitions": PackedFloat32Array(-2, -2, -2),
-"update": 0,
-"values": [Vector2(20, 4), Vector2(20, 7), Vector2(20, 4)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("CloakSprite/Hand02:frame")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [0, 1]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("CloakSprite/Hand02:position")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.6),
-"transitions": PackedFloat32Array(-2, -2, -2),
-"update": 0,
-"values": [Vector2(-20, 4), Vector2(-20, 7), Vector2(-20, 4)]
 }
 
 [sub_resource type="Animation" id="Animation_bd22k"]
@@ -585,6 +510,117 @@ tracks/6/keys = {
 "times": PackedFloat32Array(0)
 }
 tracks/6/use_blend = true
+tracks/7/type = "method"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("..")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.2, 0.5, 0.8, 1.1, 1.4, 1.7, 2, 2.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"values": [{
+"args": [Vector2(10, -32)],
+"method": &"explosion"
+}, {
+"args": [Vector2(2, -15)],
+"method": &"explosion"
+}, {
+"args": [Vector2(-14, -36)],
+"method": &"explosion"
+}, {
+"args": [Vector2(12, -29)],
+"method": &"explosion"
+}, {
+"args": [Vector2(-2, -22)],
+"method": &"explosion"
+}, {
+"args": [Vector2(2, -27)],
+"method": &"explosion"
+}, {
+"args": [Vector2(6, -32)],
+"method": &"explosion"
+}, {
+"args": [Vector2(8, -24)],
+"method": &"explosion"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_ynyr4"]
+resource_name = "disappear"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CloakSprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.6),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [Vector2(0, -34), Vector2(0, -30), Vector2(0, -40)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CloakSprite/Hand01:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CloakSprite/Hand01:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [Vector2(20, 4), Vector2(20, 7), Vector2(20, 4)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CloakSprite/Hand02:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CloakSprite/Hand02:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [Vector2(-20, 4), Vector2(-20, 7), Vector2(-20, 4)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ks5ba"]
 _data = {
@@ -594,6 +630,58 @@ _data = {
 "cast_spell": SubResource("Animation_eajbo"),
 "destroy": SubResource("Animation_bqut6"),
 "disappear": SubResource("Animation_ynyr4")
+}
+
+[sub_resource type="Animation" id="Animation_d64hm"]
+resource_name = "default"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CloakSprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(2, 1.25, 1.5, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_44va4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CloakSprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(2, 1.25, 1.5, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_5oa6y"]
+resource_name = "damaged"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CloakSprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 1),
+"transitions": PackedFloat32Array(-2, -2, -2, -2, -2, -2, -2, -2, -2, -2),
+"update": 0,
+"values": [Color(2, 1.25, 1.5, 1), Color(3, 2, 1.5, 1), Color(3, 2, 1.50196, 0), Color(2, 1.25, 1.5, 1), Color(3, 2, 1.50196, 0), Color(2, 1.25, 1.5, 1), Color(3, 2, 1.50196, 0), Color(2, 1.25, 1.5, 1), Color(3, 2, 1.50196, 0), Color(2, 1.25, 1.5, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_j4gu3"]
+_data = {
+"RESET": SubResource("Animation_44va4"),
+"damaged": SubResource("Animation_5oa6y"),
+"default": SubResource("Animation_d64hm")
 }
 
 [sub_resource type="Gradient" id="Gradient_veq3y"]
@@ -614,6 +702,10 @@ script = ExtResource("1_edmbt")
 
 [node name="Dungeon" parent="." instance=ExtResource("2_vq3q5")]
 layer_0/tile_data = PackedInt32Array(0, 0, 2, 65536, 65536, 4, 131072, 65536, 1, 196608, 0, 1, 262144, 65536, 1, 327680, 0, 2, 393216, 65536, 4, 458752, 0, 2, 458753, 0, 3, 458754, 196608, 1, 458755, 196608, 0, 458756, 65536, 3, 458757, 0, 3, 458758, 131072, 1, 458759, 196608, 0, 458760, 131072, 1, 458761, 65536, 2, 458762, 196608, 2, 458763, 196608, 1, 458764, 0, 0, 458765, 65536, 3, 458766, 0, 3, 458767, 65536, 3, 393231, 0, 4, 327695, 65536, 0, 262159, 65536, 2, 196623, 0, 0, 131087, 0, 0, 65551, 131072, 1, 15, 65536, 2, 14, 196608, 2, 13, 0, 1, 12, 131072, 2, 11, 0, 0, 10, 0, 4, 9, 131072, 0, 8, 0, 3, 7, 0, 1, 6, 196608, 1, 5, 196608, 1, 4, 0, 1, 3, 65536, 1, 2, 0, 1, 1, 0, 1, 65537, 196608, 2, 131073, 131072, 2, 196609, 131072, 1, 262145, 65536, 0, 327681, 196608, 0, 393217, 196608, 2, 393218, 0, 2, 327682, 131072, 2, 262146, 0, 2, 196610, 65536, 4, 131074, 131072, 2, 65538, 131072, 0, 65539, 131072, 2, 65540, 65536, 1, 65541, 0, 4, 65542, 131072, 2, 65543, 0, 3, 65544, 65536, 4, 65545, 196608, 0, 65546, 65536, 2, 65547, 196608, 2, 65548, 196608, 2, 65549, 196608, 2, 65550, 131072, 1, 131086, 0, 1, 196622, 0, 4, 262158, 0, 0, 393230, 65536, 3, 393229, 131072, 0, 393228, 196608, 1, 393227, 65536, 0, 393226, 65536, 0, 393225, 65536, 0, 393224, 131072, 0, 393223, 65536, 0, 393222, 65536, 2, 393221, 131072, 1, 393220, 65536, 4, 327683, 0, 4, 262147, 0, 1, 196611, 65536, 3, 131075, 131072, 0, 393219, 0, 4, 327684, 65536, 4, 262148, 65536, 2, 196612, 65536, 3, 131076, 0, 2, 131077, 0, 1, 131078, 0, 0, 131079, 65536, 4, 131080, 0, 0, 131081, 0, 2, 131082, 65536, 1, 131083, 0, 1, 131084, 65536, 2, 131085, 196608, 0, 196621, 196608, 2, 262157, 65536, 1, 327694, 0, 2, 327693, 196608, 0, 327692, 131072, 1, 327691, 196608, 1, 327690, 131072, 0, 327689, 196608, 1, 327688, 65536, 0, 327687, 131072, 1, 327686, 0, 1, 327685, 131072, 2, 262149, 0, 2, 196613, 0, 2, 196614, 0, 0, 196615, 65536, 4, 196616, 0, 1, 196617, 65536, 2, 196618, 65536, 4, 196619, 0, 0, 196620, 131072, 0, 262156, 65536, 4, 262155, 0, 3, 262154, 131072, 2, 262153, 65536, 1, 262152, 0, 1, 262151, 196608, 0, 262150, 196608, 2, 524294, 0, 5, 589830, 0, 6, 655366, 0, 7, 524295, 65536, 5, 589831, 65536, 6, 655367, 65536, 7, 524296, 131072, 5, 589832, 131072, 6, 655368, 131072, 7, 524297, 196608, 5, 589833, 196608, 6, 655369, 196608, 7, 524298, 786432, 4, 589834, 786432, 5, 655370, 786432, 6, 524299, 786432, 4, 589835, 786432, 5, 655371, 786432, 6, 524300, 786432, 4, 589836, 786432, 5, 655372, 786432, 6, 524301, 786432, 4, 589837, 786432, 5, 655373, 786432, 6, 524302, 786432, 4, 589838, 786432, 5, 655374, 786432, 6, 524303, 786432, 4, 589839, 786432, 5, 655375, 786432, 6, 524293, 786432, 4, 589829, 786432, 5, 655365, 786432, 6, 524292, 786432, 4, 589828, 786432, 5, 655364, 786432, 6, 524291, 786432, 4, 589827, 786432, 5, 655363, 786432, 6, 524290, 786432, 4, 589826, 786432, 5, 655362, 786432, 6, 524289, 786432, 4, 589825, 786432, 5, 655361, 786432, 6, 524288, 786432, 4, 589824, 786432, 5, 655360, 786432, 6, -196608, 786432, 0, -131072, 786432, 1, -65536, 786432, 2, -196607, 786432, 0, -131071, 786432, 1, -65535, 786432, 2, -196606, 786432, 0, -131070, 786432, 1, -65534, 786432, 2, -196605, 786432, 0, -131069, 786432, 1, -65533, 786432, 2, -196604, 786432, 0, -131068, 786432, 1, -65532, 786432, 2, -196603, 786432, 0, -131067, 786432, 1, -65531, 786432, 2, -196602, 786432, 0, -131066, 786432, 1, -65530, 786432, 2, -196601, 786432, 0, -131065, 786432, 1, -65529, 786432, 2, -196600, 786432, 0, -131064, 786432, 1, -65528, 786432, 2, -196599, 786432, 0, -131063, 786432, 1, -65527, 786432, 2, -196598, 786432, 0, -131062, 786432, 1, -65526, 786432, 2, -196597, 786432, 0, -131061, 786432, 1, -65525, 786432, 2, -196596, 786432, 0, -131060, 786432, 1, -65524, 786432, 2, -196595, 786432, 0, -131059, 786432, 1, -65523, 786432, 2, -196594, 786432, 0, -131058, 786432, 1, -65522, 786432, 2, -196593, 786432, 0, -131057, 786432, 1, -65521, 786432, 2, -196592, 851968, 0, -131056, 851968, 1, -65520, 851968, 2, 16, 851968, 3, 65552, 851968, 3, 131088, 851968, 3, 196624, 851968, 3, 262160, 851968, 3, 327696, 851968, 3, 393232, 851968, 3, 458768, 851968, 3, 524304, 851968, 4, 589840, 851968, 5, 655376, 851968, 6, -196591, 917504, 0, -131055, 917504, 1, -65519, 917504, 2, 17, 917504, 3, 65553, 917504, 3, 131089, 917504, 3, 196625, 917504, 3, 262161, 917504, 3, 327697, 917504, 3, 393233, 917504, 3, 458769, 917504, 3, 524305, 917504, 4, 589841, 917504, 5, 655377, 917504, 6, -196590, 983040, 0, -131054, 983040, 1, -65518, 983040, 2, 18, 983040, 3, 65554, 983040, 3, 131090, 983040, 3, 196626, 983040, 3, 262162, 983040, 3, 327698, 983040, 3, 393234, 983040, 3, 458770, 983040, 3, 524306, 983040, 4, 589842, 983040, 5, 655378, 983040, 6, -131075, 589824, 0, -65539, 589824, 1, -3, 589824, 2, 65533, 589824, 3, 131069, 589824, 3, 196605, 589824, 3, 262141, 589824, 3, 327677, 589824, 3, 393213, 589824, 3, 458749, 589824, 3, 524285, 589824, 3, 589821, 589824, 4, 655357, 589824, 5, 720893, 589824, 6, -131074, 655360, 0, -65538, 655360, 1, -2, 655360, 2, 65534, 655360, 3, 131070, 655360, 3, 196606, 655360, 3, 262142, 655360, 3, 327678, 655360, 3, 393214, 655360, 3, 458750, 655360, 3, 524286, 655360, 3, 589822, 655360, 4, 655358, 655360, 5, 720894, 655360, 6, -131073, 720896, 0, -65537, 720896, 1, -1, 720896, 2, 65535, 720896, 3, 131071, 720896, 3, 196607, 720896, 3, 262143, 720896, 3, 327679, 720896, 3, 393215, 720896, 3, 458751, 720896, 3, 524287, 720896, 3, 589823, 720896, 4, 655359, 720896, 5, 720895, 720896, 6)
+
+[node name="DoorBlock" parent="." instance=ExtResource("2_vq3q5")]
+layer_0/tile_data = PackedInt32Array(524294, 786432, 4, 589830, 786432, 5, 655366, 786432, 6, 524295, 786432, 4, 589831, 786432, 5, 655367, 786432, 6, 524296, 786432, 4, 589832, 786432, 5, 655368, 786432, 6, 524297, 786432, 4, 589833, 786432, 5, 655369, 786432, 6)
+script = null
 
 [node name="PlayerSpawn" parent="." instance=ExtResource("3_k64ae")]
 position = Vector2(252, 249)
@@ -646,12 +738,11 @@ blend_mode = 2
 
 [node name="DarkWizardBoss" type="Node2D" parent="."]
 y_sort_enabled = true
+script = ExtResource("6_881mt")
+max_hp = 5
 
 [node name="BossNode" type="Node2D" parent="DarkWizardBoss"]
 position = Vector2(257, 30)
-
-[node name="PersistantDataHandler" type="Node" parent="DarkWizardBoss/BossNode"]
-script = ExtResource("6_nacra")
 
 [node name="ShadowSprite" type="Sprite2D" parent="DarkWizardBoss/BossNode"]
 texture = SubResource("GradientTexture2D_lnd1b")
@@ -685,6 +776,7 @@ show_behind_parent = true
 position = Vector2(20, 4)
 texture = ExtResource("7_x5lia")
 hframes = 16
+frame = 4
 
 [node name="Hand02_UP" type="Sprite2D" parent="DarkWizardBoss/BossNode/CloakSprite"]
 visible = false
@@ -693,19 +785,21 @@ position = Vector2(-20, 4)
 texture = ExtResource("7_x5lia")
 flip_h = true
 hframes = 16
+frame = 4
 
 [node name="Hand01_SIDE" type="Sprite2D" parent="DarkWizardBoss/BossNode/CloakSprite"]
 visible = false
 show_behind_parent = true
-position = Vector2(8, -1)
+position = Vector2(20, 4)
 texture = ExtResource("7_x5lia")
+offset = Vector2(-12, -4)
 hframes = 16
 
 [node name="Hand02_SIDE" type="Sprite2D" parent="DarkWizardBoss/BossNode/CloakSprite"]
 visible = false
-position = Vector2(-3, 8)
+position = Vector2(-20, 4)
 texture = ExtResource("7_x5lia")
-flip_h = true
+offset = Vector2(16, 4)
 hframes = 16
 
 [node name="PointLight2D" type="PointLight2D" parent="DarkWizardBoss/BossNode"]
@@ -725,7 +819,8 @@ shape = SubResource("CircleShape2D_vpvgu")
 debug_color = Color(0.854902, 0, 0.231373, 0)
 
 [node name="HitBox" type="Area2D" parent="DarkWizardBoss/BossNode"]
-visible = false
+collision_layer = 256
+collision_mask = 256
 script = ExtResource("9_0hat8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DarkWizardBoss/BossNode/HitBox"]
@@ -743,6 +838,11 @@ libraries = {
 }
 autoplay = "Idle"
 
+[node name="AnimationPlayer_Damaged" type="AnimationPlayer" parent="DarkWizardBoss/BossNode"]
+libraries = {
+"": SubResource("AnimationLibrary_j4gu3")
+}
+
 [node name="BeamAttacks" type="Node2D" parent="DarkWizardBoss"]
 
 [node name="EB_H1" parent="DarkWizardBoss/BeamAttacks" instance=ExtResource("6_f2wlq")]
@@ -755,15 +855,23 @@ position = Vector2(256, 126)
 position = Vector2(257, 223)
 
 [node name="EB_V1" parent="DarkWizardBoss/BeamAttacks" instance=ExtResource("6_f2wlq")]
-position = Vector2(95, 126)
+position = Vector2(32, 125)
 rotation = 1.5708
 
 [node name="EB_V2" parent="DarkWizardBoss/BeamAttacks" instance=ExtResource("6_f2wlq")]
-position = Vector2(256, 126)
+position = Vector2(144, 126)
 rotation = 1.5708
 
 [node name="EB_V3" parent="DarkWizardBoss/BeamAttacks" instance=ExtResource("6_f2wlq")]
-position = Vector2(416, 126)
+position = Vector2(256, 126)
+rotation = 1.5708
+
+[node name="EB_V4" parent="DarkWizardBoss/BeamAttacks" instance=ExtResource("6_f2wlq")]
+position = Vector2(372, 126)
+rotation = 1.5708
+
+[node name="EB_V5" parent="DarkWizardBoss/BeamAttacks" instance=ExtResource("6_f2wlq")]
+position = Vector2(480, 126)
 rotation = 1.5708
 
 [node name="PositionTargets" type="Node2D" parent="DarkWizardBoss"]
@@ -783,3 +891,6 @@ texture = SubResource("GradientTexture2D_2yd2r")
 [node name="Sprite2D3" type="Sprite2D" parent="DarkWizardBoss/PositionTargets"]
 position = Vector2(33, 127)
 texture = SubResource("GradientTexture2D_2yd2r")
+
+[node name="PersistantDataHandler" type="Node" parent="DarkWizardBoss"]
+script = ExtResource("6_nacra")
