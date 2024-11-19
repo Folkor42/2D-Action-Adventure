@@ -1,10 +1,10 @@
-class_name DarkWizardBoss extends Node2D
+class_name DarkWizardBoss extends Enemy
 
 const ENERGY_EXPLOSION_SCENE : PackedScene = preload("res://Levels/Dungeon1/DarkWizard/energy_explosion.tscn")
 const ENERGY_ORB_SCENE : PackedScene = preload ("res://Levels/Dungeon1/DarkWizard/energy_orb.tscn")
 
 @export var max_hp : int = 10
-var hp : int = 10
+#var hp : int = 10
 
 @export var audio_hurt : AudioStream = preload("res://Levels/Dungeon1/DarkWizard/audio/boss_hurt.wav")
 @export var audio_shoot : AudioStream = preload("res://Levels/Dungeon1/DarkWizard/audio/boss_fireball.wav")
@@ -14,7 +14,7 @@ var positions : Array [ Vector2 ]
 var beam_attacks : Array [ EnergyBeam ]
 var damage_count : int = 0
 
-@onready var animation_player: AnimationPlayer = $BossNode/AnimationPlayer
+#@onready var animation_player: AnimationPlayer = $BossNode/AnimationPlayer
 @onready var animation_player_damaged: AnimationPlayer = $BossNode/AnimationPlayer_Damaged
 @onready var cloak_animation_player: AnimationPlayer = $BossNode/CloakSprite/AnimationPlayer
 
@@ -22,14 +22,14 @@ var damage_count : int = 0
 @onready var boss_node: Node2D = $BossNode
 @onready var persistant_data_handler: PersistantDataHandler = $PersistantDataHandler
 @onready var hurt_box: HurtBox = $BossNode/HurtBox
-@onready var hit_box: HitBox = $BossNode/HitBox
+#@onready var hit_box: HitBox = $BossNode/HitBox
 
-@onready var hand_01: Sprite2D = $BossNode/CloakSprite/Hand01
-@onready var hand_02: Sprite2D = $BossNode/CloakSprite/Hand02
-@onready var hand_01_up: Sprite2D = $BossNode/CloakSprite/Hand01_UP
-@onready var hand_02_up: Sprite2D = $BossNode/CloakSprite/Hand02_UP
-@onready var hand_01_side: Sprite2D = $BossNode/CloakSprite/Hand01_SIDE
-@onready var hand_02_side: Sprite2D = $BossNode/CloakSprite/Hand02_SIDE
+@onready var hand_01: Sprite2D = $Sprite2D/Hand01
+@onready var hand_02: Sprite2D = $Sprite2D/Hand02
+@onready var hand_01_up: Sprite2D = $Sprite2D/Hand01_UP
+@onready var hand_02_up: Sprite2D = $Sprite2D/Hand02_UP
+@onready var hand_01_side: Sprite2D = $Sprite2D/Hand01_SIDE
+@onready var hand_02_side: Sprite2D = $Sprite2D/Hand02_SIDE
 
 @onready var door_block: TileMap = $"../DoorBlock"
 
@@ -40,20 +40,20 @@ func _ready() -> void:
 		door_block.queue_free()
 		queue_free()
 		return
-		
-	hp = max_hp
-	
-	hit_box.Damaged.connect ( damage_taken )
-	
-	
-	for c in $PositionTargets.get_children():
-		positions.append ( c.global_position )
-	$PositionTargets.visible=false
-	
-	for b in $BeamAttacks.get_children():
-		beam_attacks.append( b )
-	
-	teleport(0)
+	state_machine.initialize( self )	
+	#hp = max_hp
+	#
+	#hit_box.Damaged.connect ( damage_taken )
+	#
+	#
+	#for c in $PositionTargets.get_children():
+		#positions.append ( c.global_position )
+	#$PositionTargets.visible=false
+	#
+	#for b in $BeamAttacks.get_children():
+		#beam_attacks.append( b )
+	#
+	#teleport(0)
 	pass # Replace with function body.
 
 
@@ -170,8 +170,8 @@ func defeat() -> void:
 	pass
 	
 func enable_hit_boxes( _v : bool = true) -> void:
-	hit_box.set_deferred("monitorable",_v)
-	hurt_box.set_deferred("monitoring",_v)
+	#hit_box.set_deferred("monitorable",_v)
+	#hurt_box.set_deferred("monitoring",_v)
 	pass
 
 func explosion ( _p : Vector2 = Vector2.ZERO) -> void:
