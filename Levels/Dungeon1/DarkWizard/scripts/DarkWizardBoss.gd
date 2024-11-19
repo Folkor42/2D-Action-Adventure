@@ -40,7 +40,7 @@ func _ready() -> void:
 		door_block.queue_free()
 		queue_free()
 		return
-		
+	LevelManager.start_boss(max_hp)
 	hp = max_hp
 	
 	hit_box.Damaged.connect ( damage_taken )
@@ -146,6 +146,7 @@ func damage_taken( _hurt_box : HurtBox ) -> void:
 		return
 	play_audio( audio_hurt )
 	hp = clampi( hp - hurt_box.damage, 0, max_hp )
+	PlayerHud.update_boss_health(hp)
 	damage_count += 1
 	#update Boss Health Bar
 	animation_player_damaged.seek( 0 )
@@ -162,6 +163,7 @@ func play_audio ( _a: AudioStream ) -> void:
 	pass
 
 func defeat() -> void:
+	LevelManager.end_boss()
 	animation_player.play( "destroy" )
 	enable_hit_boxes( false )
 	persistant_data_handler.set_value()

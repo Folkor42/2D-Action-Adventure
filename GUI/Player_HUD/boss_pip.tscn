@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://ccw6dd77bkl6a"]
+
+[ext_resource type="Script" path="res://GUI/Player_HUD/boss_pip.gd" id="1_71q1u"]
+[ext_resource type="Texture2D" uid="uid://brw3aanuqqgo0" path="res://Levels/Dungeon1/DarkWizard/sprites/boss-hp.png" id="1_a84gk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yxmtj"]
+atlas = ExtResource("1_a84gk")
+region = Rect2(9, 40, 14, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0t4b7"]
+atlas = ExtResource("1_a84gk")
+region = Rect2(39.9437, 39.5665, 15.1346, 15.54)
+
+[node name="BossPIP" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_71q1u")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(11, 16)
+scale = Vector2(1.2, 1.2)
+texture = SubResource("AtlasTexture_yxmtj")
+
+[node name="Full" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(11, 16)
+scale = Vector2(1.1, 1.1)
+texture = SubResource("AtlasTexture_0t4b7")
+
+[node name="Container" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(11, 16)
+texture = ExtResource("1_a84gk")
+hframes = 3
+vframes = 2
+frame = 1

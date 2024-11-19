@@ -3,6 +3,8 @@ extends Node
 signal level_load_started 
 signal level_loaded
 signal TileMapBoundsChanged ( bounds : Array [ Vector2 ] )
+signal BossFightStart ( bounds : int )
+signal BossFightEnd
 
 var current_tilemap_bounds : Array [ Vector2 ]
 var target_transition : String
@@ -42,3 +44,9 @@ func load_new_level(
 	
 	level_loaded.emit()
 	pass
+
+func start_boss (max_hp:int) -> void:
+	BossFightStart.emit(max_hp)
+	
+func end_boss () -> void:
+	BossFightEnd.emit()
