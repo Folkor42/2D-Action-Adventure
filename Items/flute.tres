@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://dvtxaotop8yq1"]
+
+[ext_resource type="Script" path="res://Items/Scripts/item_data.gd" id="1_1ir6m"]
+[ext_resource type="Texture2D" uid="uid://bw3qqfy1qypev" path="res://Items/Sprites/#1 - Transparent Icons.png" id="2_rn5w5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x6l5m"]
+atlas = ExtResource("2_rn5w5")
+region = Rect2(192, 352, 32, 32)
+
+[resource]
+script = ExtResource("1_1ir6m")
+name = "Flute"
+description = "A nice Flute that the over caffinated NPC was looking for."
+texture = SubResource("AtlasTexture_x6l5m")
+effects = Array[Resource("res://Items/item_effects/item_effect.gd")]([])

@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://bct025exww8io"]
+[gd_scene load_steps=40 format=3 uid="uid://bct025exww8io"]
 
 [ext_resource type="Script" path="res://Levels/level.gd" id="1_edmbt"]
 [ext_resource type="PackedScene" uid="uid://c5l0npjs1vnw" path="res://assets/Tile Maps/dungeon.tscn" id="2_vq3q5"]
@@ -13,6 +13,8 @@
 [ext_resource type="Script" path="res://General Nodes/HurtBox/hurt_box.gd" id="8_p7to2"]
 [ext_resource type="Script" path="res://General Nodes/HitBox/hit_box.gd" id="9_0hat8"]
 [ext_resource type="AudioStream" uid="uid://d2gvp3pnmvvn0" path="res://Levels/Dungeon1/DarkWizard/audio/boss_destroy.wav" id="11_27sxy"]
+[ext_resource type="PackedScene" uid="uid://durc8q4exbelu" path="res://General Nodes/ItemDropper/ItemDropper.tscn" id="14_sa2e0"]
+[ext_resource type="Resource" uid="uid://dvtxaotop8yq1" path="res://Items/flute.tres" id="15_gno0u"]
 
 [sub_resource type="Gradient" id="Gradient_he5pg"]
 offsets = PackedFloat32Array(0.438356, 1)
@@ -739,7 +741,7 @@ blend_mode = 2
 [node name="DarkWizardBoss" type="Node2D" parent="."]
 y_sort_enabled = true
 script = ExtResource("6_881mt")
-max_hp = 3
+max_hp = 1
 
 [node name="BossNode" type="Node2D" parent="DarkWizardBoss"]
 position = Vector2(257, 30)
@@ -894,3 +896,7 @@ texture = SubResource("GradientTexture2D_2yd2r")
 
 [node name="PersistantDataHandler" type="Node" parent="DarkWizardBoss"]
 script = ExtResource("6_nacra")
+
+[node name="ItemDropper" parent="DarkWizardBoss" instance=ExtResource("14_sa2e0")]
+position = Vector2(256, 129)
+item_data = ExtResource("15_gno0u")

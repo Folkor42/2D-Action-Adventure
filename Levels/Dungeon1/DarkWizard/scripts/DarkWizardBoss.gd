@@ -163,11 +163,12 @@ func play_audio ( _a: AudioStream ) -> void:
 	pass
 
 func defeat() -> void:
-	LevelManager.end_boss()
 	animation_player.play( "destroy" )
 	enable_hit_boxes( false )
 	persistant_data_handler.set_value()
 	await animation_player.animation_finished
+	LevelManager.end_boss()
+	$ItemDropper.drop_item()
 	door_block.queue_free()
 	pass
 	
