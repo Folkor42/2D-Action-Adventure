@@ -3,6 +3,7 @@ class_name BossPip extends Control
 @onready var background: Sprite2D = $Background
 @onready var full: Sprite2D = $Full
 @onready var container: Sprite2D = $Container
+@onready var animation_player = $AnimationPlayer
 
 @export var begin_pip : bool = false
 @export var end_pip : bool = false

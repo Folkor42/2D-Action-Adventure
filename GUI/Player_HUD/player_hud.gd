@@ -4,6 +4,7 @@ extends CanvasLayer
 @export var button_select_audio : AudioStream = preload("res://assets/menu_select.wav")
 
 var hearts : Array[ HeartGUI ] = []
+var health_bar : Array [ BossPip ] =[]
 @onready var pickup_label = $Control/PickupLabel
 @onready var timer = $Control/PickupLabel/Timer
 @onready var game_over = $Control2/GameOver
@@ -11,7 +12,6 @@ var hearts : Array[ HeartGUI ] = []
 @onready var continue_button = $Control2/GameOver/VBoxContainer/ContinueButton
 @onready var animation_player = $Control2/GameOver/AnimationPlayer
 @onready var audio = $AudioStreamPlayer
-#@onready var boss_health_bar: TextureProgressBar = $Control3/HBoxContainer/BossHealthBar
 
 func _ready():
 	for child in $Control/HFlowContainer.get_children():
@@ -26,8 +26,8 @@ func _ready():
 	title_button.focus_entered.connect( play_audio.bind( button_focus_audio ))
 	title_button.pressed.connect( title_screen )
 	LevelManager.level_load_started.connect(hide_game_over_screen)
-	#LevelManager.BossFightStart.connect(show_boss_bar)
-	#LevelManager.BossFightEnd.connect(hide_boss_bar)
+	LevelManager.BossFightStart.connect(show_boss_bar)
+	LevelManager.BossFightEnd.connect(hide_boss_bar)
 	pass # Replace with function body.
 
 func hide_game_over_screen()->void:
@@ -115,13 +115,26 @@ func fade_to_black() -> bool:
 	
 	return true
 
-#func show_boss_bar (max_hp : int) -> void:
-	#boss_health_bar.max_value = max_hp
-	#boss_health_bar.value = max_hp
-	#boss_health_bar.visible=true
-	#
-#func hide_boss_bar () -> void:
-	#boss_health_bar.visible=false
+func show_boss_bar (max_hp : int) -> void:
+	for child in $Control3/HBoxContainer.get_children():
+		if child is BossPip:
+			health_bar.append( child )
+			child.visible = false
+	for p in max_hp:
+		health_bar[p].visible=true
+	health_bar[max_hp-1].end_pip=true
+	health_bar[max_hp-1]._ready()
+	
+func hide_boss_bar () -> void:
+	for child in $Control3/HBoxContainer.get_children():
+		if child is BossPip:
+			child.visible = false
 #
-#func update_boss_health(hp : int)->void:
-	#boss_health_bar.value = hp
+func update_boss_health(hp : int)->void:
+	health_bar[hp].animation_player.play("damage")
+	await health_bar[hp].animation_player.animation_finished
+	for p in health_bar.size():
+		health_bar[p].full.visible=false
+	for p in hp:
+		health_bar[p].full.visible=true
+	return
