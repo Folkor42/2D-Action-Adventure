@@ -11,8 +11,12 @@ var hearts : Array[ HeartGUI ] = []
 @onready var continue_button = $Control2/GameOver/VBoxContainer/ContinueButton
 @onready var animation_player = $Control2/GameOver/AnimationPlayer
 @onready var audio = $AudioStreamPlayer
+@onready var boss_ui = $Control2/BossUI
+@onready var boss_hp__bar = $Control2/BossUI/TextureProgressBar
+@onready var boss_label = $Control2/BossUI/Label
 
 func _ready():
+	hide_boss_health()
 	for child in $Control/HFlowContainer.get_children():
 		if child is HeartGUI:
 			hearts.append( child )
@@ -111,3 +115,18 @@ func fade_to_black() -> bool:
 	PlayerManager.player.revive_player()
 	
 	return true
+
+func hide_boss_health () -> void:
+	boss_ui.visible=false
+	pass
+
+func show_boss_health ( boss_name : String, boss_hp : int ) -> void:
+	boss_label.text=boss_name
+	boss_hp__bar.max_value=boss_hp
+	update_boss_health(boss_hp,boss_hp)
+	boss_ui.visible=true
+	pass
+
+func update_boss_health( hp : int, max_hp : int ) -> void:
+	boss_hp__bar.value=clampi(hp,0,max_hp)
+	pass
