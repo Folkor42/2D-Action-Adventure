@@ -1,9 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://bq3xy4o6cq747"]
+[gd_scene load_steps=14 format=3 uid="uid://bq3xy4o6cq747"]
 
 [ext_resource type="Script" path="res://GUI/Player_HUD/player_hud.gd" id="1_jiykb"]
 [ext_resource type="Texture2D" uid="uid://d2tqd6sqvrbgm" path="res://GUI/Player_HUD/gui-health.png" id="1_nqfe5"]
 [ext_resource type="PackedScene" uid="uid://ctfe8tkj0pj8m" path="res://GUI/Player_HUD/heart_gui.tscn" id="2_l3q8a"]
 [ext_resource type="FontFile" uid="uid://c73lh2ky8u5pa" path="res://GUI/Fonts/Abaddon Bold.ttf" id="4_71ghh"]
+[ext_resource type="Texture2D" uid="uid://brw3aanuqqgo0" path="res://GUI/Player_HUD/boss-hp.png" id="5_hgtsu"]
+[ext_resource type="FontFile" uid="uid://ccjnepwjede8w" path="res://GUI/Fonts/m5x7.ttf" id="6_w3563"]
 
 [sub_resource type="FontVariation" id="FontVariation_2au05"]
 base_font = ExtResource("4_71ghh")
@@ -242,6 +244,14 @@ _data = {
 "show_game_over": SubResource("Animation_gd750")
 }
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_6sk37"]
+atlas = ExtResource("5_hgtsu")
+region = Rect2(9, 40, 14, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_knx33"]
+atlas = ExtResource("5_hgtsu")
+region = Rect2(40, 40, 15, 15)
+
 [node name="PlayerHud" type="CanvasLayer"]
 layer = 2
 script = ExtResource("1_jiykb")
@@ -352,102 +362,6 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Sprite2D" type="Sprite2D" parent="Control2"]
-position = Vector2(412, 8)
-texture = ExtResource("1_nqfe5")
-region_enabled = true
-region_rect = Rect2(29, 0, 34, 8)
-
-[node name="HFlowContainer" type="HFlowContainer" parent="Control2"]
-layout_mode = 0
-offset_left = 348.0
-offset_top = 15.0
-offset_right = 478.0
-offset_bottom = 40.0
-theme_override_constants/h_separation = 4
-theme_override_constants/v_separation = 2
-alignment = 1
-
-[node name="Heart" parent="Control2/HFlowContainer" instance=ExtResource("2_l3q8a")]
-visible = false
-layout_mode = 2
-
-[node name="Heart2" parent="Control2/HFlowContainer" instance=ExtResource("2_l3q8a")]
-visible = false
-layout_mode = 2
-
-[node name="Heart3" parent="Control2/HFlowContainer" instance=ExtResource("2_l3q8a")]
-visible = false
-layout_mode = 2
-
-[node name="Heart4" parent="Control2/HFlowContainer" instance=ExtResource("2_l3q8a")]
-visible = false
-layout_mode = 2
-
-[node name="Heart5" parent="Control2/HFlowContainer" instance=ExtResource("2_l3q8a")]
-visible = false
-layout_mode = 2
-
-[node name="Heart6" parent="Control2/HFlowContainer" instance=ExtResource("2_l3q8a")]
-visible = false
-layout_mode = 2
-
-[node name="Heart7" parent="Control2/HFlowContainer" instance=ExtResource("2_l3q8a")]
-visible = false
-layout_mode = 2
-
-[node name="Heart8" parent="Control2/HFlowContainer" instance=ExtResource("2_l3q8a")]
-visible = false
-layout_mode = 2
-
-[node name="Heart9" parent="Control2/HFlowContainer" instance=ExtResource("2_l3q8a")]
-visible = false
-layout_mode = 2
-
-[node name="Heart10" parent="Control2/HFlowContainer" instance=ExtResource("2_l3q8a")]
-visible = false
-layout_mode = 2
-
-[node name="Heart11" parent="Control2/HFlowContainer" instance=ExtResource("2_l3q8a")]
-visible = false
-layout_mode = 2
-
-[node name="Heart12" parent="Control2/HFlowContainer" instance=ExtResource("2_l3q8a")]
-visible = false
-layout_mode = 2
-
-[node name="Heart13" parent="Control2/HFlowContainer" instance=ExtResource("2_l3q8a")]
-visible = false
-layout_mode = 2
-
-[node name="Heart14" parent="Control2/HFlowContainer" instance=ExtResource("2_l3q8a")]
-visible = false
-layout_mode = 2
-
-[node name="Heart15" parent="Control2/HFlowContainer" instance=ExtResource("2_l3q8a")]
-visible = false
-layout_mode = 2
-
-[node name="Heart16" parent="Control2/HFlowContainer" instance=ExtResource("2_l3q8a")]
-visible = false
-layout_mode = 2
-
-[node name="Heart17" parent="Control2/HFlowContainer" instance=ExtResource("2_l3q8a")]
-visible = false
-layout_mode = 2
-
-[node name="Heart18" parent="Control2/HFlowContainer" instance=ExtResource("2_l3q8a")]
-visible = false
-layout_mode = 2
-
-[node name="Heart19" parent="Control2/HFlowContainer" instance=ExtResource("2_l3q8a")]
-visible = false
-layout_mode = 2
-
-[node name="Heart20" parent="Control2/HFlowContainer" instance=ExtResource("2_l3q8a")]
-visible = false
-layout_mode = 2
-
 [node name="GameOver" type="Control" parent="Control2"]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 1
@@ -474,10 +388,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 194.0
-offset_top = 89.0
-offset_right = 286.0
-offset_bottom = 107.0
+offset_left = -46.0
+offset_top = -46.0
+offset_right = 46.0
+offset_bottom = -28.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = SubResource("FontVariation_2au05")
@@ -491,10 +405,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 158.0
-offset_top = 117.0
-offset_right = 322.0
-offset_bottom = 173.001
+offset_left = -82.0
+offset_top = -18.0
+offset_right = 82.0
+offset_bottom = 38.001
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -520,6 +434,68 @@ color = Color(0, 0, 0, 0)
 libraries = {
 "": SubResource("AnimationLibrary_h33ss")
 }
+
+[node name="BossUI" type="Control" parent="Control2"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -50.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Control2/BossUI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -84.0
+offset_top = 4.0
+offset_right = 85.0
+offset_bottom = 18.0
+grow_horizontal = 2
+grow_vertical = 2
+max_value = 10.0
+value = 3.0
+nine_patch_stretch = true
+texture_under = SubResource("AtlasTexture_6sk37")
+texture_progress = SubResource("AtlasTexture_knx33")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Control2/BossUI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -91.0
+offset_top = -5.0
+offset_right = 92.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_hgtsu")
+region_rect = Rect2(0, 0, 64, 30)
+patch_margin_left = 22
+patch_margin_right = 25
+axis_stretch_horizontal = 1
+
+[node name="Label" type="Label" parent="Control2/BossUI"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -27.0
+offset_top = 11.0
+offset_right = 28.0
+offset_bottom = 25.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("6_w3563")
+text = "BOSS NAME"
+horizontal_alignment = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 bus = &"SoundFX"
