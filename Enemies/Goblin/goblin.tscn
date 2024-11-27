@@ -817,7 +817,7 @@ _data = {
 [node name="Goblin" type="CharacterBody2D"]
 position = Vector2(0, 3)
 collision_layer = 256
-collision_mask = 272
+collision_mask = 16
 script = ExtResource("1_4ck4m")
 hp = 1
 
@@ -893,6 +893,7 @@ drops = Array[ExtResource("14_oivp7")]([SubResource("Resource_ksb1g"), SubResour
 script = ExtResource("16_el0hs")
 vision_area = NodePath("../../VisionArea")
 attack_area = NodePath("../../Sprite2D/HurtBox2")
+state_aggro_duration = 5.0
 next_state = NodePath("../Idle")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
