@@ -30,8 +30,9 @@ func _ready() -> void:
 			rays.append( r )
 			
 	#Normalize all vectors
-	for v in vectors:
-		v = v.normalized()
+	for i in vectors.size():
+		vectors[ i ] = vectors[ i ].normalized()
+		pass
 	
 	#Perform initial pathfinder funciton
 	set_path()
