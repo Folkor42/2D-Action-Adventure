@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="ItemData" load_steps=7 format=3 uid="uid://c7awxyldslai1"]
+[gd_resource type="Resource" script_class="ItemData" load_steps=8 format=3 uid="uid://c7awxyldslai1"]
 
 [ext_resource type="Script" path="res://Items/item_effects/item_effect_heal.gd" id="1_8h4pw"]
+[ext_resource type="Script" path="res://Items/item_effects/item_effect.gd" id="1_bx1fw"]
 [ext_resource type="Script" path="res://Items/Scripts/item_data.gd" id="1_r1ttq"]
 [ext_resource type="Texture2D" uid="uid://dv3n81hbaxgbp" path="res://Items/Sprites/items.png" id="2_a012l"]
 [ext_resource type="AudioStream" uid="uid://bnxxox5o6mnf4" path="res://Items/item_effects/hp-up.wav" id="2_nvb7k"]
@@ -20,4 +21,4 @@ script = ExtResource("1_r1ttq")
 name = "Potion"
 description = "One of the many ways to heal yourself."
 texture = SubResource("AtlasTexture_v23af")
-effects = Array[Resource("res://Items/item_effects/item_effect.gd")]([SubResource("Resource_kkylk")])
+effects = Array[ExtResource("1_bx1fw")]([SubResource("Resource_kkylk")])

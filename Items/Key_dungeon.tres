@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://b36q1y3urywy2"]
+[gd_resource type="Resource" script_class="ItemData" load_steps=5 format=3 uid="uid://b36q1y3urywy2"]
 
 [ext_resource type="Script" path="res://Items/Scripts/item_data.gd" id="1_dqosj"]
+[ext_resource type="Script" path="res://Items/item_effects/item_effect.gd" id="1_w52sd"]
 [ext_resource type="Texture2D" uid="uid://dv3n81hbaxgbp" path="res://Items/Sprites/items.png" id="2_d5imu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fd64g"]
@@ -12,4 +13,4 @@ script = ExtResource("1_dqosj")
 name = ""
 description = "Looks like a normal key, may be able to unlock many doors."
 texture = SubResource("AtlasTexture_fd64g")
-effects = Array[Resource("res://Items/item_effects/item_effect.gd")]([])
+effects = Array[ExtResource("1_w52sd")]([])
