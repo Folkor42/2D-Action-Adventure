@@ -64,4 +64,3 @@ side = 2
 [node name="Teleporter" parent="." instance=ExtResource("9_t5j1y")]
 position = Vector2(245, 169)
 level = "res://Levels/Dungeon1/dungeon_02.tscn"
-target_transition_area = "Teleporter"

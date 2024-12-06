@@ -1,7 +1,9 @@
 extends Node2D
 
+signal teleport_menu_request
+
 @export_file( "*.tscn" ) var level
-@export var target_transition_area : String
+@export var target_transition_area : String = "Teleporter"
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var activate: Area2D = $Activate
@@ -15,7 +17,8 @@ func _ready() -> void:
 	await LevelManager.level_loaded
 	activate.body_entered.connect(activate_pad)
 	activate.body_exited.connect(deactivate_pad)
-	teleport_button.body_entered.connect(teleport)
+	teleport_button.body_entered.connect(show_teleport_menu)
+	teleport_button.body_exited.connect(hide_teleport_menu)
 	pass # Replace with function body.
 
 
@@ -31,9 +34,20 @@ func activate_pad(_b:CharacterBody2D)->void:
 func deactivate_pad(_b:CharacterBody2D)->void:
 	animation_player.play("default")
 	teleport_button.monitoring = false	
+	if PlayerHud.control_teleport.teleport.is_connected( teleport ):
+		PlayerHud.control_teleport.teleport.disconnect(teleport)
 	pass
 
-func teleport(_b:CharacterBody2D)->void:
+func show_teleport_menu(_b:CharacterBody2D)->void:
+	PlayerHud.control_teleport.show_teleport_choices()
+	if !PlayerHud.control_teleport.teleport.is_connected(teleport):
+		PlayerHud.control_teleport.teleport.connect(teleport)
+
+func hide_teleport_menu( _b:CharacterBody2D)->void:
+	PlayerHud.control_teleport.hide_teleport_choices()
+	
+func teleport(destination)->void:
+	level = destination
 	animation_player.play("teleport")
 	PlayerManager.player.effect_animation_player.play("teleport_out")
 	audio_stream_player_2d.play()
@@ -45,7 +59,7 @@ func teleport(_b:CharacterBody2D)->void:
 func _player_entered () -> void:
 	teleport_button.monitoring = false	
 	activate.monitoring=false
-	LevelManager.load_new_level( level, target_transition_area, Vector2.ZERO )
+	LevelManager.load_new_level( level, "Teleporter", Vector2.ZERO )
 	pass
 
 func _place_player() -> void:

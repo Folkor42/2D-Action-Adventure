@@ -4,22 +4,6 @@
 [ext_resource type="Script" path="res://Props/Teleporter/teleporter.gd" id="1_2wg6v"]
 [ext_resource type="AudioStream" uid="uid://bjgqj2t1x6chk" path="res://Props/Teleporter/transitional-swipe-3-211685.mp3" id="3_r5jy4"]
 
-[sub_resource type="Animation" id="Animation_b3tho"]
-resource_name = "default"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-
 [sub_resource type="Animation" id="Animation_ib8px"]
 length = 0.001
 tracks/0/type = "value"
@@ -49,6 +33,22 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_b3tho"]
+resource_name = "default"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
 }
 
 [sub_resource type="Animation" id="Animation_vmlvy"]

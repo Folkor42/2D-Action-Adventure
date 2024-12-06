@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bq3xy4o6cq747"]
+[gd_scene load_steps=16 format=3 uid="uid://bq3xy4o6cq747"]
 
 [ext_resource type="Script" path="res://GUI/Player_HUD/player_hud.gd" id="1_jiykb"]
 [ext_resource type="Texture2D" uid="uid://d2tqd6sqvrbgm" path="res://GUI/Player_HUD/gui-health.png" id="1_nqfe5"]
@@ -6,6 +6,8 @@
 [ext_resource type="FontFile" uid="uid://c73lh2ky8u5pa" path="res://GUI/Fonts/Abaddon Bold.ttf" id="4_71ghh"]
 [ext_resource type="Texture2D" uid="uid://brw3aanuqqgo0" path="res://GUI/Player_HUD/boss-hp.png" id="5_hgtsu"]
 [ext_resource type="FontFile" uid="uid://ccjnepwjede8w" path="res://GUI/Fonts/m5x7.ttf" id="6_w3563"]
+[ext_resource type="Script" path="res://GUI/Player_HUD/control_teleport.gd" id="7_62y80"]
+[ext_resource type="Script" path="res://GUI/Player_HUD/teleport_button.gd" id="8_lpa27"]
 
 [sub_resource type="FontVariation" id="FontVariation_2au05"]
 base_font = ExtResource("4_71ghh")
@@ -496,6 +498,48 @@ grow_horizontal = 2
 theme_override_fonts/font = ExtResource("6_w3563")
 text = "BOSS NAME"
 horizontal_alignment = 1
+
+[node name="Control - Teleport" type="Control" parent="."]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("7_62y80")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control - Teleport"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="Control - Teleport/VBoxContainer"]
+layout_mode = 2
+text = "Area 02"
+script = ExtResource("8_lpa27")
+level = "res://Levels/Area1/02.tscn"
+
+[node name="Button2" type="Button" parent="Control - Teleport/VBoxContainer"]
+layout_mode = 2
+text = "Dungeon 02"
+script = ExtResource("8_lpa27")
+level = "res://Levels/Dungeon1/dungeon_02.tscn"
+
+[node name="Button3" type="Button" parent="Control - Teleport/VBoxContainer"]
+layout_mode = 2
+text = "Town"
+script = ExtResource("8_lpa27")
+level = "res://Levels/Zelda/zelda_01.tscn"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 bus = &"SoundFX"

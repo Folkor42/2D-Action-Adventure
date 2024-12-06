@@ -20,7 +20,7 @@ layer_1/name = "Layer1"
 
 [node name="PlayerSpawn" parent="." instance=ExtResource("2_e0wyd")]
 top_level = true
-position = Vector2(256, -152)
+position = Vector2(547, -27)
 
 [node name="DungeonDoorSouth" parent="." instance=ExtResource("3_gftnp")]
 position = Vector2(256, 240)
@@ -59,4 +59,3 @@ size = 4
 [node name="Teleporter" parent="." instance=ExtResource("10_eo6h5")]
 position = Vector2(632, -33)
 level = "res://Levels/Area1/02.tscn"
-target_transition_area = "Teleporter"
