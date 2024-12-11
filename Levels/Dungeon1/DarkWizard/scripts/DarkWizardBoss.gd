@@ -31,7 +31,7 @@ var damage_count : int = 0
 @onready var hand_01_side: Sprite2D = $BossNode/CloakSprite/Hand01_SIDE
 @onready var hand_02_side: Sprite2D = $BossNode/CloakSprite/Hand02_SIDE
 
-@onready var door_block: TileMap = $"../DoorBlock"
+@onready var door_block: TileMapLayer = $"../DoorBlock"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
