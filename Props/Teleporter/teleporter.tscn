@@ -1,0 +1,115 @@
+[gd_scene load_steps=11 format=3 uid="uid://bt0tt4ehxd5dy"]
+
+[ext_resource type="Texture2D" uid="uid://nng22pw72k2q" path="res://Props/Teleporter/TPall.png" id="1_2ovhl"]
+[ext_resource type="Script" path="res://Props/Teleporter/teleporter.gd" id="1_2wg6v"]
+[ext_resource type="AudioStream" uid="uid://bjgqj2t1x6chk" path="res://Props/Teleporter/transitional-swipe-3-211685.mp3" id="3_r5jy4"]
+
+[sub_resource type="Animation" id="Animation_ib8px"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_hft63"]
+resource_name = "activate"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_b3tho"]
+resource_name = "default"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_vmlvy"]
+resource_name = "teleport"
+length = 0.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 2, 1, 0, 1, 2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vql0m"]
+_data = {
+"RESET": SubResource("Animation_ib8px"),
+"activate": SubResource("Animation_hft63"),
+"default": SubResource("Animation_b3tho"),
+"teleport": SubResource("Animation_vmlvy")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dvwjy"]
+radius = 62.0
+height = 176.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5e7yd"]
+radius = 9.48683
+
+[node name="Teleporter" type="Node2D"]
+z_index = -1
+scale = Vector2(0.25, 0.25)
+script = ExtResource("1_2wg6v")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(9, 2)
+texture = ExtResource("1_2ovhl")
+hframes = 3
+region_rect = Rect2(0, 0, 612, 145)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_vql0m")
+}
+autoplay = "default"
+
+[node name="Activate" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Activate"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_dvwjy")
+
+[node name="TeleportButton" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TeleportButton"]
+shape = SubResource("CircleShape2D_5e7yd")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_r5jy4")

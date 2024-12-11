@@ -14,6 +14,7 @@ var hearts : Array[ HeartGUI ] = []
 @onready var boss_ui = $Control2/BossUI
 @onready var boss_hp__bar = $Control2/BossUI/TextureProgressBar
 @onready var boss_label = $Control2/BossUI/Label
+@onready var control_teleport: TeleportControl = $"Control - Teleport"
 
 func _ready():
 	hide_boss_health()

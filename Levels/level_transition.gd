@@ -96,4 +96,3 @@ func _snap_to_grid () -> void:
 	position.x=round( position.x/16 ) * 16
 	position.y=round( position.y/16 ) * 16
 	
-
