@@ -26,6 +26,7 @@ SceneTransition="*res://GUI/Scene_Transitions/Scene_Transition.tscn"
 PauseMenu="*res://GUI/Pause_Menu/pause_menu.tscn"
 SaveManager="*res://00_Globals/global_save_manager.gd"
 DialogSystem="*res://GUI/Dialog_System/Dialog_System.tscn"
+QuestManager="*res://Quests/Scripts/Global_Quest_Manager.gd"
 
 [display]
 
