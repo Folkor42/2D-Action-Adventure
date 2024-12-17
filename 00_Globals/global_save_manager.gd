@@ -18,7 +18,9 @@ var current_save : Dictionary = {
 	saved_drops = [],
 	persistence = [],
 	locations= [],
-	quests = []
+	quests = [
+		#{ title = "Not Found", is_complete = false, compelted_steps = [''] }
+	]
 }
 
 func save_game() -> void:
@@ -26,6 +28,7 @@ func save_game() -> void:
 	update_player_data()
 	update_item_data()
 	update_drop_data()
+	update_quest_data()
 	var file := FileAccess.open( SAVE_PATH + "save.sav", FileAccess.WRITE )
 	var save_json = JSON.stringify( current_save )
 	file.store_line( save_json )
@@ -51,6 +54,7 @@ func load_game() -> void:
 	print (current_save.items)
 	print (current_save.drops)
 	PlayerManager.INVENTORY_DATA.parse_save_data( current_save.items )
+	QuestManager.current_quests = current_save.quests
 	
 	await LevelManager.level_loaded
 	
@@ -59,6 +63,10 @@ func load_game() -> void:
 	print ("Game Loaded")
 	pass
 
+func update_quest_data() -> void:
+	current_save.quests = QuestManager.current_quests
+	pass
+	
 func update_player_data() -> void:
 	var p : Player = PlayerManager.player
 	current_save.player.hp = p.hp

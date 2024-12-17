@@ -10,6 +10,12 @@ var interact_handled : bool = true
 var player : Player
 var player_spawned : bool = false
 
+var xp : int = 0
+
+func reward_xp( _xp : int )->void:
+	xp+=_xp
+	print ("XP = ", str(xp))
+
 func _ready() -> void:
 	add_player_instance()
 	await get_tree().create_timer(0.2).timeout
