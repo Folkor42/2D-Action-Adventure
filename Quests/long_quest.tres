@@ -7,11 +7,11 @@
 [sub_resource type="Resource" id="Resource_6ec11"]
 script = ExtResource("1_1ech4")
 item = ExtResource("2_rpeta")
-quanity = 3
+quantity = 2
 
 [resource]
 script = ExtResource("2_ux02r")
-title = "A Long Quest"
+title = "Long Quest"
 description = "A long quest with a lot of steps."
 steps = Array[String](["Step 1", "Step 2", "Step 3", "Step 4", "Step 5"])
 reward_xp = 50

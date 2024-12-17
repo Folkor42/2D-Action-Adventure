@@ -36,10 +36,6 @@ func save_game() -> void:
 	print ("Game Saved")
 	pass
 
-func update_quest_data() -> void:
-	current_save.quests = QuestManager.current_quests
-	pass
-
 func get_save_file() -> FileAccess:
 	return FileAccess.open( SAVE_PATH + "save.sav", FileAccess.READ )
 
@@ -58,7 +54,7 @@ func load_game() -> void:
 	print (current_save.items)
 	print (current_save.drops)
 	PlayerManager.INVENTORY_DATA.parse_save_data( current_save.items )
-	PlayerManager.current_quests = current_save.quests
+	QuestManager.current_quests = current_save.quests
 	
 	await LevelManager.level_loaded
 	
@@ -67,6 +63,10 @@ func load_game() -> void:
 	print ("Game Loaded")
 	pass
 
+func update_quest_data() -> void:
+	current_save.quests = QuestManager.current_quests
+	pass
+	
 func update_player_data() -> void:
 	var p : Player = PlayerManager.player
 	current_save.player.hp = p.hp

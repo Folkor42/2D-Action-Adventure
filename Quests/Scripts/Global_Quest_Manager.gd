@@ -6,8 +6,7 @@ signal quest_updated ( q )
 const QUEST_DATA_LOCATION : String = "res://Quests/"
 
 var quests : Array [ Quest ]
-var current_quests : Array = [{ title = "Recover Lost Magical Flute", is_complete = false, completed_steps = [''] },
-{ title = "Long Quest", is_complete = false, compelted_steps = ['Step 1'] }]
+var current_quests : Array = []
 
 func _ready() -> void:
 	gather_quest_data()
@@ -21,9 +20,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		#print (get_quest_index_by_title("Short Quest"))
 		print ( current_quests )
 		update_quest("Short Quest")
-		
-		update_quest("Recover Lost Magical Flute", "Find the Magical Flute")
-		
+		update_quest("Recover Lost Magical Flute", "Find the Magical Flute",true)
 		update_quest("Long Quest", "", true)
 		print ( current_quests )
 	pass	
@@ -44,7 +41,7 @@ func update_quest(_title : String, _completed_step : String = "", is_complete : 
 		var new_quest : Dictionary = { 
 			title = _title, 
 			is_complete = is_complete, 
-			compelted_steps = []
+			completed_steps = []
 		}
 		if _completed_step != "":
 			new_quest.completed_steps.append( _completed_step )
