@@ -19,9 +19,10 @@ func _unhandled_input(event: InputEvent) -> void:
 		#print (get_quest_index_by_title("Recover Lost Magical Flute"))
 		#print (get_quest_index_by_title("Short Quest"))
 		print ( current_quests )
-		update_quest("Short Quest")
-		update_quest("Recover Lost Magical Flute", "Find the Magical Flute",true)
-		update_quest("Long Quest", "", true)
+		update_quest("Short Quest","",true)
+		update_quest("Recover Lost Magical Flute", "Find the Magical Flute",false)
+		update_quest("Long Quest", "Step 1", false)
+		update_quest("Long Quest", "Step 2", false)
 		print ( current_quests )
 	pass	
 	
