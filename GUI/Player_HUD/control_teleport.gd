@@ -18,16 +18,16 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 func show_teleport_choices()->void:
 	control_teleport.visible=true
 	get_tree().paused=true
 	
-func selected( button )->void:
+func selected( _button )->void:
 	get_tree().paused=false
-	teleport.emit(button.level)
+	teleport.emit(_button.level)
 	hide_teleport_choices()
 	
 func hide_teleport_choices()->void:
