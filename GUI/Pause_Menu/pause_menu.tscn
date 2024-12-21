@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://crjgjhjwk1rt5"]
+[gd_scene load_steps=13 format=3 uid="uid://crjgjhjwk1rt5"]
 
 [ext_resource type="Script" path="res://GUI/Pause_Menu/pause_menu.gd" id="1_w7p0r"]
 [ext_resource type="Texture2D" uid="uid://dv3n81hbaxgbp" path="res://Items/Sprites/items.png" id="2_buubl"]
@@ -7,6 +7,9 @@
 [ext_resource type="Resource" uid="uid://bu2ce2ya2v432" path="res://GUI/Pause_Menu/Inventory/player_inventory.tres" id="4_v0467"]
 [ext_resource type="PackedScene" uid="uid://c073p2baoa7wt" path="res://GUI/Pause_Menu/Quests/quest_button.tscn" id="6_6t4bi"]
 [ext_resource type="Script" path="res://GUI/Pause_Menu/Quests/QuestsUI.gd" id="6_duo1s"]
+[ext_resource type="FontFile" uid="uid://c73lh2ky8u5pa" path="res://GUI/Fonts/Abaddon Bold.ttf" id="8_70xl6"]
+[ext_resource type="FontFile" uid="uid://ccjnepwjede8w" path="res://GUI/Fonts/m5x7.ttf" id="9_1nbof"]
+[ext_resource type="PackedScene" uid="uid://d2fmvfr8uav12" path="res://GUI/Pause_Menu/Quests/quest_step_item.tscn" id="10_cgxhs"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2m6av"]
 atlas = ExtResource("2_buubl")
@@ -172,11 +175,39 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -218.0
-offset_top = -97.0
-offset_bottom = 93.0
+offset_left = -234.0
+offset_top = -96.0
+offset_right = -19.0
+offset_bottom = 90.0
 grow_horizontal = 0
 grow_vertical = 2
+
+[node name="TitleLabel" type="Label" parent="Control/TabContainer/Quests/VBoxContainer"]
+custom_minimum_size = Vector2(215, 10)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("8_70xl6")
+text = "Quest Title"
+
+[node name="DescriptionLabel" type="Label" parent="Control/TabContainer/Quests/VBoxContainer"]
+modulate = Color(0.716934, 0.706789, 0.69131, 1)
+custom_minimum_size = Vector2(215, 10)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("9_1nbof")
+text = "quest description sdfgsdfgkldfgks;dfgdfg sdfg sdfg dsfg sdf gdfsg sdf"
+autowrap_mode = 2
+
+[node name="Seperator" type="Control" parent="Control/TabContainer/Quests/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="Quest Step Item" parent="Control/TabContainer/Quests/VBoxContainer" instance=ExtResource("10_cgxhs")]
+layout_mode = 2
+
+[node name="Quest Step Item2" parent="Control/TabContainer/Quests/VBoxContainer" instance=ExtResource("10_cgxhs")]
+layout_mode = 2
+
+[node name="Quest Step Item3" parent="Control/TabContainer/Quests/VBoxContainer" instance=ExtResource("10_cgxhs")]
+layout_mode = 2
 
 [node name="System" type="Control" parent="Control/TabContainer"]
 visible = false
