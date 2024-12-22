@@ -45,15 +45,15 @@ func update_quest(_title : String, _completed_step : String = "", is_complete : 
 			completed_steps = []
 		}
 		if _completed_step != "":
-			new_quest.completed_steps.append( _completed_step )
+			new_quest.completed_steps.append( _completed_step.to_lower() )
 		current_quests.append( new_quest ) 
 		quest_updated.emit( new_quest )
 		
 		# TODO Display Notification that quest was added
 	else:
 		var q = current_quests[ quest_index ]
-		if _completed_step !="" and !q.completed_steps.has( _completed_step ):
-			q.completed_steps.append( _completed_step )
+		if _completed_step !="" and !q.completed_steps.has( _completed_step.to_lower() ):
+			q.completed_steps.append( _completed_step.to_lower() )
 			pass
 		q.is_complete = is_complete
 		quest_updated.emit (q)

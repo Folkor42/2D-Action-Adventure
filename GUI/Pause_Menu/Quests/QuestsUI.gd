@@ -45,7 +45,7 @@ func update_quest_details ( q : Quest ) -> void:
 			var new_step : QuestStepItem = QUEST_STEP_ITEM.instantiate()
 			var step_is_complete : bool = false
 			if quest_save.title != null:
-				step_is_complete = quest_save.completed_steps.has( step )   # to_lower if setup that way.
+				step_is_complete = quest_save.completed_steps.has( step.to_lower() )
 			details_container.add_child( new_step )
 			new_step.initialize( step, step_is_complete )
 	pass
