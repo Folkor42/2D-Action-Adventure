@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dtas3bwxvip85"
-path="res://.godot/imported/quest_advance.png-1321b4220631dfbc7109184b62226a9d.ctex"
+path="res://.godot/imported/quest_advance.png-bf28b9d3423aa47df20bf77548d6f7b8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://GUI/Pause_Menu/Quests/Assets/quest_advance.png"
-dest_files=["res://.godot/imported/quest_advance.png-1321b4220631dfbc7109184b62226a9d.ctex"]
+source_file="res://Quests/Utility Nodes/Icons/quest_advance.png"
+dest_files=["res://.godot/imported/quest_advance.png-bf28b9d3423aa47df20bf77548d6f7b8.ctex"]
 
 [params]
 
