@@ -13,6 +13,6 @@ quantity = 2
 script = ExtResource("2_ux02r")
 title = "Long Quest"
 description = "A long quest with a lot of steps."
-steps = Array[String](["Step 1", "Step 2", "Step 3", "Step 4", "Step 5"])
+steps = Array[String](["Press Button 2", "Press Button 3", "Press Button 4", "Press Button 5"])
 reward_xp = 50
 reward_items = Array[ExtResource("1_1ech4")]([SubResource("Resource_6ec11")])

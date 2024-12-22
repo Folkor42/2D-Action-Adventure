@@ -38,6 +38,6 @@ func update_summary()->void:
 
 func get_step() -> String:
 	if quest_step != 0 and quest_step <= get_step_count():
-		return linked_quest.steps[ quest_step-1 ]
+		return linked_quest.steps[ quest_step-1 ].to_lower()
 	else:
 		return "N/A"

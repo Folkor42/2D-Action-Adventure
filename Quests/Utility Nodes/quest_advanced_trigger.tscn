@@ -5,8 +5,7 @@
 
 [node name="QuestAdvancedTrigger" type="Node2D"]
 script = ExtResource("1_mpdgq")
-signal_name = null
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(11, -15)
+position = Vector2(9, -15)
 texture = ExtResource("2_v74x5")
