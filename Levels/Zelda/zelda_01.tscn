@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://uqhh1ka0cukk"]
+[gd_scene load_steps=22 format=4 uid="uid://uqhh1ka0cukk"]
 
 [ext_resource type="Script" path="res://Levels/level.gd" id="1_g7gpy"]
 [ext_resource type="PackedScene" uid="uid://cbdc82vqr78bl" path="res://TileMaps/Grass01-Layers.tscn" id="2_egny0"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://1mc2d7asutse" path="res://Props/interactables/dungeon/PressurePlate.tscn" id="17_4ulh4"]
 [ext_resource type="PackedScene" uid="uid://dtq5kja5b6d2m" path="res://Quests/Utility Nodes/quest_advanced_trigger.tscn" id="18_h7kuw"]
 [ext_resource type="Resource" uid="uid://xut5uqusvwjw" path="res://Quests/long_quest.tres" id="19_7gbtw"]
+[ext_resource type="PackedScene" uid="uid://bd18ibshsp8gh" path="res://Quests/Utility Nodes/QuestActivatedSwitch.tscn" id="21_c203d"]
 
 [node name="Zelda01" type="Node2D"]
 script = ExtResource("1_g7gpy")
@@ -146,9 +147,6 @@ npc_info = ExtResource("13_kag7m")
 [node name="Pot" parent="." instance=ExtResource("15_7768e")]
 position = Vector2(365, 167)
 
-[node name="Pot2" parent="." instance=ExtResource("15_7768e")]
-position = Vector2(297, 168)
-
 [node name="Teleporter" parent="." instance=ExtResource("16_0ibue")]
 position = Vector2(223, 60)
 
@@ -158,57 +156,110 @@ position = Vector2(55, 164)
 [node name="QuestAdvancedTrigger" parent="PressurePlate" instance=ExtResource("18_h7kuw")]
 signal_name = "activated"
 linked_quest = ExtResource("19_7gbtw")
+settings_summary = "UPDATE QUEST:
+QUEST: Long Quest
+STEP: 0 - N/A
+COMPELTE: false"
+
+[node name="QuestActivatedSwitch" parent="." instance=ExtResource("21_c203d")]
+position = Vector2(93, 164)
+check_type = 2
+remove_when_activated = false
+react_to_global_signal = true
+linked_quest = ExtResource("19_7gbtw")
 quest_step = 1
 settings_summary = "UPDATE QUEST:
 QUEST: Long Quest
-STEP: 1 - Step 1
+Check if player is on step : press button 2"
+
+[node name="PressurePlate2" parent="QuestActivatedSwitch" instance=ExtResource("17_4ulh4")]
+
+[node name="QuestAdvancedTrigger" parent="QuestActivatedSwitch/PressurePlate2" instance=ExtResource("18_h7kuw")]
+signal_name = "activated"
+linked_quest = ExtResource("19_7gbtw")
+quest_step = 1
+settings_summary = "UPDATE QUEST:
+QUEST: Long Quest
+STEP: 1 - step 1
 COMPELTE: false"
 
-[node name="PressurePlate2" parent="." instance=ExtResource("17_4ulh4")]
-position = Vector2(93, 164)
+[node name="QuestActivatedSwitch2" parent="." instance=ExtResource("21_c203d")]
+position = Vector2(129, 164)
+check_type = 2
+remove_when_activated = false
+react_to_global_signal = true
+linked_quest = ExtResource("19_7gbtw")
+quest_step = 2
+settings_summary = "UPDATE QUEST:
+QUEST: Long Quest
+Check if player is on step : press button 3"
 
-[node name="QuestAdvancedTrigger" parent="PressurePlate2" instance=ExtResource("18_h7kuw")]
+[node name="PressurePlate3" parent="QuestActivatedSwitch2" instance=ExtResource("17_4ulh4")]
+
+[node name="QuestAdvancedTrigger" parent="QuestActivatedSwitch2/PressurePlate3" instance=ExtResource("18_h7kuw")]
 signal_name = "activated"
 linked_quest = ExtResource("19_7gbtw")
 quest_step = 2
 settings_summary = "UPDATE QUEST:
 QUEST: Long Quest
-STEP: 2 - Step 2
+STEP: 2 - step 2
 COMPELTE: false"
 
-[node name="PressurePlate3" parent="." instance=ExtResource("17_4ulh4")]
-position = Vector2(129, 164)
+[node name="QuestActivatedSwitch3" parent="." instance=ExtResource("21_c203d")]
+position = Vector2(168, 164)
+check_type = 2
+remove_when_activated = false
+react_to_global_signal = true
+linked_quest = ExtResource("19_7gbtw")
+quest_step = 3
+settings_summary = "UPDATE QUEST:
+QUEST: Long Quest
+Check if player is on step : press button 4"
 
-[node name="QuestAdvancedTrigger" parent="PressurePlate3" instance=ExtResource("18_h7kuw")]
+[node name="PressurePlate4" parent="QuestActivatedSwitch3" instance=ExtResource("17_4ulh4")]
+
+[node name="QuestAdvancedTrigger" parent="QuestActivatedSwitch3/PressurePlate4" instance=ExtResource("18_h7kuw")]
 signal_name = "activated"
 linked_quest = ExtResource("19_7gbtw")
 quest_step = 3
 settings_summary = "UPDATE QUEST:
 QUEST: Long Quest
-STEP: 3 - Step 3
+STEP: 3 - step 3
 COMPELTE: false"
 
-[node name="PressurePlate4" parent="." instance=ExtResource("17_4ulh4")]
-position = Vector2(168, 164)
-
-[node name="QuestAdvancedTrigger" parent="PressurePlate4" instance=ExtResource("18_h7kuw")]
-signal_name = "activated"
+[node name="QuestActivatedSwitch4" parent="." instance=ExtResource("21_c203d")]
+check_type = 2
+remove_when_activated = false
+react_to_global_signal = true
 linked_quest = ExtResource("19_7gbtw")
 quest_step = 4
 settings_summary = "UPDATE QUEST:
 QUEST: Long Quest
-STEP: 4 - Step 4
-COMPELTE: false"
+Check if player is on step : press button 5"
 
-[node name="PressurePlate5" parent="." instance=ExtResource("17_4ulh4")]
+[node name="PressurePlate5" parent="QuestActivatedSwitch4" instance=ExtResource("17_4ulh4")]
 position = Vector2(208, 164)
 
-[node name="QuestAdvancedTrigger" parent="PressurePlate5" instance=ExtResource("18_h7kuw")]
+[node name="QuestAdvancedTrigger" parent="QuestActivatedSwitch4/PressurePlate5" instance=ExtResource("18_h7kuw")]
 signal_name = "activated"
 linked_quest = ExtResource("19_7gbtw")
-quest_step = 5
+quest_step = 4
 quest_complete = true
 settings_summary = "UPDATE QUEST:
 QUEST: Long Quest
-STEP: 5 - Step 5
+STEP: 4 - step 4
 COMPELTE: true"
+
+[node name="QuestActivatedSwitch5" parent="." instance=ExtResource("21_c203d")]
+position = Vector2(208, 164)
+check_type = 3
+remove_when_activated = false
+react_to_global_signal = true
+linked_quest = ExtResource("19_7gbtw")
+quest_complete = true
+settings_summary = "UPDATE QUEST:
+QUEST: Long Quest
+Checking if quest is complete."
+
+[node name="Pot2" parent="QuestActivatedSwitch5" instance=ExtResource("15_7768e")]
+position = Vector2(89, 4)
