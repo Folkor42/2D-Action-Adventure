@@ -1,13 +1,19 @@
-[gd_resource type="Resource" script_class="Quest" load_steps=5 format=3 uid="uid://xut5uqusvwjw"]
+[gd_resource type="Resource" script_class="Quest" load_steps=7 format=3 uid="uid://xut5uqusvwjw"]
 
 [ext_resource type="Script" path="res://Quests/Scripts/quest_reward_item.gd" id="1_1ech4"]
 [ext_resource type="Resource" uid="uid://c7awxyldslai1" path="res://Items/potion.tres" id="2_rpeta"]
 [ext_resource type="Script" path="res://Quests/Scripts/quest_resource.gd" id="2_ux02r"]
+[ext_resource type="Resource" uid="uid://3x506ndblw7e" path="res://Items/gem.tres" id="3_eq4ot"]
 
 [sub_resource type="Resource" id="Resource_6ec11"]
 script = ExtResource("1_1ech4")
 item = ExtResource("2_rpeta")
 quantity = 2
+
+[sub_resource type="Resource" id="Resource_vsglg"]
+script = ExtResource("1_1ech4")
+item = ExtResource("3_eq4ot")
+quantity = 100
 
 [resource]
 script = ExtResource("2_ux02r")
@@ -15,4 +21,4 @@ title = "Long Quest"
 description = "A long quest with a lot of steps."
 steps = Array[String](["Press Button 2", "Press Button 3", "Press Button 4", "Press Button 5"])
 reward_xp = 50
-reward_items = Array[ExtResource("1_1ech4")]([SubResource("Resource_6ec11")])
+reward_items = Array[ExtResource("1_1ech4")]([SubResource("Resource_6ec11"), SubResource("Resource_vsglg")])
