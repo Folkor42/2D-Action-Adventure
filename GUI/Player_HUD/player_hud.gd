@@ -15,6 +15,7 @@ var hearts : Array[ HeartGUI ] = []
 @onready var boss_hp__bar = $Control2/BossUI/TextureProgressBar
 @onready var boss_label = $Control2/BossUI/Label
 @onready var control_teleport: TeleportControl = $"Control - Teleport"
+@onready var notification: NotificationUI = $Control2/Notification
 
 func _ready():
 	hide_boss_health()
@@ -130,4 +131,8 @@ func show_boss_health ( boss_name : String, boss_hp : int ) -> void:
 
 func update_boss_health( hp : int, max_hp : int ) -> void:
 	boss_hp__bar.value=clampi(hp,0,max_hp)
+	pass
+
+func queue_notification ( _title : String, _message : String ) -> void:
+	notification.add_notification_to_queue( _title, _message)
 	pass
