@@ -9,8 +9,8 @@
 size = Vector2(30, 12)
 
 [node name="StatuePushable" type="RigidBody2D"]
-collision_layer = 16
-collision_mask = 273
+collision_layer = 48
+collision_mask = 305
 gravity_scale = 0.0
 lock_rotation = true
 script = ExtResource("1_rkwtp")

@@ -8,7 +8,8 @@ class_name QuestAdvancedTrigger extends QuestNode
 func _ready() -> void:
 	if Engine.is_editor_hint():
 		return
-	$Sprite2D.queue_free()
+	if $Sprite2D:
+		$Sprite2D.queue_free()
 	if signal_name != "":
 		if get_parent().has_signal( signal_name ):
 			get_parent().connect(signal_name, advance_quest)
@@ -17,6 +18,7 @@ func _ready() -> void:
 func advance_quest()->void:
 	if linked_quest == null:
 		return
+	await get_tree().process_frame
 	var _title = linked_quest.title
 	var _step : String = get_step()
 	if _step == "N/A":
@@ -25,3 +27,7 @@ func advance_quest()->void:
 	QuestManager.update_quest(_title,_step,quest_complete)
 	pass
 	
+
+
+func _on_dungeon_door_south_entered_from_here() -> void:
+	pass # Replace with function body.

@@ -165,8 +165,16 @@ func defeat() -> void:
 	animation_player.play( "destroy" )
 	enable_hit_boxes( false )
 	PlayerHud.hide_boss_health()
-	persistant_data_handler.set_value()
 	await animation_player.animation_finished
+	# Drop Flute
+	$ItemDropper.position= boss_node.position
+	$ItemDropper.drop_item()
+	$ItemDropper.dropped_collected.connect( open_dungeon )
+	
+	pass
+	
+func open_dungeon()->void:
+	persistant_data_handler.set_value()
 	door_block.queue_free()
 	pass
 	

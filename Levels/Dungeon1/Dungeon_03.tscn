@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=4 uid="uid://bct025exww8io"]
+[gd_scene load_steps=42 format=4 uid="uid://bct025exww8io"]
 
 [ext_resource type="Script" path="res://Levels/level.gd" id="1_edmbt"]
 [ext_resource type="PackedScene" uid="uid://bax5njghf7lmn" path="res://assets/Tile Maps/DungeonLayer.tscn" id="2_1fnm1"]
@@ -13,6 +13,10 @@
 [ext_resource type="Script" path="res://General Nodes/HurtBox/hurt_box.gd" id="8_p7to2"]
 [ext_resource type="Script" path="res://General Nodes/HitBox/hit_box.gd" id="9_0hat8"]
 [ext_resource type="AudioStream" uid="uid://d2gvp3pnmvvn0" path="res://Levels/Dungeon1/DarkWizard/audio/boss_destroy.wav" id="11_27sxy"]
+[ext_resource type="PackedScene" uid="uid://durc8q4exbelu" path="res://General Nodes/ItemDropper/ItemDropper.tscn" id="14_6n7mq"]
+[ext_resource type="Resource" uid="uid://c11cp4ulx0hgc" path="res://Items/Magical Flute.tres" id="15_ykkhj"]
+[ext_resource type="PackedScene" uid="uid://dtq5kja5b6d2m" path="res://Quests/Utility Nodes/quest_advanced_trigger.tscn" id="16_m8tuj"]
+[ext_resource type="Resource" uid="uid://rl0m6te01x6e" path="res://Quests/Recover Lost Flute.tres" id="17_7n400"]
 
 [sub_resource type="Gradient" id="Gradient_he5pg"]
 offsets = PackedFloat32Array(0.438356, 1)
@@ -894,3 +898,17 @@ texture = SubResource("GradientTexture2D_2yd2r")
 
 [node name="PersistantDataHandler" type="Node" parent="DarkWizardBoss"]
 script = ExtResource("6_nacra")
+
+[node name="ItemDropper" parent="DarkWizardBoss" instance=ExtResource("14_6n7mq")]
+position = Vector2(256, 125)
+item_data = ExtResource("15_ykkhj")
+
+[node name="QuestAdvancedTrigger" parent="DarkWizardBoss/ItemDropper" instance=ExtResource("16_m8tuj")]
+position = Vector2(-256, -125)
+signal_name = "dropped_collected"
+linked_quest = ExtResource("17_7n400")
+quest_step = 2
+settings_summary = "UPDATE QUEST:
+QUEST: Recover Lost Magical Flute
+STEP: 2 - find the magical flute
+COMPELTE: false"
