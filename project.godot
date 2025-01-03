@@ -37,6 +37,10 @@ window/size/window_width_override=960
 window/size/window_height_override=540
 window/stretch/mode="canvas_items"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/juice_my_editor/plugin.cfg")
+
 [gui]
 
 theme/custom_font="res://GUI/Fonts/Abaddon Light.ttf"
@@ -126,6 +130,7 @@ left_bumper={
 2d_physics/layer_2="Player Hurt"
 2d_physics/layer_3="Player Interact"
 2d_physics/layer_5="Walls"
+2d_physics/layer_6="Statue Block"
 2d_physics/layer_9="Enemy Layer"
 
 [rendering]

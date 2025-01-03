@@ -34,4 +34,3 @@ func _set_push( value : Vector2 ) -> void:
 	else:
 		audio.play()
 	pass
-

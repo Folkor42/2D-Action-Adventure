@@ -8,6 +8,7 @@ signal is_activated_changed( v : bool )
 
 @export var check_type : CheckType = CheckType.HAS_QUEST : set = _set_check_type
 @export var remove_when_activated : bool = false
+@export var delete_on_remove : bool = false
 @export var react_to_global_signal : bool = false
 
 var is_activated : bool = false
@@ -15,7 +16,8 @@ var is_activated : bool = false
 func _ready () -> void:
 	if Engine.is_editor_hint():
 		return
-	$Sprite2D.queue_free()
+	if $Sprite2D:
+		$Sprite2D.queue_free()
 	if react_to_global_signal:
 		QuestManager.quest_updated.connect( _on_quest_updated )
 	check_is_activated()
@@ -91,6 +93,8 @@ func hide_children() -> void:
 	for c in get_children():
 		c.set_deferred( "visible", false )
 		c.set_deferred( "process_mode", Node.PROCESS_MODE_DISABLED )
+		if delete_on_remove:
+			c.queue_free()
 		
 func _set_check_type ( v : CheckType ) -> void:
 	check_type=v

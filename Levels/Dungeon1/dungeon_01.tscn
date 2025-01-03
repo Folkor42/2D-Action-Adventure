@@ -1,13 +1,22 @@
-[gd_scene load_steps=9 format=4 uid="uid://c7andhwp0ib55"]
+[gd_scene load_steps=14 format=4 uid="uid://c7andhwp0ib55"]
 
 [ext_resource type="Script" path="res://Levels/level.gd" id="1_mm443"]
 [ext_resource type="AudioStream" uid="uid://bx254p545sh2" path="res://Levels/Music/example_music_03.ogg" id="2_l0gfa"]
 [ext_resource type="PackedScene" uid="uid://6itqmku4udbn" path="res://Levels/player_spawn.tscn" id="2_vb7o8"]
 [ext_resource type="PackedScene" uid="uid://cqtftu4m687ui" path="res://Levels/level_transition.tscn" id="3_mpsnx"]
 [ext_resource type="PackedScene" uid="uid://bax5njghf7lmn" path="res://assets/Tile Maps/DungeonLayer.tscn" id="3_qwwje"]
+[ext_resource type="PackedScene" uid="uid://bd18ibshsp8gh" path="res://Quests/Utility Nodes/QuestActivatedSwitch.tscn" id="6_hsmom"]
+[ext_resource type="PackedScene" uid="uid://dtq5kja5b6d2m" path="res://Quests/Utility Nodes/quest_advanced_trigger.tscn" id="6_ypdjy"]
+[ext_resource type="Resource" uid="uid://rl0m6te01x6e" path="res://Quests/Recover Lost Flute.tres" id="7_0gilh"]
 [ext_resource type="PackedScene" uid="uid://cviolhgw0qpup" path="res://Props/interactables/dungeon/Statue_Pushable.tscn" id="7_grfc0"]
 [ext_resource type="PackedScene" uid="uid://1mc2d7asutse" path="res://Props/interactables/dungeon/PressurePlate.tscn" id="7_y3n7p"]
 [ext_resource type="PackedScene" uid="uid://uuorwl3ccl4o" path="res://Props/interactables/dungeon/BarredDoor.tscn" id="8_8p6xn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1b83b"]
+size = Vector2(43, 143)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v5msa"]
+size = Vector2(300.5, 38)
 
 [node name="Dungeon_01" type="Node2D"]
 position = Vector2(2, 0)
@@ -37,6 +46,25 @@ center_player = true
 size = 3
 side = 3
 
+[node name="QuestActivatedSwitch" parent="DungeonDoorSouth" instance=ExtResource("6_hsmom")]
+check_type = 1
+remove_when_activated = true
+delete_on_remove = true
+react_to_global_signal = true
+linked_quest = ExtResource("7_0gilh")
+quest_step = 1
+settings_summary = "UPDATE QUEST:
+QUEST: Recover Lost Magical Flute
+Check if player has completed step: find the cave entrance"
+
+[node name="QuestAdvancedTrigger" parent="DungeonDoorSouth/QuestActivatedSwitch" instance=ExtResource("6_ypdjy")]
+linked_quest = ExtResource("7_0gilh")
+quest_step = 1
+settings_summary = "UPDATE QUEST:
+QUEST: Recover Lost Magical Flute
+STEP: 1 - find the cave entrance
+COMPELTE: false"
+
 [node name="PressurePlate" parent="." instance=ExtResource("7_y3n7p")]
 z_index = -1
 position = Vector2(176, 160)
@@ -47,5 +75,26 @@ position = Vector2(223, 81)
 [node name="StatuePushable" parent="." instance=ExtResource("7_grfc0")]
 position = Vector2(353, 166)
 
+[node name="Statue Area Push Limits" type="StaticBody2D" parent="."]
+collision_layer = 32
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Statue Area Push Limits"]
+position = Vector2(106, 159)
+shape = SubResource("RectangleShape2D_1b83b")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Statue Area Push Limits"]
+position = Vector2(406.5, 159)
+shape = SubResource("RectangleShape2D_1b83b")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Statue Area Push Limits"]
+position = Vector2(257.75, 107)
+shape = SubResource("RectangleShape2D_v5msa")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Statue Area Push Limits"]
+position = Vector2(258, 210)
+shape = SubResource("RectangleShape2D_v5msa")
+
+[connection signal="entered_from_here" from="DungeonDoorSouth" to="DungeonDoorSouth/QuestActivatedSwitch/QuestAdvancedTrigger" method="advance_quest"]
 [connection signal="activated" from="PressurePlate" to="BarredDoor" method="open_door"]
 [connection signal="deactivated" from="PressurePlate" to="BarredDoor" method="close_door"]
