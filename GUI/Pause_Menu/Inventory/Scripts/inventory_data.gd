@@ -25,6 +25,16 @@ func add_item ( item : ItemData, count : int = 1 ) -> bool:
 	# Inventory full so return false.
 	return false
 
+#func remove_item ( item : ItemData, count : int = 1) -> void:
+	#for s in slots:
+		#if s:
+			#if s.item_data == item:
+				## Will want to add max count limit checking
+				#s.quantity -= count 
+				#if s.quantity <= 0:
+					#
+	#pass
+
 func connect_slots() -> void:
 	for s in slots:
 		if s: 
