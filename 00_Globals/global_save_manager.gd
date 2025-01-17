@@ -11,7 +11,11 @@ var current_save : Dictionary = {
 		hp = 1,
 		max_hp = 1,
 		pos_x = 0,
-		pos_y = 0
+		pos_y = 0,
+		level = 1,
+		xp = 0,
+		atk = 1,
+		def = 0
 	},
 	items = [],
 	drops = [],
@@ -51,6 +55,11 @@ func load_game() -> void:
 	
 	PlayerManager.set_player_position( Vector2(current_save.player.pos_x, current_save.player.pos_y) )
 	PlayerManager.set_health( current_save.player.hp, current_save.player.max_hp )
+	PlayerManager.player.level = current_save.player.level
+	PlayerManager.player.xp = current_save.player.xp
+	PlayerManager.player.atk = current_save.player.atk
+	PlayerManager.player.def = current_save.player.def
+	
 	print (current_save.items)
 	print (current_save.drops)
 	PlayerManager.INVENTORY_DATA.parse_save_data( current_save.items )
@@ -73,6 +82,10 @@ func update_player_data() -> void:
 	current_save.player.max_hp = p.max_hp
 	current_save.player.pos_x = p.global_position.x
 	current_save.player.pos_y = p.global_position.y
+	current_save.player.level = p.level
+	current_save.player.xp = p.xp
+	current_save.player.atk = p.atk
+	current_save.player.def = p.def
 	
 func update_scene_path() -> void:
 	var p : String = ""
