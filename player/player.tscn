@@ -1618,6 +1618,7 @@ max_polyphony = 4
 bus = &"SoundFX"
 
 [node name="Interactions" type="Node2D" parent="."]
+visible = false
 script = ExtResource("10_jvyjm")
 
 [node name="Area2D" type="Area2D" parent="Interactions"]
@@ -1642,6 +1643,7 @@ shape = SubResource("RectangleShape2D_v1b6k")
 debug_color = Color(0.249799, 0.538684, 0.896599, 0.592157)
 
 [node name="HitBox" parent="." instance=ExtResource("13_jflad")]
+visible = false
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
@@ -1657,6 +1659,7 @@ libraries = {
 script = ExtResource("17_vwdh7")
 
 [node name="ItemMagnet" parent="." instance=ExtResource("18_2qpeh")]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ItemMagnet"]
 position = Vector2(0, -14)

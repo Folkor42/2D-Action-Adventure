@@ -22,12 +22,23 @@ signal player_damaged ( hurt_box : HurtBox )
 var invulnerable : bool = false
 var hp : int = 6
 var max_hp : int = 6
+var xp : int = 0
+var level : int = 1
+var atk : int = 1 : 
+	set ( v ): 
+		atk = v
+		update_damage_values()
+var def : int = 0  : 
+	set ( v ): 
+		def = v
+		update_damage_values()
 
 func _ready():
 	PlayerManager.player = self
 	state_machine.Initialize( self )
 	hit_box.Damaged.connect ( _take_damage )
 	update_hp( 99 )
+	#PlayerManager.player_leveled_up.connect( update_damage_values )
 	pass
 	
 func _process( _delta ):
@@ -81,7 +92,10 @@ func _take_damage ( hurt_box : HurtBox ) -> void:
 	if invulnerable == true:
 		return
 	if hp > 0:
-		update_hp( -hurt_box.damage )
+		var dmg : int = hurt_box.damage
+		if dmg > 0:
+			dmg = clampi( dmg-def, 1, dmg)
+		update_hp( -dmg )
 		player_damaged.emit( hurt_box )
 	pass
 	
@@ -113,4 +127,9 @@ func pickup_item ( _t : Throwable ) -> void:
 	state_machine.ChangeState(pickup)
 	#store throwable object
 	carry.throwable=_t
+	pass
+
+func update_damage_values() -> void:
+	%AttackHurtBox.damage=atk
+	%ChargeHurtBox.damage=atk*2
 	pass

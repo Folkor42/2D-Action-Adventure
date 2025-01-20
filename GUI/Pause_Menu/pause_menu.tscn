@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://crjgjhjwk1rt5"]
+[gd_scene load_steps=14 format=3 uid="uid://crjgjhjwk1rt5"]
 
 [ext_resource type="Script" path="res://GUI/Pause_Menu/pause_menu.gd" id="1_w7p0r"]
 [ext_resource type="Texture2D" uid="uid://dv3n81hbaxgbp" path="res://Items/Sprites/items.png" id="2_buubl"]
 [ext_resource type="Script" path="res://GUI/Pause_Menu/Inventory/Scripts/inventory_ui.gd" id="3_2hrx1"]
 [ext_resource type="PackedScene" uid="uid://bql5fw1pm8ykt" path="res://GUI/Pause_Menu/Inventory/inventory_slot.tscn" id="3_jm4s4"]
 [ext_resource type="Resource" uid="uid://bu2ce2ya2v432" path="res://GUI/Pause_Menu/Inventory/player_inventory.tres" id="4_v0467"]
+[ext_resource type="PackedScene" uid="uid://bam2oqsl8sqc3" path="res://GUI/Pause_Menu/Stats/stats.tscn" id="6_4e2k2"]
 [ext_resource type="PackedScene" uid="uid://c073p2baoa7wt" path="res://GUI/Pause_Menu/Quests/quest_button.tscn" id="6_6t4bi"]
 [ext_resource type="Script" path="res://GUI/Pause_Menu/Quests/QuestsUI.gd" id="6_duo1s"]
 [ext_resource type="FontFile" uid="uid://c73lh2ky8u5pa" path="res://GUI/Fonts/Abaddon Bold.ttf" id="8_70xl6"]
@@ -66,19 +67,18 @@ offset_top = 22.0
 grow_horizontal = 2
 grow_vertical = 2
 tab_alignment = 1
-current_tab = 1
+current_tab = 0
 
 [node name="Inventory" type="Control" parent="Control/TabContainer"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
 [node name="PanelContainer" type="PanelContainer" parent="Control/TabContainer/Inventory"]
-layout_mode = 0
-offset_left = 132.0
-offset_top = 29.0
-offset_right = 328.0
-offset_bottom = 117.0
+layout_mode = 1
+offset_left = 19.0
+offset_top = 14.0
+offset_right = 215.0
+offset_bottom = 102.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_5uqa5")
 
 [node name="GridContainer" type="GridContainer" parent="Control/TabContainer/Inventory/PanelContainer"]
@@ -120,16 +120,24 @@ layout_mode = 2
 [node name="item_description" type="Label" parent="Control/TabContainer/Inventory"]
 modulate = Color(0.302414, 0.551958, 0.407252, 1)
 layout_mode = 2
-offset_left = 142.0
-offset_top = 121.0
-offset_right = 318.0
-offset_bottom = 148.0
+offset_left = 29.0
+offset_top = 108.0
+offset_right = 205.0
+offset_bottom = 135.0
 theme_override_font_sizes/font_size = 10
 text = "Who doesn't like a shiny pretty gem! dfjdafafd SHINNY!"
 horizontal_alignment = 1
 autowrap_mode = 3
 
+[node name="Stats" parent="Control/TabContainer/Inventory" instance=ExtResource("6_4e2k2")]
+layout_mode = 0
+offset_left = 245.0
+offset_top = 14.0
+offset_right = 457.0
+offset_bottom = 118.0
+
 [node name="Quests" type="Control" parent="Control/TabContainer"]
+visible = false
 layout_mode = 2
 script = ExtResource("6_duo1s")
 metadata/_tab_index = 1

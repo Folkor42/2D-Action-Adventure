@@ -5,16 +5,22 @@ const INVENTORY_DATA : InventoryData = preload ("res://GUI/Pause_Menu/Inventory/
 
 signal interact_pressed
 signal camera_shook ( trama : float )
+signal player_leveled_up
 
 var interact_handled : bool = true
 var player : Player
 var player_spawned : bool = false
 
-var xp : int = 0
+var level_requirements = [ 0, 10, 20, 40, 60 ]
 
 func reward_xp( _xp : int )->void:
-	xp+=_xp
-	print ("XP = ", str(xp))
+	player.xp+=_xp
+	# TODO Check for Level Up, but need to clamp our leveling and be able to multiple levels at once, recursive.
+	if player.xp >= level_requirements[player.level]:
+		player.level += 1
+		player.atk += 1
+		player.def += 1
+		player_leveled_up.emit()
 
 func _ready() -> void:
 	add_player_instance()
@@ -55,7 +61,7 @@ func play_audio ( _audio : AudioStream ) -> void:
 	pass
 
 func shake_camera ( tramua : float = 1 ) -> void:
-	camera_shook.emit( tramua )
+	camera_shook.emit( clampf(tramua,0,3 ))
 	pass
 
 func interact() -> void:

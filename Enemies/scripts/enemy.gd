@@ -7,6 +7,7 @@ signal enemy_destroyed ( hurt_box : HurtBox )
 const DIR_4 = [ Vector2.RIGHT, Vector2.DOWN, Vector2.LEFT, Vector2.UP ]
 
 @export var hp : int = 3
+@export var xp_reward : int = 1
 
 var cardinal_direction : Vector2 = Vector2.DOWN
 var direction : Vector2 = Vector2.ZERO
@@ -77,3 +78,4 @@ func _take_damage ( hurt_box : HurtBox ) -> void:
 		Enemy_Damaged.emit( hurt_box )
 	else:
 		enemy_destroyed.emit( hurt_box )
+		PlayerManager.reward_xp(xp_reward)
