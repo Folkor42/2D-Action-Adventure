@@ -99,7 +99,7 @@ func charge_attack() -> void:
 	spin_animation_player.play("spin")
 	var _duration : float = player.animation_player.current_animation_length
 	player.invulnerable = true
-	charge_hurt_box.damage = 5
+	charge_hurt_box.damage = player.atk*3
 	await get_tree().create_timer( _duration * 0.875 ).timeout
 	state_machine.ChangeState(idle)
 	pass

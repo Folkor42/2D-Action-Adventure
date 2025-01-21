@@ -131,5 +131,5 @@ func pickup_item ( _t : Throwable ) -> void:
 
 func update_damage_values() -> void:
 	%AttackHurtBox.damage=atk
-	%ChargeHurtBox.damage=atk*2
+	%ChargeHurtBox.damage=atk*3
 	pass
