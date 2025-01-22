@@ -13,7 +13,10 @@ func _ready() -> void:
 func update_stats() -> void:
 	var _p : Player = PlayerManager.player
 	lvl_stat.text = str(_p.level)
-	xp_stat.text = str(_p.xp) + "/" + str(PlayerManager.level_requirements[PlayerManager.player.level])
+	if _p.level < PlayerManager.level_requirements.size():
+		xp_stat.text = str(_p.xp) + "/" + str(PlayerManager.level_requirements[PlayerManager.player.level])
+	else:
+		xp_stat.text = "MAX LVL"
 	atk_stat.text = str(_p.atk)
 	def_stat.text = str(_p.def)
 	pass
