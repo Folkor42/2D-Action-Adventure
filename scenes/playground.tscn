@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://g8qrdnggy4rx"]
+[gd_scene load_steps=10 format=3 uid="uid://g8qrdnggy4rx"]
 
 [ext_resource type="Script" path="res://Levels/level.gd" id="1_rc30k"]
 [ext_resource type="PackedScene" uid="uid://bgtod07o6p5jg" path="res://TileMaps/Grass01.tscn" id="1_wpgwe"]
@@ -6,6 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://dencaf8xx08iu" path="res://Enemies/Slime/slime.tscn" id="4_5h2xl"]
 [ext_resource type="PackedScene" uid="uid://6itqmku4udbn" path="res://Levels/player_spawn.tscn" id="4_40q21"]
 [ext_resource type="PackedScene" uid="uid://cqtftu4m687ui" path="res://Levels/level_transition.tscn" id="6_0qbrn"]
+[ext_resource type="PackedScene" uid="uid://dbnv814r0tw0b" path="res://Props/interactables/dungeon/treasure_chest/treasure_chest.tscn" id="7_i2jq0"]
+[ext_resource type="Resource" uid="uid://cpeafixuhmoll" path="res://Items/a_ninja_suit.tres" id="8_jiv37"]
+[ext_resource type="Resource" uid="uid://ccfpng58b4q77" path="res://Items/w_katana.tres" id="9_6st6r"]
 
 [node name="Playground" type="Node2D"]
 y_sort_enabled = true
@@ -91,3 +94,11 @@ level = "res://Levels/Dungeon1/dungeon_02.tscn"
 target_transition_area = "DungeonDoorNorth"
 center_player = true
 side = 2
+
+[node name="TreasureChest" parent="." instance=ExtResource("7_i2jq0")]
+position = Vector2(19, 57)
+item_data = ExtResource("8_jiv37")
+
+[node name="TreasureChest2" parent="." instance=ExtResource("7_i2jq0")]
+position = Vector2(117, 57)
+item_data = ExtResource("9_6st6r")

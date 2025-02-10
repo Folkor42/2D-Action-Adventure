@@ -1,6 +1,10 @@
 class_name InventoryUI extends Control
 
 const INVENTORY_SLOT =  preload("res://GUI/Pause_Menu/Inventory/inventory_slot.tscn")
+@onready var inventory_slot_armor: InventorySlotUI = %InventorySlot_Armor
+@onready var inventory_slot_amulet: InventorySlotUI = %InventorySlot_Amulet
+@onready var inventory_slot_weapon: InventorySlotUI = %InventorySlot_Weapon
+@onready var inventory_slot_ring: InventorySlotUI = %InventorySlot_Ring
 
 var focus_index : int = 0
 
@@ -16,18 +20,28 @@ func _ready() -> void:
 
 func clear_inventory() -> void:
 	for c in get_children():
-		c.queue_free()
+		c.set_slot_data( null )
 	pass
 	
-func update_inventory( i : int = 0) -> void:
-	for s in data.slots:
-		var new_slot = INVENTORY_SLOT.instantiate()
-		add_child( new_slot )
-		new_slot.slot_data = s
-		new_slot.focus_entered.connect( item_focused )
+func update_inventory( apply_focus : bool = true ) -> void:
+	clear_inventory()
+	var inventory_slots : Array[ SlotData ] = data.inventory_slots()
 	
-	await get_tree().process_frame
-	get_child( i ).grab_focus()
+	for i in inventory_slots.size():
+		var slot : InventorySlotUI = get_child( i )
+		slot.set_slot_data( inventory_slots[ i ] )
+	
+	# Equipment Slots
+	
+	var e_slots : Array [ SlotData ] = data.equipment_slots()
+	inventory_slot_armor.set_slot_data( e_slots [0] )
+	inventory_slot_weapon.set_slot_data( e_slots [1] )
+	inventory_slot_amulet.set_slot_data( e_slots [2] )
+	inventory_slot_ring.set_slot_data( e_slots [3] )
+	
+	if apply_focus:
+		get_child( 0 ).grab_focus()
+	
 	pass
 
 func on_inventory_changed() -> void:

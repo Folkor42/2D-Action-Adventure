@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://crjgjhjwk1rt5"]
+[gd_scene load_steps=19 format=3 uid="uid://crjgjhjwk1rt5"]
 
 [ext_resource type="Script" path="res://GUI/Pause_Menu/pause_menu.gd" id="1_w7p0r"]
 [ext_resource type="Texture2D" uid="uid://dv3n81hbaxgbp" path="res://Items/Sprites/items.png" id="2_buubl"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bam2oqsl8sqc3" path="res://GUI/Pause_Menu/Stats/stats.tscn" id="6_4e2k2"]
 [ext_resource type="PackedScene" uid="uid://c073p2baoa7wt" path="res://GUI/Pause_Menu/Quests/quest_button.tscn" id="6_6t4bi"]
 [ext_resource type="Script" path="res://GUI/Pause_Menu/Quests/QuestsUI.gd" id="6_duo1s"]
+[ext_resource type="Texture2D" uid="uid://d1oqft26p5n8i" path="res://Items/Sprites/gear.png" id="6_yvywg"]
 [ext_resource type="FontFile" uid="uid://c73lh2ky8u5pa" path="res://GUI/Fonts/Abaddon Bold.ttf" id="8_70xl6"]
 [ext_resource type="FontFile" uid="uid://ccjnepwjede8w" path="res://GUI/Fonts/m5x7.ttf" id="9_1nbof"]
 [ext_resource type="PackedScene" uid="uid://d2fmvfr8uav12" path="res://GUI/Pause_Menu/Quests/quest_step_item.tscn" id="10_cgxhs"]
@@ -26,6 +27,22 @@ texture_margin_left = 14.0
 texture_margin_top = 14.0
 texture_margin_right = 14.0
 texture_margin_bottom = 14.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cqw0d"]
+atlas = ExtResource("6_yvywg")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_umf66"]
+atlas = ExtResource("6_yvywg")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dylwl"]
+atlas = ExtResource("6_yvywg")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vnbau"]
+atlas = ExtResource("6_yvywg")
+region = Rect2(16, 16, 16, 16)
 
 [node name="PauseMenu" type="CanvasLayer"]
 process_mode = 3
@@ -75,10 +92,10 @@ metadata/_tab_index = 0
 
 [node name="PanelContainer" type="PanelContainer" parent="Control/TabContainer/Inventory"]
 layout_mode = 1
-offset_left = 19.0
+offset_left = 30.0
 offset_top = 14.0
-offset_right = 215.0
-offset_bottom = 102.0
+offset_right = 226.0
+offset_bottom = 174.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_5uqa5")
 
 [node name="GridContainer" type="GridContainer" parent="Control/TabContainer/Inventory/PanelContainer"]
@@ -117,13 +134,105 @@ layout_mode = 2
 [node name="InventorySlot10" parent="Control/TabContainer/Inventory/PanelContainer/GridContainer" instance=ExtResource("3_jm4s4")]
 layout_mode = 2
 
+[node name="InventorySlot11" parent="Control/TabContainer/Inventory/PanelContainer/GridContainer" instance=ExtResource("3_jm4s4")]
+layout_mode = 2
+
+[node name="InventorySlot12" parent="Control/TabContainer/Inventory/PanelContainer/GridContainer" instance=ExtResource("3_jm4s4")]
+layout_mode = 2
+
+[node name="InventorySlot13" parent="Control/TabContainer/Inventory/PanelContainer/GridContainer" instance=ExtResource("3_jm4s4")]
+layout_mode = 2
+
+[node name="InventorySlot14" parent="Control/TabContainer/Inventory/PanelContainer/GridContainer" instance=ExtResource("3_jm4s4")]
+layout_mode = 2
+
+[node name="InventorySlot15" parent="Control/TabContainer/Inventory/PanelContainer/GridContainer" instance=ExtResource("3_jm4s4")]
+layout_mode = 2
+
+[node name="InventorySlot16" parent="Control/TabContainer/Inventory/PanelContainer/GridContainer" instance=ExtResource("3_jm4s4")]
+layout_mode = 2
+
+[node name="InventorySlot17" parent="Control/TabContainer/Inventory/PanelContainer/GridContainer" instance=ExtResource("3_jm4s4")]
+layout_mode = 2
+
+[node name="InventorySlot18" parent="Control/TabContainer/Inventory/PanelContainer/GridContainer" instance=ExtResource("3_jm4s4")]
+layout_mode = 2
+
+[node name="InventorySlot19" parent="Control/TabContainer/Inventory/PanelContainer/GridContainer" instance=ExtResource("3_jm4s4")]
+layout_mode = 2
+
+[node name="InventorySlot20" parent="Control/TabContainer/Inventory/PanelContainer/GridContainer" instance=ExtResource("3_jm4s4")]
+layout_mode = 2
+
+[node name="PanelContainer2" type="PanelContainer" parent="Control/TabContainer/Inventory"]
+layout_mode = 1
+offset_left = 256.0
+offset_top = 81.0
+offset_right = 452.0
+offset_bottom = 169.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_5uqa5")
+
+[node name="GridContainer" type="GridContainer" parent="Control/TabContainer/Inventory/PanelContainer2"]
+layout_mode = 2
+columns = 5
+
+[node name="TextureRect" type="TextureRect" parent="Control/TabContainer/Inventory/PanelContainer2/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = SubResource("AtlasTexture_cqw0d")
+stretch_mode = 3
+
+[node name="InventorySlot_Armor" parent="Control/TabContainer/Inventory/PanelContainer2/GridContainer" instance=ExtResource("3_jm4s4")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="Control/TabContainer/Inventory/PanelContainer2/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+stretch_mode = 3
+
+[node name="TextureRect5" type="TextureRect" parent="Control/TabContainer/Inventory/PanelContainer2/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = SubResource("AtlasTexture_umf66")
+stretch_mode = 3
+
+[node name="InventorySlot_Amulet" parent="Control/TabContainer/Inventory/PanelContainer2/GridContainer" instance=ExtResource("3_jm4s4")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="Control/TabContainer/Inventory/PanelContainer2/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = SubResource("AtlasTexture_dylwl")
+stretch_mode = 3
+
+[node name="InventorySlot_Weapon" parent="Control/TabContainer/Inventory/PanelContainer2/GridContainer" instance=ExtResource("3_jm4s4")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="TextureRect4" type="TextureRect" parent="Control/TabContainer/Inventory/PanelContainer2/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+stretch_mode = 3
+
+[node name="TextureRect6" type="TextureRect" parent="Control/TabContainer/Inventory/PanelContainer2/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = SubResource("AtlasTexture_vnbau")
+stretch_mode = 3
+
+[node name="InventorySlot_Ring" parent="Control/TabContainer/Inventory/PanelContainer2/GridContainer" instance=ExtResource("3_jm4s4")]
+unique_name_in_owner = true
+layout_mode = 2
+
 [node name="item_description" type="Label" parent="Control/TabContainer/Inventory"]
 modulate = Color(0.302414, 0.551958, 0.407252, 1)
 layout_mode = 2
 offset_left = 29.0
-offset_top = 108.0
-offset_right = 205.0
-offset_bottom = 135.0
+offset_top = 186.0
+offset_right = 457.0
+offset_bottom = 205.0
 theme_override_font_sizes/font_size = 10
 text = "Who doesn't like a shiny pretty gem! dfjdafafd SHINNY!"
 horizontal_alignment = 1
@@ -131,10 +240,10 @@ autowrap_mode = 3
 
 [node name="Stats" parent="Control/TabContainer/Inventory" instance=ExtResource("6_4e2k2")]
 layout_mode = 0
-offset_left = 245.0
-offset_top = 14.0
-offset_right = 457.0
-offset_bottom = 118.0
+offset_left = 256.0
+offset_top = 19.0
+offset_right = 452.0
+offset_bottom = 74.0
 
 [node name="Quests" type="Control" parent="Control/TabContainer"]
 visible = false
