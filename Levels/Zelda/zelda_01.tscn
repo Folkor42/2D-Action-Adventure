@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://uqhh1ka0cukk"]
+[gd_scene load_steps=28 format=4 uid="uid://uqhh1ka0cukk"]
 
 [ext_resource type="Script" path="res://Levels/level.gd" id="1_g7gpy"]
 [ext_resource type="PackedScene" uid="uid://cbdc82vqr78bl" path="res://TileMaps/Grass01-Layers.tscn" id="2_egny0"]
@@ -17,10 +17,15 @@
 [ext_resource type="Resource" uid="uid://rl0m6te01x6e" path="res://Quests/Recover Lost Flute.tres" id="14_e0w6g"]
 [ext_resource type="PackedScene" uid="uid://bn23a0iffxksv" path="res://Props/pot/pot.tscn" id="15_7768e"]
 [ext_resource type="PackedScene" uid="uid://bt0tt4ehxd5dy" path="res://Props/Teleporter/teleporter.tscn" id="16_0ibue"]
+[ext_resource type="PackedScene" uid="uid://b1e4t5l6ae54n" path="res://Items/Item_pickup/item_pickup.tscn" id="16_5kwlu"]
 [ext_resource type="PackedScene" uid="uid://1mc2d7asutse" path="res://Props/interactables/dungeon/PressurePlate.tscn" id="17_4ulh4"]
+[ext_resource type="Resource" uid="uid://cpeafixuhmoll" path="res://Items/a_ninja_suit.tres" id="17_pc7e2"]
+[ext_resource type="Resource" uid="uid://dj2mo5ws2llt" path="res://Items/a_tunic.tres" id="18_8wfnl"]
 [ext_resource type="PackedScene" uid="uid://dtq5kja5b6d2m" path="res://Quests/Utility Nodes/quest_advanced_trigger.tscn" id="18_h7kuw"]
 [ext_resource type="Resource" uid="uid://xut5uqusvwjw" path="res://Quests/long_quest.tres" id="19_7gbtw"]
 [ext_resource type="PackedScene" uid="uid://bd18ibshsp8gh" path="res://Quests/Utility Nodes/QuestActivatedSwitch.tscn" id="21_c203d"]
+[ext_resource type="Resource" uid="uid://ddv1rexa6ocf8" path="res://Items/w_iron_sword.tres" id="25_muhii"]
+[ext_resource type="Resource" uid="uid://ccfpng58b4q77" path="res://Items/w_katana.tres" id="26_jvcca"]
 
 [sub_resource type="GDScript" id="GDScript_668tg"]
 script/source = "extends Node
@@ -366,3 +371,19 @@ Checking if quest is complete."
 
 [node name="Pot2" parent="QuestActivatedSwitch5" instance=ExtResource("15_7768e")]
 show_behind_parent = true
+
+[node name="ItemPickup" parent="." instance=ExtResource("16_5kwlu")]
+position = Vector2(409, 49)
+item_data = ExtResource("17_pc7e2")
+
+[node name="ItemPickup2" parent="." instance=ExtResource("16_5kwlu")]
+position = Vector2(349, 48)
+item_data = ExtResource("18_8wfnl")
+
+[node name="ItemPickup3" parent="." instance=ExtResource("16_5kwlu")]
+position = Vector2(425, 113)
+item_data = ExtResource("25_muhii")
+
+[node name="ItemPickup4" parent="." instance=ExtResource("16_5kwlu")]
+position = Vector2(365, 112)
+item_data = ExtResource("26_jvcca")
