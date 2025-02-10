@@ -1,10 +1,11 @@
 class_name StatsPanel extends PanelContainer
 
-@onready var lvl_stat: Label = $VBoxContainer/LevelContainer/lvl_stat
-@onready var xp_stat: Label = $VBoxContainer/XPContainer/xp_stat
-@onready var atk_stat: Label = $VBoxContainer/ATKContainer/ATK_stat
-@onready var def_stat: Label = $VBoxContainer/DEFContainer/DEF_stat
-
+@onready var lvl_stat: Label = %lvl_stat
+@onready var xp_stat: Label = %xp_stat
+@onready var atk_stat: Label = %ATK_stat
+@onready var def_stat: Label = %DEF_stat
+@onready var atk_change: Label = %ATK_change
+@onready var def_change: Label = %DEF_change
 
 func _ready() -> void:
 	PauseMenu.shown.connect ( update_stats )
