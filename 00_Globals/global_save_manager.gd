@@ -59,12 +59,12 @@ func load_game() -> void:
 	PlayerManager.player.xp = current_save.player.xp
 	PlayerManager.player.atk = current_save.player.atk
 	PlayerManager.player.def = current_save.player.def
-	
+		
 	print (current_save.items)
 	print (current_save.drops)
 	PlayerManager.INVENTORY_DATA.parse_save_data( current_save.items )
 	QuestManager.current_quests = current_save.quests
-	
+	PlayerManager.player._on_equipment_changed()
 	await LevelManager.level_loaded
 	
 	game_loaded.emit()

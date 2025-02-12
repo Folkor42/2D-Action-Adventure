@@ -41,6 +41,7 @@ func _setup_title_Screen() -> void:
 func _start_game() -> void:
 	play_audio( button_pressed_audio )
 	LevelManager.load_new_level( START_LEVEL, "",Vector2.ZERO )
+	PlayerManager.player._on_equipment_changed()
 	pass
 
 func _load_game() -> void:

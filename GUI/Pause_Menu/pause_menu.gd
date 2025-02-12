@@ -2,6 +2,7 @@ extends CanvasLayer
 
 signal shown
 signal hidden
+signal preview_stats_changed ( item : ItemData )
 
 @onready var audio_stream_player = $AudioStreamPlayer
 
@@ -83,3 +84,15 @@ func play_sound ( audio : AudioStream ) -> void:
 	audio_stream_player.stream = audio
 	audio_stream_player.play()
 	pass
+
+func focused_item_changed ( slot : SlotData ) -> void:
+	if slot:
+		if slot.item_data:
+			update_item_description(slot.item_data.description)
+			preview_stats( slot.item_data )
+	else:
+		update_item_description("")
+		preview_stats( null )
+
+func preview_stats ( item : ItemData ) -> void:
+	preview_stats_changed.emit( item )

@@ -15,6 +15,7 @@ func _ready() -> void:
 	PauseMenu.shown.connect( update_inventory )
 	PauseMenu.hidden.connect( clear_inventory )
 	data.changed.connect( on_inventory_changed )
+	data.equipment_changed.connect( on_inventory_changed )
 	
 	pass
 
@@ -45,9 +46,7 @@ func update_inventory( apply_focus : bool = true ) -> void:
 	pass
 
 func on_inventory_changed() -> void:
-	if PauseMenu.is_paused:
-		clear_inventory()
-		update_inventory( focus_index )
+	update_inventory( false )
 	pass
 
 func item_focused() -> void:

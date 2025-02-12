@@ -100,3 +100,62 @@ func use_item ( item : ItemData, count : int = 1 ) -> bool:
 					print ("BUG CONDITION!")
 				return true
 	return false
+
+func equip_item ( slot : SlotData ) -> void:
+	if slot == null or not slot.item_data is EquipableItemData:
+		return
+	
+	var item : EquipableItemData = slot.item_data
+	var slot_index : int = slots.find ( slot )
+	var equipment_index : int = slots.size() - equipment_slot_count
+	
+	match item.type:
+		EquipableItemData.Type.ARMOR:
+			equipment_index+=0
+		EquipableItemData.Type.WEAPON:
+			equipment_index+=1
+		EquipableItemData.Type.AMULET:
+			equipment_index+=2
+		EquipableItemData.Type.RING:
+			equipment_index+=0
+	
+	var unequiped_slot : SlotData = slots[ equipment_index ]
+	
+	slots[ slot_index ] = unequiped_slot
+	slots[ equipment_index ] = slot
+	
+	equipment_changed.emit()
+	PauseMenu.focused_item_changed( unequiped_slot )
+	pass
+
+func get_attack_bonus () -> int:
+	return get_equipment_bonus( EquipableItemModifier.Type.ATTACK )
+
+func get_attack_bonus_diff( item : EquipableItemData ) -> int:
+	var before : int = get_attack_bonus()
+	var after : int = get_equipment_bonus( EquipableItemModifier.Type.ATTACK, item)
+	return after-before
+	
+func get_defense_bonus () -> int:
+	return get_equipment_bonus( EquipableItemModifier.Type.DEFENSE )
+
+func get_defense_bonus_diff( item : EquipableItemData ) -> int:
+	var before : int = get_attack_bonus()
+	var after : int = get_equipment_bonus( EquipableItemModifier.Type.DEFENSE, item)
+	return after-before
+	
+func get_equipment_bonus ( bonus_type : EquipableItemModifier.Type, compare : EquipableItemData = null ) -> int:
+	var bonus : int = 0
+	
+	for s in equipment_slots():
+		if s == null:
+			continue
+		var e : EquipableItemData = s.item_data
+		if compare:
+			if e.type == compare.type:
+				e=compare
+		for m in e.modifiers:
+			if m.type == bonus_type:
+				bonus += m.value
+	
+	return bonus
