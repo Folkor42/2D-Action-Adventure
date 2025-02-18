@@ -28,6 +28,7 @@ SaveManager="*res://00_Globals/global_save_manager.gd"
 DialogSystem="*res://GUI/Dialog_System/Dialog_System.tscn"
 QuestManager="*res://Quests/Scripts/Global_Quest_Manager.gd"
 EffectManager="*res://00_Globals/global_effect_manager.gd"
+PM="*res://scenes/performance_monitor.tscn"
 
 [display]
 
@@ -123,6 +124,11 @@ right_bumper={
 left_bumper={
 "deadzone": 0.5,
 "events": [Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":9,"pressure":0.0,"pressed":true,"script":null)
+]
+}
+toggle_performance={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":96,"key_label":0,"unicode":96,"location":0,"echo":false,"script":null)
 ]
 }
 

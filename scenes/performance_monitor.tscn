@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://rw2aw4ae3m72"]
+
+[ext_resource type="FontFile" uid="uid://ccjnepwjede8w" path="res://GUI/Fonts/m5x7.ttf" id="1_2jlqi"]
+[ext_resource type="Script" path="res://Scenes/performance_monitor.gd" id="1_wje3i"]
+
+[node name="Performance Monitor" type="CanvasLayer"]
+script = ExtResource("1_wje3i")
+
+[node name="StatsContainer" type="PanelContainer" parent="."]
+visible = false
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -64.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="StatsDisplay" type="VBoxContainer" parent="StatsContainer"]
+layout_mode = 2
+
+[node name="FPSLabel" type="Label" parent="StatsContainer/StatsDisplay"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_2jlqi")
+
+[node name="MemoryLabel" type="Label" parent="StatsContainer/StatsDisplay"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_2jlqi")
+
+[node name="ObjectsLabel" type="Label" parent="StatsContainer/StatsDisplay"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_2jlqi")
+
+[node name="DrawLabel" type="Label" parent="StatsContainer/StatsDisplay"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_2jlqi")
