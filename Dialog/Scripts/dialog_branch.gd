@@ -8,6 +8,9 @@ signal selected
 
 var dialog_items : Array [ DialogItem ]
 
+func ignore_me()->void:
+	selected.emit()
+	
 func _ready() -> void:
 	super()
 	

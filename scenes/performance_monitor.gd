@@ -10,7 +10,7 @@ extends CanvasLayer
 func ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	fps_label.text = (
 		"FPS: %.1f (Process: %2f ms)" 
 		% [
