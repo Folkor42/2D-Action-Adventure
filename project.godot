@@ -28,7 +28,6 @@ SaveManager="*res://00_Globals/global_save_manager.gd"
 DialogSystem="*res://GUI/Dialog_System/Dialog_System.tscn"
 QuestManager="*res://Quests/Scripts/Global_Quest_Manager.gd"
 EffectManager="*res://00_Globals/global_effect_manager.gd"
-PM="*res://scenes/performance_monitor.tscn"
 
 [display]
 
@@ -42,6 +41,10 @@ window/stretch/mode="canvas_items"
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/juice_my_editor/plugin.cfg")
+
+[global_group]
+
+tilemaps="timemaps with footstep sounds"
 
 [gui]
 

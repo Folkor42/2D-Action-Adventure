@@ -55,6 +55,8 @@ func teleport(destination)->void:
 	_player_entered()
 	pass
 
+func ignore_me()->void:
+	teleport_menu_request.emit()
 
 func _player_entered () -> void:
 	teleport_button.monitoring = false	
