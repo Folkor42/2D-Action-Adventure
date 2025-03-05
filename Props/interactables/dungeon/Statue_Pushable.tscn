@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://cviolhgw0qpup"]
 
-[ext_resource type="Script" path="res://Props/interactables/dungeon/scripts/push_statue.gd" id="1_rkwtp"]
+[ext_resource type="Script" uid="uid://2q4j0ybju55v" path="res://Props/interactables/dungeon/scripts/push_statue.gd" id="1_rkwtp"]
 [ext_resource type="Texture2D" uid="uid://crp8308h85ffp" path="res://Props/interactables/dungeon/dungeon_props.png" id="2_trrk6"]
 [ext_resource type="AudioStream" uid="uid://cy5xk7rlsc72u" path="res://Props/interactables/dungeon/push_stone.wav" id="3_nnxi3"]
 [ext_resource type="PackedScene" uid="uid://cduxmy5l020sm" path="res://General Nodes/PersistentDataHandler/persistent_data_handler.tscn" id="4_xuw1x"]

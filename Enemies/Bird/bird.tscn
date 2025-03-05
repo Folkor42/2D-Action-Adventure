@@ -1,17 +1,17 @@
 [gd_scene load_steps=33 format=3 uid="uid://ddu7421pe1drc"]
 
-[ext_resource type="Script" path="res://Enemies/scripts/enemy.gd" id="1_r6e3d"]
+[ext_resource type="Script" uid="uid://cccirfrv8kijq" path="res://Enemies/scripts/enemy.gd" id="1_r6e3d"]
 [ext_resource type="Texture2D" uid="uid://bbn1y3etw8abv" path="res://player/assets/Shadow.png" id="2_p7nxx"]
 [ext_resource type="PackedScene" uid="uid://qlwg2e7oxfae" path="res://General Nodes/HurtBox/hurt_box.tscn" id="3_n3xxp"]
 [ext_resource type="Texture2D" uid="uid://cd0eacnr4e6sx" path="res://Enemies/Bird/BIRDSPRITESHEET_White.png" id="4_18dav"]
 [ext_resource type="PackedScene" uid="uid://celtqki70mpck" path="res://General Nodes/HitBox/hit_box.tscn" id="4_ywm3j"]
 [ext_resource type="AudioStream" uid="uid://h32w47m7bsh2" path="res://Enemies/Slime/hit_01.wav" id="6_l274r"]
 [ext_resource type="AudioStream" uid="uid://c1q8ur3rw2wio" path="res://Enemies/Slime/hit_00.wav" id="7_0j1fr"]
-[ext_resource type="Script" path="res://Enemies/scripts/Enemy_State_Machine.gd" id="8_e8pom"]
-[ext_resource type="Script" path="res://Enemies/scripts/States/enemy_state_idle.gd" id="9_64oiu"]
-[ext_resource type="Script" path="res://Enemies/scripts/States/enemy_state_wander.gd" id="10_84se4"]
-[ext_resource type="Script" path="res://Enemies/scripts/States/enemy_state_stun.gd" id="11_h4opd"]
-[ext_resource type="Script" path="res://Enemies/scripts/States/enemy_state_destroy.gd" id="12_312nm"]
+[ext_resource type="Script" uid="uid://yh1jhhut56gt" path="res://Enemies/scripts/Enemy_State_Machine.gd" id="8_e8pom"]
+[ext_resource type="Script" uid="uid://bwv03luy34qwo" path="res://Enemies/scripts/States/enemy_state_idle.gd" id="9_64oiu"]
+[ext_resource type="Script" uid="uid://dsb5ipjht8x42" path="res://Enemies/scripts/States/enemy_state_wander.gd" id="10_84se4"]
+[ext_resource type="Script" uid="uid://dk3tkuf3dumqf" path="res://Enemies/scripts/States/enemy_state_stun.gd" id="11_h4opd"]
+[ext_resource type="Script" uid="uid://tt7tm75vllbm" path="res://Enemies/scripts/States/enemy_state_destroy.gd" id="12_312nm"]
 [ext_resource type="Texture2D" uid="uid://lylujw8h7bgc" path="res://Enemies/sprites/DestroySmoke.png" id="13_0am0r"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fvu7m"]
@@ -645,19 +645,19 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_81ae0"]
 _data = {
-"RESET": SubResource("Animation_6oive"),
-"destroy_down": SubResource("Animation_8dgnb"),
-"destroy_side": SubResource("Animation_qmnfy"),
-"destroy_up": SubResource("Animation_crhbn"),
-"idle_down": SubResource("Animation_jxvih"),
-"idle_side": SubResource("Animation_jakpb"),
-"idle_up": SubResource("Animation_50d1u"),
-"stun_down": SubResource("Animation_l8vk4"),
-"stun_side": SubResource("Animation_55aqv"),
-"stun_up": SubResource("Animation_ygqnk"),
-"walk_down": SubResource("Animation_lttmk"),
-"walk_side": SubResource("Animation_4u5g0"),
-"walk_up": SubResource("Animation_lrelt")
+&"RESET": SubResource("Animation_6oive"),
+&"destroy_down": SubResource("Animation_8dgnb"),
+&"destroy_side": SubResource("Animation_qmnfy"),
+&"destroy_up": SubResource("Animation_crhbn"),
+&"idle_down": SubResource("Animation_jxvih"),
+&"idle_side": SubResource("Animation_jakpb"),
+&"idle_up": SubResource("Animation_50d1u"),
+&"stun_down": SubResource("Animation_l8vk4"),
+&"stun_side": SubResource("Animation_55aqv"),
+&"stun_up": SubResource("Animation_ygqnk"),
+&"walk_down": SubResource("Animation_lttmk"),
+&"walk_side": SubResource("Animation_4u5g0"),
+&"walk_up": SubResource("Animation_lrelt")
 }
 
 [sub_resource type="Animation" id="Animation_s6q6k"]
@@ -741,8 +741,8 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_468kt"]
 _data = {
-"Destroy": SubResource("Animation_s6q6k"),
-"RESET": SubResource("Animation_jmuuv")
+&"Destroy": SubResource("Animation_s6q6k"),
+&"RESET": SubResource("Animation_jmuuv")
 }
 
 [node name="Bird" type="CharacterBody2D"]

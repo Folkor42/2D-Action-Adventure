@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://b13eoffsps27p"]
 
-[ext_resource type="Script" path="res://Levels/level.gd" id="1_n6ykr"]
+[ext_resource type="Script" uid="uid://cp86arrmyhw7x" path="res://Levels/level.gd" id="1_n6ykr"]
 [ext_resource type="PackedScene" uid="uid://c5l0npjs1vnw" path="res://assets/Tile Maps/dungeon.tscn" id="2_q2mhx"]
 [ext_resource type="PackedScene" uid="uid://6itqmku4udbn" path="res://Levels/player_spawn.tscn" id="3_fopya"]
 [ext_resource type="PackedScene" uid="uid://dencaf8xx08iu" path="res://Enemies/Slime/slime.tscn" id="4_h2rmx"]

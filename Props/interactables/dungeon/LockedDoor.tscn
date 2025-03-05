@@ -1,11 +1,11 @@
 [gd_scene load_steps=15 format=3 uid="uid://b0btxn5ny71h8"]
 
-[ext_resource type="Script" path="res://Props/interactables/dungeon/scripts/locked_door.gd" id="1_sxqti"]
+[ext_resource type="Script" uid="uid://rxccr1yp4fxl" path="res://Props/interactables/dungeon/scripts/locked_door.gd" id="1_sxqti"]
 [ext_resource type="Texture2D" uid="uid://crp8308h85ffp" path="res://Props/interactables/dungeon/dungeon_props.png" id="2_uu5xb"]
 [ext_resource type="Resource" uid="uid://b36q1y3urywy2" path="res://Items/Key_dungeon.tres" id="2_ybuwo"]
 [ext_resource type="AudioStream" uid="uid://c4wut5feocl5m" path="res://Props/interactables/dungeon/unlock_door.wav" id="3_pwhqq"]
 [ext_resource type="AudioStream" uid="uid://fjsju2ek32ym" path="res://Props/interactables/dungeon/locked_door.wav" id="4_f36xo"]
-[ext_resource type="Script" path="res://General Nodes/PersistentDataHandler/persistant_data_handler.gd" id="5_uyf3a"]
+[ext_resource type="Script" uid="uid://bsgy2pa2bxpq4" path="res://General Nodes/PersistentDataHandler/persistant_data_handler.gd" id="5_uyf3a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pmlm1"]
 size = Vector2(64, 68)
@@ -149,11 +149,11 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ahy8s"]
 _data = {
-"RESET": SubResource("Animation_osg5p"),
-"close_door": SubResource("Animation_fajd7"),
-"closed": SubResource("Animation_bcoyk"),
-"open_door": SubResource("Animation_lasp8"),
-"opened": SubResource("Animation_eigkm")
+&"RESET": SubResource("Animation_osg5p"),
+&"close_door": SubResource("Animation_fajd7"),
+&"closed": SubResource("Animation_bcoyk"),
+&"open_door": SubResource("Animation_lasp8"),
+&"opened": SubResource("Animation_eigkm")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ipk08"]

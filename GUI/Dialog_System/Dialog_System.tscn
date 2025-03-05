@@ -1,13 +1,13 @@
 [gd_scene load_steps=17 format=3 uid="uid://be8k71c58w3od"]
 
-[ext_resource type="Script" path="res://GUI/Dialog_System/Scripts/Dialog_System.gd" id="1_udy5y"]
+[ext_resource type="Script" uid="uid://bnxgoh5aisdwi" path="res://GUI/Dialog_System/Scripts/Dialog_System.gd" id="1_udy5y"]
 [ext_resource type="Texture2D" uid="uid://bir4s5a4740bf" path="res://GUI/Dialog_System/Sprites/text-bubble.png" id="2_tipxa"]
 [ext_resource type="FontFile" uid="uid://b1mnjonw2pcs2" path="res://GUI/Fonts/Abaddon Light.ttf" id="3_klru7"]
 [ext_resource type="FontFile" uid="uid://c73lh2ky8u5pa" path="res://GUI/Fonts/Abaddon Bold.ttf" id="4_8ebxh"]
 [ext_resource type="Texture2D" uid="uid://3cosof5g4p1b" path="res://NPCs/Sprites/portraits/npc_portrait_01.png" id="5_oycpi"]
 [ext_resource type="FontFile" uid="uid://ccjnepwjede8w" path="res://GUI/Fonts/m5x7.ttf" id="6_25yl5"]
 [ext_resource type="AudioStream" uid="uid://bx28hyymaqbp0" path="res://GUI/Dialog_System/Audio/voice_blip.wav" id="6_pde8h"]
-[ext_resource type="Script" path="res://GUI/Dialog_System/Scripts/Dialog_Portrait.gd" id="6_rh04r"]
+[ext_resource type="Script" uid="uid://c3x6qesyjr048" path="res://GUI/Dialog_System/Scripts/Dialog_Portrait.gd" id="6_rh04r"]
 [ext_resource type="Theme" uid="uid://c88p35ccy5hva" path="res://GUI/Dialog_System/dialog_choice_theme.tres" id="9_aej02"]
 
 [sub_resource type="Gradient" id="Gradient_gkkdg"]
@@ -73,8 +73,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2x8ag"]
 _data = {
-"Default": SubResource("Animation_honob"),
-"RESET": SubResource("Animation_gpotm")
+&"Default": SubResource("Animation_honob"),
+&"RESET": SubResource("Animation_gpotm")
 }
 
 [node name="DialogSystem" type="CanvasLayer"]

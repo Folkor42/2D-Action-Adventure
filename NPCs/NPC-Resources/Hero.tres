@@ -1,9 +1,8 @@
 [gd_resource type="Resource" script_class="NPCResource" load_steps=4 format=3 uid="uid://d1gnresmkuws"]
 
 [ext_resource type="Texture2D" uid="uid://cknodhi3ln2pr" path="res://NPCs/Sprites/portraits/hero_portrait.png" id="1_mecod"]
-[ext_resource type="Script" path="res://NPCs/Scripts/npc_resource.gd" id="1_pmx1u"]
+[ext_resource type="Script" uid="uid://k2emuwsalbue" path="res://NPCs/Scripts/npc_resource.gd" id="1_pmx1u"]
 [ext_resource type="Texture2D" uid="uid://wn8u0u5epjnq" path="res://player/assets/player_sprite.png" id="3_ssaah"]
-
 
 [resource]
 script = ExtResource("1_pmx1u")

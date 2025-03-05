@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://uqogtk7q00he"]
 
-[ext_resource type="Script" path="res://addons/juice_my_editor/juice_my_editor_node.gd" id="1_3hgs1"]
+[ext_resource type="Script" uid="uid://b36dnq5xdp15e" path="res://addons/juice_my_editor/juice_my_editor_node.gd" id="1_3hgs1"]
 [ext_resource type="AudioStream" uid="uid://iperybopdpps" path="res://addons/juice_my_editor/assets/press-01.wav" id="1_visqa"]
 [ext_resource type="AudioStream" uid="uid://vnptpobx52wo" path="res://addons/juice_my_editor/assets/click_right_01.wav" id="2_cotqp"]
 [ext_resource type="AudioStream" uid="uid://r4bify5il0kd" path="res://addons/juice_my_editor/assets/ui_key_scifi.wav" id="2_yfcpj"]
@@ -130,9 +130,9 @@ tracks/2/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_y15mi"]
 _data = {
-"RESET": SubResource("Animation_qv54k"),
-"clicked": SubResource("Animation_ptecj"),
-"clicked_right": SubResource("Animation_k4l5y")
+&"RESET": SubResource("Animation_qv54k"),
+&"clicked": SubResource("Animation_ptecj"),
+&"clicked_right": SubResource("Animation_k4l5y")
 }
 
 [node name="JuiceMyEditor" type="Control"]

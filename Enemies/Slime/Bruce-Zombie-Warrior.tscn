@@ -1,19 +1,19 @@
 [gd_scene load_steps=38 format=3 uid="uid://d1aynbiq7j5ny"]
 
-[ext_resource type="Script" path="res://Enemies/scripts/enemy.gd" id="1_dukn5"]
+[ext_resource type="Script" uid="uid://cccirfrv8kijq" path="res://Enemies/scripts/enemy.gd" id="1_dukn5"]
 [ext_resource type="Texture2D" uid="uid://bbn1y3etw8abv" path="res://player/assets/Shadow.png" id="2_x6kua"]
 [ext_resource type="PackedScene" uid="uid://qlwg2e7oxfae" path="res://General Nodes/HurtBox/hurt_box.tscn" id="3_k5x7c"]
 [ext_resource type="PackedScene" uid="uid://celtqki70mpck" path="res://General Nodes/HitBox/hit_box.tscn" id="4_78im0"]
 [ext_resource type="Texture2D" uid="uid://3j1dd013ju7s" path="res://Enemies/Slime/Bruce - Zombie Warrior.png" id="5_qoct3"]
 [ext_resource type="AudioStream" uid="uid://h32w47m7bsh2" path="res://Enemies/Slime/hit_01.wav" id="6_sx0ku"]
 [ext_resource type="AudioStream" uid="uid://c1q8ur3rw2wio" path="res://Enemies/Slime/hit_00.wav" id="7_xjd24"]
-[ext_resource type="Script" path="res://Enemies/scripts/Enemy_State_Machine.gd" id="8_qvyx0"]
-[ext_resource type="Script" path="res://Enemies/scripts/States/enemy_state_idle.gd" id="9_vwetb"]
-[ext_resource type="Script" path="res://Enemies/scripts/States/enemy_state_wander.gd" id="10_krfvp"]
-[ext_resource type="Script" path="res://Enemies/scripts/States/enemy_state_stun.gd" id="11_5bmro"]
-[ext_resource type="Script" path="res://Enemies/scripts/States/enemy_state_destroy.gd" id="12_u76o5"]
+[ext_resource type="Script" uid="uid://yh1jhhut56gt" path="res://Enemies/scripts/Enemy_State_Machine.gd" id="8_qvyx0"]
+[ext_resource type="Script" uid="uid://bwv03luy34qwo" path="res://Enemies/scripts/States/enemy_state_idle.gd" id="9_vwetb"]
+[ext_resource type="Script" uid="uid://dsb5ipjht8x42" path="res://Enemies/scripts/States/enemy_state_wander.gd" id="10_krfvp"]
+[ext_resource type="Script" uid="uid://dk3tkuf3dumqf" path="res://Enemies/scripts/States/enemy_state_stun.gd" id="11_5bmro"]
+[ext_resource type="Script" uid="uid://tt7tm75vllbm" path="res://Enemies/scripts/States/enemy_state_destroy.gd" id="12_u76o5"]
 [ext_resource type="Resource" uid="uid://3x506ndblw7e" path="res://Items/gem.tres" id="13_gfwqs"]
-[ext_resource type="Script" path="res://Enemies/scripts/drop_data.gd" id="14_07rw6"]
+[ext_resource type="Script" uid="uid://biqmwobcj1h3t" path="res://Enemies/scripts/drop_data.gd" id="14_07rw6"]
 [ext_resource type="Resource" uid="uid://c7awxyldslai1" path="res://Items/potion.tres" id="15_h3t7u"]
 [ext_resource type="Texture2D" uid="uid://lylujw8h7bgc" path="res://Enemies/sprites/DestroySmoke.png" id="16_ghmmi"]
 
@@ -695,19 +695,19 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_81ae0"]
 _data = {
-"RESET": SubResource("Animation_6oive"),
-"destroy_down": SubResource("Animation_8dgnb"),
-"destroy_side": SubResource("Animation_qmnfy"),
-"destroy_up": SubResource("Animation_crhbn"),
-"idle_down": SubResource("Animation_jxvih"),
-"idle_side": SubResource("Animation_jakpb"),
-"idle_up": SubResource("Animation_50d1u"),
-"stun_down": SubResource("Animation_l8vk4"),
-"stun_side": SubResource("Animation_55aqv"),
-"stun_up": SubResource("Animation_ygqnk"),
-"walk_down": SubResource("Animation_lttmk"),
-"walk_side": SubResource("Animation_4u5g0"),
-"walk_up": SubResource("Animation_lrelt")
+&"RESET": SubResource("Animation_6oive"),
+&"destroy_down": SubResource("Animation_8dgnb"),
+&"destroy_side": SubResource("Animation_qmnfy"),
+&"destroy_up": SubResource("Animation_crhbn"),
+&"idle_down": SubResource("Animation_jxvih"),
+&"idle_side": SubResource("Animation_jakpb"),
+&"idle_up": SubResource("Animation_50d1u"),
+&"stun_down": SubResource("Animation_l8vk4"),
+&"stun_side": SubResource("Animation_55aqv"),
+&"stun_up": SubResource("Animation_ygqnk"),
+&"walk_down": SubResource("Animation_lttmk"),
+&"walk_side": SubResource("Animation_4u5g0"),
+&"walk_up": SubResource("Animation_lrelt")
 }
 
 [sub_resource type="Resource" id="Resource_ksb1g"]
@@ -805,8 +805,8 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_468kt"]
 _data = {
-"Destroy": SubResource("Animation_s6q6k"),
-"RESET": SubResource("Animation_jmuuv")
+&"Destroy": SubResource("Animation_s6q6k"),
+&"RESET": SubResource("Animation_jmuuv")
 }
 
 [node name="Bruce Zombie Warrior" type="CharacterBody2D"]

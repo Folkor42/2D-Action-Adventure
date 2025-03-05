@@ -13,7 +13,7 @@ config_version=5
 config/name="2D Adventure Game"
 config/version="v0.1"
 run/main_scene="res://scenes/Title Screen.tscn"
-config/features=PackedStringArray("4.3")
+config/features=PackedStringArray("4.4")
 config/icon="res://assets/sword-knight-weapon-cartoon-vect.png"
 
 [autoload]

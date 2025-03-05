@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://dbnv814r0tw0b"]
 
-[ext_resource type="Script" path="res://Props/interactables/dungeon/treasure_chest/treasure_chest.gd" id="1_a4b3p"]
+[ext_resource type="Script" uid="uid://dixcmsxim2frr" path="res://Props/interactables/dungeon/treasure_chest/treasure_chest.gd" id="1_a4b3p"]
 [ext_resource type="Texture2D" uid="uid://bul4n0ietl54p" path="res://Props/interactables/dungeon/treasure_chest/treasure-chest.png" id="2_yeygc"]
 [ext_resource type="Texture2D" uid="uid://dv3n81hbaxgbp" path="res://Items/Sprites/items.png" id="3_kckxm"]
 [ext_resource type="AudioStream" uid="uid://x7612w3fcsed" path="res://Props/interactables/dungeon/treasure_chest/treasure-open.wav" id="4_kt6g6"]
@@ -184,10 +184,10 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_v82th"]
 _data = {
-"RESET": SubResource("Animation_ekv86"),
-"closed": SubResource("Animation_ff078"),
-"open_chest": SubResource("Animation_hu3ky"),
-"opened": SubResource("Animation_sr83o")
+&"RESET": SubResource("Animation_ekv86"),
+&"closed": SubResource("Animation_ff078"),
+&"open_chest": SubResource("Animation_hu3ky"),
+&"opened": SubResource("Animation_sr83o")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3nyjl"]

@@ -49,8 +49,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ejocr"]
 _data = {
-"RESET": SubResource("Animation_2fubr"),
-"explode": SubResource("Animation_xli2v")
+&"RESET": SubResource("Animation_2fubr"),
+&"explode": SubResource("Animation_xli2v")
 }
 
 [node name="EnergyExplosion" type="Sprite2D"]
