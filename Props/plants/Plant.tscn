@@ -1,10 +1,10 @@
 [gd_scene load_steps=14 format=3 uid="uid://b2wa6h01y1u05"]
 
-[ext_resource type="Script" path="res://Props/plants/plant.gd" id="1_1ovd3"]
+[ext_resource type="Script" uid="uid://b8b7xiyem4rsg" path="res://Props/plants/plant.gd" id="1_1ovd3"]
 [ext_resource type="Texture2D" uid="uid://ctbviluah4fcp" path="res://Props/sprites/Props.png" id="1_2n0mm"]
 [ext_resource type="Resource" uid="uid://3x506ndblw7e" path="res://Items/gem.tres" id="2_qm16l"]
 [ext_resource type="PackedScene" uid="uid://celtqki70mpck" path="res://General Nodes/HitBox/hit_box.tscn" id="3_dic0m"]
-[ext_resource type="Script" path="res://Enemies/scripts/drop_data.gd" id="3_u081j"]
+[ext_resource type="Script" uid="uid://biqmwobcj1h3t" path="res://Enemies/scripts/drop_data.gd" id="3_u081j"]
 [ext_resource type="PackedScene" uid="uid://q76iv0eifoxn" path="res://Props/interactables/throwable/throwable.tscn" id="6_2oxb2"]
 
 [sub_resource type="Resource" id="Resource_pph6u"]
@@ -57,8 +57,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8mwnc"]
 _data = {
-"RESET": SubResource("Animation_8qfwp"),
-"destroy": SubResource("Animation_ouuab")
+&"RESET": SubResource("Animation_8qfwp"),
+&"destroy": SubResource("Animation_ouuab")
 }
 
 [node name="Plant" type="Node2D"]

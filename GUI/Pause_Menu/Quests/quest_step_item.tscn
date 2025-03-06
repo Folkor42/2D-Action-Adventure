@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://d2fmvfr8uav12"]
 
-[ext_resource type="Script" path="res://GUI/Pause_Menu/Quests/quest_step_item.gd" id="1_fkhe2"]
+[ext_resource type="Script" uid="uid://b2spoehyha7v" path="res://GUI/Pause_Menu/Quests/quest_step_item.gd" id="1_fkhe2"]
 [ext_resource type="Texture2D" uid="uid://bxe5tcbcwhek4" path="res://GUI/Pause_Menu/Quests/Assets/checkbox.png" id="2_xfxgj"]
 
 [node name="Quest Step Item" type="Control"]

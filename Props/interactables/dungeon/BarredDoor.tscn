@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://uuorwl3ccl4o"]
 
-[ext_resource type="Script" path="res://Props/interactables/dungeon/scripts/barred_door.gd" id="1_tniw1"]
+[ext_resource type="Script" uid="uid://bifr84na6njqh" path="res://Props/interactables/dungeon/scripts/barred_door.gd" id="1_tniw1"]
 [ext_resource type="Texture2D" uid="uid://crp8308h85ffp" path="res://Props/interactables/dungeon/dungeon_props.png" id="2_jaw4f"]
 [ext_resource type="AudioStream" uid="uid://cqchyo0pxfl23" path="res://Props/interactables/dungeon/bars_open.wav" id="3_d46dl"]
 
@@ -175,11 +175,11 @@ tracks/2/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ahy8s"]
 _data = {
-"RESET": SubResource("Animation_osg5p"),
-"closed": SubResource("Animation_2enix"),
-"lower": SubResource("Animation_7uovs"),
-"opened": SubResource("Animation_0wbx5"),
-"raise": SubResource("Animation_ktb0t")
+&"RESET": SubResource("Animation_osg5p"),
+&"closed": SubResource("Animation_2enix"),
+&"lower": SubResource("Animation_7uovs"),
+&"opened": SubResource("Animation_0wbx5"),
+&"raise": SubResource("Animation_ktb0t")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pmlm1"]

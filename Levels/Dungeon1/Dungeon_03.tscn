@@ -1,17 +1,17 @@
 [gd_scene load_steps=42 format=4 uid="uid://bct025exww8io"]
 
-[ext_resource type="Script" path="res://Levels/level.gd" id="1_edmbt"]
+[ext_resource type="Script" uid="uid://cp86arrmyhw7x" path="res://Levels/level.gd" id="1_edmbt"]
 [ext_resource type="PackedScene" uid="uid://bax5njghf7lmn" path="res://assets/Tile Maps/DungeonLayer.tscn" id="2_1fnm1"]
 [ext_resource type="PackedScene" uid="uid://6itqmku4udbn" path="res://Levels/player_spawn.tscn" id="3_k64ae"]
 [ext_resource type="PackedScene" uid="uid://cqtftu4m687ui" path="res://Levels/level_transition.tscn" id="4_7tsmy"]
 [ext_resource type="PackedScene" uid="uid://cdwgxk66kpnyg" path="res://Props/torches/torch_dungeon.tscn" id="5_s3vse"]
-[ext_resource type="Script" path="res://Levels/Dungeon1/DarkWizard/scripts/DarkWizardBoss.gd" id="6_881mt"]
+[ext_resource type="Script" uid="uid://c0rbod780feta" path="res://Levels/Dungeon1/DarkWizard/scripts/DarkWizardBoss.gd" id="6_881mt"]
 [ext_resource type="PackedScene" uid="uid://brdgwmw38vuyy" path="res://Levels/Dungeon1/DarkWizard/energy_beam.tscn" id="6_f2wlq"]
 [ext_resource type="Texture2D" uid="uid://bkenvsnuofm88" path="res://Levels/Dungeon1/DarkWizard/sprites/boss-cloak.png" id="6_gbhjr"]
-[ext_resource type="Script" path="res://General Nodes/PersistentDataHandler/persistant_data_handler.gd" id="6_nacra"]
+[ext_resource type="Script" uid="uid://bsgy2pa2bxpq4" path="res://General Nodes/PersistentDataHandler/persistant_data_handler.gd" id="6_nacra"]
 [ext_resource type="Texture2D" uid="uid://cqcel3b0ff6no" path="res://Levels/Dungeon1/DarkWizard/sprites/boss-hand.png" id="7_x5lia"]
-[ext_resource type="Script" path="res://General Nodes/HurtBox/hurt_box.gd" id="8_p7to2"]
-[ext_resource type="Script" path="res://General Nodes/HitBox/hit_box.gd" id="9_0hat8"]
+[ext_resource type="Script" uid="uid://cqlt0fvr1eqgn" path="res://General Nodes/HurtBox/hurt_box.gd" id="8_p7to2"]
+[ext_resource type="Script" uid="uid://bmcbdunhux32c" path="res://General Nodes/HitBox/hit_box.gd" id="9_0hat8"]
 [ext_resource type="AudioStream" uid="uid://d2gvp3pnmvvn0" path="res://Levels/Dungeon1/DarkWizard/audio/boss_destroy.wav" id="11_27sxy"]
 [ext_resource type="PackedScene" uid="uid://durc8q4exbelu" path="res://General Nodes/ItemDropper/ItemDropper.tscn" id="14_6n7mq"]
 [ext_resource type="Resource" uid="uid://c11cp4ulx0hgc" path="res://Items/Magical Flute.tres" id="15_ykkhj"]
@@ -98,10 +98,10 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lvipt"]
 _data = {
-"RESET": SubResource("Animation_q2xxw"),
-"down": SubResource("Animation_g0sqp"),
-"side": SubResource("Animation_v1n88"),
-"up": SubResource("Animation_5yhbh")
+&"RESET": SubResource("Animation_q2xxw"),
+&"down": SubResource("Animation_g0sqp"),
+&"side": SubResource("Animation_v1n88"),
+&"up": SubResource("Animation_5yhbh")
 }
 
 [sub_resource type="Gradient" id="Gradient_w5g3e"]
@@ -628,12 +628,12 @@ tracks/5/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ks5ba"]
 _data = {
-"Idle": SubResource("Animation_etdke"),
-"RESET": SubResource("Animation_o8j27"),
-"appear": SubResource("Animation_bd22k"),
-"cast_spell": SubResource("Animation_eajbo"),
-"destroy": SubResource("Animation_bqut6"),
-"disappear": SubResource("Animation_ynyr4")
+&"Idle": SubResource("Animation_etdke"),
+&"RESET": SubResource("Animation_o8j27"),
+&"appear": SubResource("Animation_bd22k"),
+&"cast_spell": SubResource("Animation_eajbo"),
+&"destroy": SubResource("Animation_bqut6"),
+&"disappear": SubResource("Animation_ynyr4")
 }
 
 [sub_resource type="Animation" id="Animation_44va4"]
@@ -683,9 +683,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_j4gu3"]
 _data = {
-"RESET": SubResource("Animation_44va4"),
-"damaged": SubResource("Animation_5oa6y"),
-"default": SubResource("Animation_d64hm")
+&"RESET": SubResource("Animation_44va4"),
+&"damaged": SubResource("Animation_5oa6y"),
+&"default": SubResource("Animation_d64hm")
 }
 
 [sub_resource type="Gradient" id="Gradient_veq3y"]

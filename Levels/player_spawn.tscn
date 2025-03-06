@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://6itqmku4udbn"]
 
-[ext_resource type="Script" path="res://Levels/player_spawn.gd" id="1_jicqw"]
+[ext_resource type="Script" uid="uid://bx8rdg4e4c4yf" path="res://Levels/player_spawn.gd" id="1_jicqw"]
 [ext_resource type="Texture2D" uid="uid://wn8u0u5epjnq" path="res://player/assets/player_sprite.png" id="2_3rb4l"]
 
 [node name="PlayerSpawn" type="Node2D"]

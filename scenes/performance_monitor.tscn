@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://rw2aw4ae3m72"]
 
 [ext_resource type="FontFile" uid="uid://ccjnepwjede8w" path="res://GUI/Fonts/m5x7.ttf" id="1_2jlqi"]
-[ext_resource type="Script" path="res://Scenes/performance_monitor.gd" id="1_wje3i"]
+[ext_resource type="Script" uid="uid://cxy5hy6urau5n" path="res://Scenes/performance_monitor.gd" id="1_wje3i"]
 
 [node name="Performance Monitor" type="CanvasLayer"]
 script = ExtResource("1_wje3i")

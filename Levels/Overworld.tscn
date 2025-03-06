@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dookgc32kxm40"]
 
-[ext_resource type="Script" path="res://Levels/level.gd" id="1_jr4ru"]
+[ext_resource type="Script" uid="uid://cp86arrmyhw7x" path="res://Levels/level.gd" id="1_jr4ru"]
 [ext_resource type="PackedScene" uid="uid://c63irjba00054" path="res://assets/Tile Maps/terrain_tiles_v2.tscn" id="2_7qrjo"]
 [ext_resource type="PackedScene" uid="uid://6itqmku4udbn" path="res://Levels/player_spawn.tscn" id="2_skjj1"]
 

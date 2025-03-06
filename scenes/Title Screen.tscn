@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=4 uid="uid://cndrt5rk7dflr"]
 
-[ext_resource type="Script" path="res://scenes/Title Screen.gd" id="1_hetig"]
+[ext_resource type="Script" uid="uid://cyt05asfdkmuu" path="res://scenes/Title Screen.gd" id="1_hetig"]
 [ext_resource type="PackedScene" uid="uid://cviolhgw0qpup" path="res://Props/interactables/dungeon/Statue_Pushable.tscn" id="2_7mvba"]
 [ext_resource type="AudioStream" uid="uid://butg7t224mnkq" path="res://assets/waves.mp3" id="2_63awr"]
 [ext_resource type="AudioStream" uid="uid://cl0uwrawbc7ho" path="res://assets/menu_focus.wav" id="3_7qgrh"]
@@ -8,7 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://c2jm4s18ltluk" path="res://assets/menu_select.wav" id="4_naawc"]
 [ext_resource type="PackedScene" uid="uid://6itqmku4udbn" path="res://Levels/player_spawn.tscn" id="5_e6nwd"]
 [ext_resource type="Texture2D" uid="uid://nl3oyq4qol8j" path="res://assets/Tile Maps/Sprites/dungeon.png" id="5_u38fa"]
-[ext_resource type="Script" path="res://TileMaps/LevelTileMapLayer.gd" id="6_4b0xr"]
+[ext_resource type="Script" uid="uid://cynhwc0lxdjiy" path="res://TileMaps/LevelTileMapLayer.gd" id="6_4b0xr"]
 [ext_resource type="PackedScene" uid="uid://cn5rteoxnoscc" path="res://splash_screen.tscn" id="8_uwlh5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v6ejt"]
@@ -294,8 +294,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bkynt"]
 _data = {
-"RESET": SubResource("Animation_i8xw0"),
-"default": SubResource("Animation_ds8dd")
+&"RESET": SubResource("Animation_i8xw0"),
+&"default": SubResource("Animation_ds8dd")
 }
 
 [node name="TitleScreen" type="Node2D"]

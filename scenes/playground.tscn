@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://g8qrdnggy4rx"]
 
-[ext_resource type="Script" path="res://Levels/level.gd" id="1_rc30k"]
+[ext_resource type="Script" uid="uid://cp86arrmyhw7x" path="res://Levels/level.gd" id="1_rc30k"]
 [ext_resource type="PackedScene" uid="uid://bgtod07o6p5jg" path="res://TileMaps/Grass01.tscn" id="1_wpgwe"]
 [ext_resource type="PackedScene" uid="uid://b2wa6h01y1u05" path="res://Props/plants/Plant.tscn" id="3_syd42"]
 [ext_resource type="PackedScene" uid="uid://dencaf8xx08iu" path="res://Enemies/Slime/slime.tscn" id="4_5h2xl"]

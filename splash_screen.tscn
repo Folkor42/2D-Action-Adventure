@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://cn5rteoxnoscc"]
 
-[ext_resource type="Script" path="res://SplashScreen.gd" id="1_fc5nc"]
+[ext_resource type="Script" uid="uid://c5wa8lx2b0mxs" path="res://SplashScreen.gd" id="1_fc5nc"]
 [ext_resource type="Texture2D" uid="uid://cegmkvw67glme" path="res://assets/NyeDigitalGames.png" id="2_8c41b"]
 
 [sub_resource type="Animation" id="Animation_da3gj"]
@@ -36,8 +36,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3m353"]
 _data = {
-"RESET": SubResource("Animation_da3gj"),
-"default": SubResource("Animation_q42qv")
+&"RESET": SubResource("Animation_da3gj"),
+&"default": SubResource("Animation_q42qv")
 }
 
 [node name="SplashScreen" type="Control"]

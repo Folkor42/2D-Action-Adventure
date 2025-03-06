@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="NPCResource" load_steps=4 format=3 uid="uid://dfamabae8noe6"]
 
 [ext_resource type="Texture2D" uid="uid://buwdllqyb4mk4" path="res://NPCs/Sprites/portraits/npc_portrait_02.png" id="1_3wa0x"]
-[ext_resource type="Script" path="res://NPCs/Scripts/npc_resource.gd" id="2_6vk86"]
+[ext_resource type="Script" uid="uid://k2emuwsalbue" path="res://NPCs/Scripts/npc_resource.gd" id="2_6vk86"]
 [ext_resource type="Texture2D" uid="uid://c30f6iwywijwl" path="res://NPCs/Sprites/npc_sprite_02.png" id="3_fdveb"]
 
 [resource]

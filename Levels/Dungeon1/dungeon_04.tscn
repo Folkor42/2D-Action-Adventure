@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=4 uid="uid://c85sqggyusboa"]
 
-[ext_resource type="Script" path="res://Levels/level.gd" id="1_jhxrk"]
+[ext_resource type="Script" uid="uid://cp86arrmyhw7x" path="res://Levels/level.gd" id="1_jhxrk"]
 [ext_resource type="PackedScene" uid="uid://bax5njghf7lmn" path="res://assets/Tile Maps/DungeonLayer.tscn" id="2_upk1w"]
 [ext_resource type="PackedScene" uid="uid://6itqmku4udbn" path="res://Levels/player_spawn.tscn" id="3_388vo"]
 [ext_resource type="PackedScene" uid="uid://cqtftu4m687ui" path="res://Levels/level_transition.tscn" id="4_8b5gl"]
