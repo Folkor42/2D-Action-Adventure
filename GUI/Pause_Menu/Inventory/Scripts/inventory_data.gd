@@ -159,3 +159,9 @@ func get_equipment_bonus ( bonus_type : EquipableItemModifier.Type, compare : Eq
 				bonus += m.value
 	
 	return bonus
+
+func swap_items_by_index ( i1 : int, i2 : int ) -> void:
+	var temp : SlotData = slots[ i1 ]
+	slots[ i1 ] = slots[ i2 ]
+	slots[ i2 ] = temp
+	pass
