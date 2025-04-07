@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://nav6ct5sxo44"]
+[gd_scene load_steps=10 format=4 uid="uid://nav6ct5sxo44"]
 
 [ext_resource type="PackedScene" uid="uid://bxtvifeyiv54v" path="res://TileMaps/shop_tile_map_layer.tscn" id="1_hs7xl"]
 [ext_resource type="Script" uid="uid://cp86arrmyhw7x" path="res://Levels/level.gd" id="1_libvq"]
@@ -7,9 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://b04ucc504op4r" path="res://NPCs/NPC.tscn" id="3_libvq"]
 [ext_resource type="PackedScene" uid="uid://6itqmku4udbn" path="res://Levels/player_spawn.tscn" id="5_46i0x"]
 [ext_resource type="PackedScene" uid="uid://cqtftu4m687ui" path="res://Levels/level_transition.tscn" id="6_46i0x"]
-[ext_resource type="PackedScene" uid="uid://b1e4t5l6ae54n" path="res://Items/Item_pickup/item_pickup.tscn" id="8_p7qku"]
-[ext_resource type="Resource" uid="uid://cpeafixuhmoll" path="res://Items/a_ninja_suit.tres" id="9_pu80h"]
-[ext_resource type="Resource" uid="uid://ccfpng58b4q77" path="res://Items/w_katana.tres" id="10_bcg4g"]
+[ext_resource type="Resource" uid="uid://ciomrh84wvaq1" path="res://NPCs/NPC-Resources/shopkeeper.tres" id="6_fitkl"]
+[ext_resource type="PackedScene" uid="uid://ckikerjty827s" path="res://Props/Fishbowl/fishbowl.tscn" id="8_xw2fr"]
 
 [node name="ShopInterior" type="Node2D"]
 script = ExtResource("1_libvq")
@@ -36,6 +35,7 @@ position = Vector2(375, 287)
 
 [node name="NPC" parent="." instance=ExtResource("3_libvq")]
 position = Vector2(245, 161)
+npc_resource = ExtResource("6_fitkl")
 
 [node name="PlayerSpawn" parent="." instance=ExtResource("5_46i0x")]
 position = Vector2(322, 280)
@@ -48,12 +48,5 @@ center_player = true
 size = 1
 side = 3
 
-[node name="ItemPickup" parent="." instance=ExtResource("8_p7qku")]
-z_index = 5
-position = Vector2(192, 157.942)
-item_data = ExtResource("9_pu80h")
-
-[node name="ItemPickup4" parent="." instance=ExtResource("8_p7qku")]
-z_index = 5
-position = Vector2(293, 157.959)
-item_data = ExtResource("10_bcg4g")
+[node name="Fishbowl" parent="." instance=ExtResource("8_xw2fr")]
+position = Vector2(301, 151)
