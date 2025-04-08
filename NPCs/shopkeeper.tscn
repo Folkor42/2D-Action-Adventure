@@ -1,0 +1,55 @@
+[gd_scene load_steps=9 format=3 uid="uid://dipjeleb616t8"]
+
+[ext_resource type="PackedScene" uid="uid://b04ucc504op4r" path="res://NPCs/NPC.tscn" id="1_2ca22"]
+[ext_resource type="Script" uid="uid://e14468mw6b4m" path="res://NPCs/shopkeeper.gd" id="1_h4g5l"]
+[ext_resource type="Resource" uid="uid://ciomrh84wvaq1" path="res://NPCs/NPC-Resources/shopkeeper.tres" id="2_mf6ew"]
+[ext_resource type="PackedScene" uid="uid://233g56eroy73" path="res://Dialog/Dialog_interaction.tscn" id="3_el32v"]
+[ext_resource type="Script" uid="uid://cmvjpelqev60u" path="res://Dialog/Scripts/Dialog_text.gd" id="4_el32v"]
+[ext_resource type="Script" uid="uid://eo70hg5i63cx" path="res://Dialog/Scripts/Dialog_choice.gd" id="5_h4g5l"]
+[ext_resource type="Script" uid="uid://d3jqc3375b7dr" path="res://Dialog/Scripts/dialog_branch.gd" id="6_0tqeu"]
+[ext_resource type="Resource" uid="uid://d1gnresmkuws" path="res://NPCs/NPC-Resources/Hero.tres" id="6_h4g5l"]
+
+[node name="Shopkeeper" type="Node2D"]
+script = ExtResource("1_h4g5l")
+shop_inventory = null
+
+[node name="NPC" parent="." instance=ExtResource("1_2ca22")]
+npc_resource = ExtResource("2_mf6ew")
+
+[node name="DialogInteraction" parent="NPC" instance=ExtResource("3_el32v")]
+
+[node name="CollisionShape2D" parent="NPC/DialogInteraction" index="0"]
+position = Vector2(0, 10)
+
+[node name="DialogText" type="Node" parent="NPC/DialogInteraction"]
+script = ExtResource("4_el32v")
+text = "
+Interested in my wares?"
+npc_info = ExtResource("2_mf6ew")
+metadata/_custom_type_script = "uid://cmvjpelqev60u"
+
+[node name="DialogChoice" type="Node" parent="NPC/DialogInteraction"]
+script = ExtResource("5_h4g5l")
+npc_info = ExtResource("6_h4g5l")
+metadata/_custom_type_script = "uid://eo70hg5i63cx"
+
+[node name="DialogBranch" type="Node" parent="NPC/DialogInteraction/DialogChoice"]
+script = ExtResource("6_0tqeu")
+text = "Yes"
+npc_info = ExtResource("6_h4g5l")
+metadata/_custom_type_script = "uid://d3jqc3375b7dr"
+
+[node name="DialogBranch2" type="Node" parent="NPC/DialogInteraction/DialogChoice"]
+script = ExtResource("6_0tqeu")
+text = "No thank you!"
+npc_info = ExtResource("6_h4g5l")
+metadata/_custom_type_script = "uid://d3jqc3375b7dr"
+
+[node name="DialogText" type="Node" parent="NPC/DialogInteraction/DialogChoice/DialogBranch2"]
+script = ExtResource("4_el32v")
+text = "
+Maybe next time then."
+npc_info = ExtResource("2_mf6ew")
+metadata/_custom_type_script = "uid://cmvjpelqev60u"
+
+[editable path="NPC/DialogInteraction"]

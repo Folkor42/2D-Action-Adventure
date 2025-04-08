@@ -9,5 +9,5 @@ script = ExtResource("1_krijm")
 npc_name = "Zoolander"
 sprite = ExtResource("3_6wfua")
 portrait = ExtResource("1_ycq08")
-dialog_audio_pitch = 1.0
+dialog_audio_pitch = 1.8
 metadata/_custom_type_script = "uid://k2emuwsalbue"

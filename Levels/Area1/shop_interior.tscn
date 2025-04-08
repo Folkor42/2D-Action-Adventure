@@ -1,14 +1,19 @@
-[gd_scene load_steps=10 format=4 uid="uid://nav6ct5sxo44"]
+[gd_scene load_steps=15 format=4 uid="uid://nav6ct5sxo44"]
 
 [ext_resource type="PackedScene" uid="uid://bxtvifeyiv54v" path="res://TileMaps/shop_tile_map_layer.tscn" id="1_hs7xl"]
 [ext_resource type="Script" uid="uid://cp86arrmyhw7x" path="res://Levels/level.gd" id="1_libvq"]
 [ext_resource type="PackedScene" uid="uid://bn23a0iffxksv" path="res://Props/pot/pot.tscn" id="2_hn8ao"]
 [ext_resource type="Script" uid="uid://cynhwc0lxdjiy" path="res://TileMaps/LevelTileMapLayer.gd" id="3_a4qpj"]
-[ext_resource type="PackedScene" uid="uid://b04ucc504op4r" path="res://NPCs/NPC.tscn" id="3_libvq"]
 [ext_resource type="PackedScene" uid="uid://6itqmku4udbn" path="res://Levels/player_spawn.tscn" id="5_46i0x"]
 [ext_resource type="PackedScene" uid="uid://cqtftu4m687ui" path="res://Levels/level_transition.tscn" id="6_46i0x"]
-[ext_resource type="Resource" uid="uid://ciomrh84wvaq1" path="res://NPCs/NPC-Resources/shopkeeper.tres" id="6_fitkl"]
+[ext_resource type="PackedScene" uid="uid://dipjeleb616t8" path="res://NPCs/shopkeeper.tscn" id="8_fitkl"]
 [ext_resource type="PackedScene" uid="uid://ckikerjty827s" path="res://Props/Fishbowl/fishbowl.tscn" id="8_xw2fr"]
+[ext_resource type="Script" uid="uid://bvb25yh8slela" path="res://Items/Scripts/item_data.gd" id="9_xbjyq"]
+[ext_resource type="Resource" uid="uid://bq6evtl3g22ho" path="res://Items/apple.tres" id="10_atpc8"]
+[ext_resource type="Resource" uid="uid://cpeafixuhmoll" path="res://Items/a_ninja_suit.tres" id="11_wfmhv"]
+[ext_resource type="Resource" uid="uid://c7awxyldslai1" path="res://Items/potion.tres" id="12_pld0f"]
+[ext_resource type="Resource" uid="uid://xmyry3hinvxf" path="res://Items/stone.tres" id="13_7cgoy"]
+[ext_resource type="Resource" uid="uid://ccfpng58b4q77" path="res://Items/w_katana.tres" id="14_csd4o"]
 
 [node name="ShopInterior" type="Node2D"]
 script = ExtResource("1_libvq")
@@ -33,10 +38,6 @@ position = Vector2(102, 287)
 [node name="Pot4" parent="." instance=ExtResource("2_hn8ao")]
 position = Vector2(375, 287)
 
-[node name="NPC" parent="." instance=ExtResource("3_libvq")]
-position = Vector2(245, 161)
-npc_resource = ExtResource("6_fitkl")
-
 [node name="PlayerSpawn" parent="." instance=ExtResource("5_46i0x")]
 position = Vector2(322, 280)
 
@@ -50,3 +51,7 @@ side = 3
 
 [node name="Fishbowl" parent="." instance=ExtResource("8_xw2fr")]
 position = Vector2(301, 151)
+
+[node name="Shopkeeper" parent="." instance=ExtResource("8_fitkl")]
+position = Vector2(240, 155)
+shop_inventory = Array[ExtResource("9_xbjyq")]([ExtResource("10_atpc8"), ExtResource("11_wfmhv"), ExtResource("12_pld0f"), ExtResource("12_pld0f"), ExtResource("13_7cgoy"), ExtResource("14_csd4o")])

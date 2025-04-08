@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b6a7j4dg5n6tr" path="res://Dialog/Sprites/dialog_interactable.png" id="1_esf80"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ldgw"]
-size = Vector2(44, 32)
+size = Vector2(44, 52)
 
 [sub_resource type="Animation" id="Animation_rwbyi"]
 length = 0.001
@@ -129,6 +129,7 @@ monitorable = false
 script = ExtResource("1_1g4pe")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 100
 shape = SubResource("RectangleShape2D_1ldgw")
 debug_color = Color(0.270588, 0.627451, 0.254902, 0.164706)
 
@@ -140,6 +141,6 @@ hframes = 2
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 process_mode = 3
 libraries = {
-"": SubResource("AnimationLibrary_el7l2")
+&"": SubResource("AnimationLibrary_el7l2")
 }
 autoplay = "default"
