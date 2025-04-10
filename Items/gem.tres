@@ -13,4 +13,5 @@ script = ExtResource("1_8d02e")
 name = "Gem"
 description = "A valuable gem."
 texture = SubResource("AtlasTexture_83vvn")
+cost = 1
 effects = Array[ExtResource("1_vdcwa")]([])

@@ -165,3 +165,11 @@ func swap_items_by_index ( i1 : int, i2 : int ) -> void:
 	slots[ i1 ] = slots[ i2 ]
 	slots[ i2 ] = temp
 	pass
+
+func get_item_held_quantity( _item : ItemData ) -> int:
+	for slot in slots:
+		if slot:
+			if slot.item_data:
+				if slot.item_data == _item:
+					return slot.quantity
+	return 0

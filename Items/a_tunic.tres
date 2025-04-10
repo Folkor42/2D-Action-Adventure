@@ -24,4 +24,5 @@ name = "Tunic & Cape"
 description = "The tunic is clean and pressed,
 and the cape is oh-so-stylish."
 texture = SubResource("AtlasTexture_0v5sp")
+cost = 150
 effects = Array[ExtResource("1_v61un")]([])
