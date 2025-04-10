@@ -125,7 +125,7 @@ layout_mode = 2
 texture = SubResource("AtlasTexture_nrxap")
 stretch_mode = 3
 
-[node name="GamesLabel" type="Label" parent="Shop/GemsPanel/HBoxContainer"]
+[node name="GemsLabel" type="Label" parent="Shop/GemsPanel/HBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 22)
 layout_mode = 2
@@ -212,6 +212,7 @@ texture = SubResource("AtlasTexture_nrxap")
 stretch_mode = 3
 
 [node name="ItemName" type="Label" parent="Shop/DetailsPanel/Control"]
+unique_name_in_owner = true
 layout_mode = 0
 offset_top = 38.0
 offset_right = 177.0
@@ -221,7 +222,8 @@ vertical_alignment = 2
 clip_text = true
 text_overrun_behavior = 3
 
-[node name="IemDescription" type="Label" parent="Shop/DetailsPanel/Control"]
+[node name="ItemDescription" type="Label" parent="Shop/DetailsPanel/Control"]
+unique_name_in_owner = true
 modulate = Color(0.552956, 0.552956, 0.552956, 1)
 layout_mode = 0
 offset_left = 1.0

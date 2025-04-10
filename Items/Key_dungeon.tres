@@ -13,4 +13,5 @@ script = ExtResource("1_dqosj")
 name = ""
 description = "Looks like a normal key, may be able to unlock many doors."
 texture = SubResource("AtlasTexture_fd64g")
+cost = 150
 effects = Array[ExtResource("1_w52sd")]([])

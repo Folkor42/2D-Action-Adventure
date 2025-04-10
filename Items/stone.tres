@@ -13,4 +13,5 @@ script = ExtResource("1_tmljf")
 name = "Stone"
 description = "A stone..."
 texture = SubResource("AtlasTexture_yxxhp")
+cost = 10
 effects = Array[ExtResource("1_omh0t")]([])

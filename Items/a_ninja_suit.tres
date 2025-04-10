@@ -28,4 +28,5 @@ sprite_texture = ExtResource("4_gui8p")
 name = "Ninja Suit"
 description = "This ninja suit is totaly rad, and super comfy!"
 texture = SubResource("AtlasTexture_0v5sp")
+cost = 600
 effects = Array[ExtResource("1_7x2xe")]([])

@@ -11,7 +11,6 @@
 
 [node name="Shopkeeper" type="Node2D"]
 script = ExtResource("1_h4g5l")
-shop_inventory = null
 
 [node name="NPC" parent="." instance=ExtResource("1_2ca22")]
 npc_resource = ExtResource("2_mf6ew")
