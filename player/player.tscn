@@ -1,4 +1,4 @@
-[gd_scene load_steps=95 format=3 uid="uid://c1yldn01piade"]
+[gd_scene load_steps=100 format=3 uid="uid://c1yldn01piade"]
 
 [ext_resource type="Script" uid="uid://cqngh2w1h8h5b" path="res://player/player.gd" id="1_jfhlr"]
 [ext_resource type="Texture2D" uid="uid://bbn1y3etw8abv" path="res://player/assets/Shadow.png" id="2_x4wqo"]
@@ -31,6 +31,8 @@
 [ext_resource type="AudioStream" uid="uid://dgbcuyek8icuv" path="res://Props/interactables/throwable/throw.wav" id="20_51c40"]
 [ext_resource type="AudioStream" uid="uid://bcoajhhhxex7e" path="res://Props/interactables/throwable/hm_.wav" id="20_mcqg4"]
 [ext_resource type="Script" uid="uid://cvuoobv1h8uti" path="res://player/scripts/state_carry.gd" id="21_l45qx"]
+[ext_resource type="Script" uid="uid://3nel15uhxci8" path="res://player/scripts/state_dash.gd" id="25_q28gw"]
+[ext_resource type="AudioStream" uid="uid://c6v3xe4u72cts" path="res://player/audio/huwh.wav" id="26_ge24q"]
 [ext_resource type="AudioStream" uid="uid://xalyfq1w8w1w" path="res://player/audio/level_up_jingle.wav" id="28_nanlg"]
 [ext_resource type="FontFile" uid="uid://ccjnepwjede8w" path="res://GUI/Fonts/m5x7.ttf" id="30_kqber"]
 [ext_resource type="PackedScene" uid="uid://by5d0yrlh07bw" path="res://General Nodes/footstep_audio_2d/footstep_audio_2d.tscn" id="34_kjcjy"]
@@ -1469,6 +1471,57 @@ tracks/1/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_q28gw"]
+resource_name = "dash_down"
+length = 0.3
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [12]
+}
+
+[sub_resource type="Animation" id="Animation_ge24q"]
+resource_name = "dash_up"
+length = 0.3
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [16]
+}
+
+[sub_resource type="Animation" id="Animation_pnw6m"]
+resource_name = "dash_side"
+length = 0.3
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [17]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_iigjh"]
 _data = {
 &"RESET": SubResource("Animation_yctyk"),
@@ -1488,6 +1541,9 @@ _data = {
 &"charge_walk_down": SubResource("Animation_vke3g"),
 &"charge_walk_side": SubResource("Animation_183n0"),
 &"charge_walk_up": SubResource("Animation_0ghf3"),
+&"dash_down": SubResource("Animation_q28gw"),
+&"dash_side": SubResource("Animation_pnw6m"),
+&"dash_up": SubResource("Animation_ge24q"),
 &"death": SubResource("Animation_r6inn"),
 &"idle_down": SubResource("Animation_rk36x"),
 &"idle_side": SubResource("Animation_eic20"),
@@ -1784,7 +1840,6 @@ color = Color(0, 1, 0.470588, 1)
 color_ramp = SubResource("GradientTexture1D_n2nec")
 
 [node name="Player" type="CharacterBody2D"]
-position = Vector2(0, -1)
 collision_mask = 17
 motion_mode = 1
 wall_min_slide_angle = 0.174533
@@ -1824,7 +1879,7 @@ hframes = 12
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D/AttackEffectSprite"]
 libraries = {
-"": SubResource("AnimationLibrary_vfn4x")
+&"": SubResource("AnimationLibrary_vfn4x")
 }
 autoplay = "no_attack"
 
@@ -1852,8 +1907,8 @@ debug_color = Color(0.67451, 0.176471, 0.188235, 0.294118)
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Sprite2D/ChargeHurtBox"]
 position = Vector2(-6, 16)
 amount = 4
-process_material = SubResource("ParticleProcessMaterial_5hx7v")
 lifetime = 0.5
+process_material = SubResource("ParticleProcessMaterial_5hx7v")
 
 [node name="HeldItem" type="Sprite2D" parent="Sprite2D"]
 position = Vector2(0, 20)
@@ -1875,12 +1930,12 @@ hframes = 8
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SpinSprite"]
 libraries = {
-"": SubResource("AnimationLibrary_5c6cb")
+&"": SubResource("AnimationLibrary_5c6cb")
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_iigjh")
+&"": SubResource("AnimationLibrary_iigjh")
 }
 
 [node name="StateMachine" type="Node" parent="."]
@@ -1916,6 +1971,12 @@ carry = NodePath("../Carry")
 [node name="Carry" type="Node" parent="StateMachine"]
 script = ExtResource("21_l45qx")
 throw_audio = ExtResource("20_51c40")
+
+[node name="Dash" type="Node" parent="StateMachine"]
+script = ExtResource("25_q28gw")
+move_speed = 250.0
+dash_audio = ExtResource("26_ge24q")
+metadata/_custom_type_script = "uid://ddikpvegeiy42"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position_smoothing_enabled = true
@@ -1964,7 +2025,7 @@ shape = SubResource("CircleShape2D_5hbu6")
 
 [node name="EffectAnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_dksul")
+&"": SubResource("AnimationLibrary_dksul")
 }
 
 [node name="Abilities" type="Node" parent="."]
@@ -1992,9 +2053,9 @@ horizontal_alignment = 1
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 emitting = false
 amount = 50
-process_material = SubResource("ParticleProcessMaterial_i8vuw")
 lifetime = 0.75
 one_shot = true
 explosiveness = 0.25
+process_material = SubResource("ParticleProcessMaterial_i8vuw")
 
 [node name="FootstepAudio2D" parent="." instance=ExtResource("34_kjcjy")]
