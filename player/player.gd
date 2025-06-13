@@ -31,6 +31,10 @@ var atk : int = 1 :
 var def : int = 1
 var defense_bonus : int = 0
 
+var bomb_count : int = 10
+var arrow_count : int = 2
+
+
 func _ready():
 	PlayerManager.player = self
 	state_machine.Initialize( self )

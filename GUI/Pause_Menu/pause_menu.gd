@@ -50,6 +50,9 @@ func show_pause_menu() -> void:
 	is_paused = true
 	tab_container.current_tab=0
 	shown.emit()
+	%ArrowCountLabel.text = str(PlayerManager.player.arrow_count)
+	%BombCountLabel.text = str(PlayerManager.player.bomb_count)
+	
 	
 func hide_pause_menu() -> void:
 	get_tree().paused = false
