@@ -28,14 +28,16 @@ func Exit() -> void:
 		else:
 			throwable.throw_direction = player.direction
 		#stunned? drop instead of throw
-		if state_machine.next_state == State_Stun:
+		if state_machine.next_state == stun:
 			throwable.throw_direction=throwable.throw_direction.rotated( PI )
 			throwable.drop()
+			print("Player wants to drop")
 			pass
 		else:
 			player.audio.stream = throw_audio
 			player.audio.play()
 			throwable.throw()
+			print("Player wants to throw")
 			pass
 		pass
 	pass

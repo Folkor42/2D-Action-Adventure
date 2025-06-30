@@ -14,3 +14,7 @@ collision_layer = 0
 collision_mask = 256
 monitorable = false
 script = ExtResource("2_h4esm")
+
+[node name="WallDetect" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 16
