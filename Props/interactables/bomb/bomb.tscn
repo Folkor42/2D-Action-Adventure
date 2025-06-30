@@ -1,12 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://mrbdp2mfoy6e"]
+[gd_scene load_steps=15 format=3 uid="uid://mrbdp2mfoy6e"]
 
 [ext_resource type="Texture2D" uid="uid://ca4o1tpt50rvv" path="res://Props/interactables/bomb/assets/bomb.png" id="1_1jlb6"]
 [ext_resource type="AudioStream" uid="uid://dcgij4wwjfh1b" path="res://Props/interactables/bomb/assets/bomb_explosion.wav" id="2_c0wfw"]
 [ext_resource type="Script" uid="uid://cqlt0fvr1eqgn" path="res://General Nodes/HurtBox/hurt_box.gd" id="3_ig0x5"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xajbe"]
-atlas = ExtResource("1_1jlb6")
-region = Rect2(0, 0, 128, 96)
+[ext_resource type="Script" uid="uid://cv7luoj5qci15" path="res://Props/interactables/bomb/bomb.gd" id="4_c0wfw"]
+[ext_resource type="PackedScene" uid="uid://q76iv0eifoxn" path="res://Props/interactables/throwable/throwable.tscn" id="4_ig0x5"]
 
 [sub_resource type="Gradient" id="Gradient_ngv5d"]
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
@@ -19,12 +17,16 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(1, 0.5)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_xajbe"]
+atlas = ExtResource("1_1jlb6")
+region = Rect2(0, 0, 128, 96)
+
 [sub_resource type="Animation" id="Animation_li6lm"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("BombSprite:frame")
+tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -48,7 +50,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("BombSprite:modulate")
+tracks/2/path = NodePath("Sprite2D:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -60,7 +62,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("BombSprite:visible")
+tracks/3/path = NodePath("Sprite2D:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -112,7 +114,7 @@ step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("BombSprite:frame")
+tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -136,7 +138,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("BombSprite:modulate")
+tracks/2/path = NodePath("Sprite2D:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -148,7 +150,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("BombSprite:visible")
+tracks/3/path = NodePath("Sprite2D:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -200,7 +202,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("BombSprite:visible")
+tracks/1/path = NodePath("Sprite2D:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -271,18 +273,21 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_rk3ab"]
 radius = 50.0
 
-[node name="Bomb" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xajbe"]
+size = Vector2(16, 8)
 
-[node name="BombSprite" type="Sprite2D" parent="."]
-position = Vector2(0, -7)
-texture = SubResource("AtlasTexture_xajbe")
-hframes = 4
-vframes = 3
+[node name="Bomb" type="Node2D"]
 
 [node name="ShadowSprite" type="Sprite2D" parent="."]
 show_behind_parent = true
 scale = Vector2(0.641488, 0.640001)
 texture = SubResource("GradientTexture2D_o6vnt")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -7)
+texture = SubResource("AtlasTexture_xajbe")
+hframes = 4
+vframes = 3
 
 [node name="ExplosionSprite" type="Sprite2D" parent="."]
 visible = false
@@ -309,3 +314,14 @@ metadata/_custom_type_script = "uid://cqlt0fvr1eqgn"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 shape = SubResource("CircleShape2D_rk3ab")
+
+[node name="Throwable" parent="." instance=ExtResource("4_ig0x5")]
+script = ExtResource("4_c0wfw")
+fuse_duration = 4.0
+bounciness = 0.25
+max_bounces = 5
+throw_speed = 300.0
+throw_height_strength = 150.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Throwable"]
+shape = SubResource("RectangleShape2D_xajbe")
