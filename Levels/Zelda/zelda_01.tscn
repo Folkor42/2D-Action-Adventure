@@ -22,7 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://dtq5kja5b6d2m" path="res://Quests/Utility Nodes/quest_advanced_trigger.tscn" id="18_h7kuw"]
 [ext_resource type="Resource" uid="uid://xut5uqusvwjw" path="res://Quests/long_quest.tres" id="19_7gbtw"]
 [ext_resource type="PackedScene" uid="uid://bd18ibshsp8gh" path="res://Quests/Utility Nodes/QuestActivatedSwitch.tscn" id="21_c203d"]
-[ext_resource type="PackedScene" uid="uid://mrbdp2mfoy6e" path="res://Props/interactables/bomb/bomb.tscn" id="24_jfjgs"]
+[ext_resource type="PackedScene" uid="uid://ci7vgquai2rn4" path="res://Props/interactables/arrow/Arrow.tscn" id="24_jfjgs"]
 [ext_resource type="PackedScene" uid="uid://dmt1dxewkti1m" path="res://Levels/level_transition_interact.tscn" id="26_x7a6h"]
 
 [sub_resource type="GDScript" id="GDScript_668tg"]
@@ -381,5 +381,11 @@ target_transition_area = "ShopDoor"
 center_player = true
 side = 2
 
-[node name="Bomb" parent="." instance=ExtResource("24_jfjgs")]
-position = Vector2(136, 80)
+[node name="Arrow" parent="." instance=ExtResource("24_jfjgs")]
+position = Vector2(88, 144)
+
+[node name="Arrow2" parent="." instance=ExtResource("24_jfjgs")]
+position = Vector2(48, 112)
+
+[node name="Arrow3" parent="." instance=ExtResource("24_jfjgs")]
+position = Vector2(96, 88)
