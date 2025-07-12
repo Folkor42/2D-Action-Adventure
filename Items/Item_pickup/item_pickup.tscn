@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://b1e4t5l6ae54n"]
+[gd_scene load_steps=10 format=3 uid="uid://b1e4t5l6ae54n"]
 
 [ext_resource type="Script" uid="uid://7mnyhmayfmg7" path="res://Items/Item_pickup/item_pickup.gd" id="1_kxk5s"]
 [ext_resource type="Texture2D" uid="uid://bbn1y3etw8abv" path="res://player/assets/Shadow.png" id="2_djuss"]
 [ext_resource type="AudioStream" uid="uid://1npfch01cr23" path="res://Items/Item_pickup/item_pickup.wav" id="2_fhpij"]
 [ext_resource type="PackedScene" uid="uid://cduxmy5l020sm" path="res://General Nodes/PersistentDataHandler/persistent_data_handler.tscn" id="4_4ve0m"]
+[ext_resource type="FontFile" uid="uid://ccjnepwjede8w" path="res://GUI/Fonts/m5x7.ttf" id="5_sf8m3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5o20u"]
 
@@ -49,6 +50,7 @@ collision_layer = 0
 collision_mask = 16
 motion_mode = 1
 script = ExtResource("1_kxk5s")
+item_count = null
 
 [node name="Area2D" type="Area2D" parent="."]
 
@@ -72,8 +74,17 @@ shape = SubResource("CircleShape2D_5o20u")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_bvpp3")
+&"": SubResource("AnimationLibrary_bvpp3")
 }
 autoplay = "RESET"
 
 [node name="ItemDrop" parent="." instance=ExtResource("4_4ve0m")]
+
+[node name="CountLabel" type="Label" parent="."]
+offset_right = 24.0
+offset_bottom = 24.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("5_sf8m3")
+text = "99"
+horizontal_alignment = 1

@@ -60,8 +60,6 @@ func bomb_ability() -> void:
 	elif state_machine.current_state == idle or state_machine.current_state == walk:
 		#decrese # of bombs
 		player.bomb_count-=1
-		#update player hud
-		PlayerHud.update_bomb_count( player.bomb_count )
 		#instiante a new bomb
 		pickup.start_anim_late=true
 		var bomb : Node2D = BOMB.instantiate()

@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=8 format=3 uid="uid://chu2h5efoem68"]
+
+[ext_resource type="Script" uid="uid://bwy867h4ugey1" path="res://Items/item_effects/item_effect.gd" id="1_5pik1"]
+[ext_resource type="Script" uid="uid://btck847c0r1db" path="res://Items/item_effects/item_effect_heal.gd" id="2_g6y51"]
+[ext_resource type="AudioStream" uid="uid://bnxxox5o6mnf4" path="res://Items/item_effects/hp-up.wav" id="3_u6dsu"]
+[ext_resource type="Script" uid="uid://bvb25yh8slela" path="res://Items/Scripts/item_data.gd" id="4_slx5n"]
+[ext_resource type="Texture2D" uid="uid://dk642v3uq6mum" path="res://Items/Sprites/items_02.png" id="5_bog4k"]
+
+[sub_resource type="Resource" id="Resource_pi81c"]
+script = ExtResource("2_g6y51")
+heal_amount = 1
+sound = ExtResource("3_u6dsu")
+use_description = ""
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j56mv"]
+atlas = ExtResource("5_bog4k")
+region = Rect2(0, 0, 32, 32)
+
+[resource]
+script = ExtResource("4_slx5n")
+name = "Bomb"
+description = ""
+texture = SubResource("AtlasTexture_j56mv")
+cost = 10
+effects = Array[ExtResource("1_5pik1")]([SubResource("Resource_pi81c")])
