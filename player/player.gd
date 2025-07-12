@@ -31,8 +31,8 @@ var atk : int = 1 :
 var def : int = 1
 var defense_bonus : int = 0
 
-var bomb_count : int = 10
-var arrow_count : int = 10
+var bomb_count : int = 10 : set = _set_bomb_count
+var arrow_count : int = 10 : set = _set_arrow_count
 
 
 func _ready():
@@ -147,3 +147,14 @@ func _on_equipment_changed() -> void:
 	update_damage_values()
 	defense_bonus=PlayerManager.INVENTORY_DATA.get_defense_bonus()
 	
+func _set_arrow_count( value: int )->void:
+	arrow_count=value
+	#update player hud
+	PlayerHud.update_arrow_count( arrow_count )
+	pass
+	
+func _set_bomb_count( value: int )->void:
+	bomb_count = value
+	#update player hud
+	PlayerHud.update_bomb_count( bomb_count )
+	pass

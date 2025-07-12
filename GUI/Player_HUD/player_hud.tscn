@@ -539,6 +539,7 @@ layout_mode = 2
 texture = SubResource("GradientTexture2D_vqttk")
 
 [node name="TextureRect" type="TextureRect" parent="Control2/Abilities/HBoxContainer/TextureRect2"]
+layout_mode = 0
 offset_right = 24.0
 offset_bottom = 24.0
 texture = SubResource("AtlasTexture_5e34x")
@@ -549,6 +550,7 @@ layout_mode = 2
 texture = SubResource("GradientTexture2D_vqttk")
 
 [node name="TextureRect" type="TextureRect" parent="Control2/Abilities/HBoxContainer/TextureRect3"]
+layout_mode = 0
 offset_right = 24.0
 offset_bottom = 24.0
 texture = SubResource("AtlasTexture_yvgbh")
@@ -571,6 +573,7 @@ layout_mode = 2
 texture = SubResource("GradientTexture2D_vqttk")
 
 [node name="TextureRect" type="TextureRect" parent="Control2/Abilities/HBoxContainer/TextureRect4"]
+layout_mode = 0
 offset_right = 24.0
 offset_bottom = 24.0
 texture = SubResource("AtlasTexture_hxctk")
@@ -578,6 +581,7 @@ stretch_mode = 3
 
 [node name="BombCountLabel" type="Label" parent="Control2/Abilities/HBoxContainer/TextureRect4"]
 unique_name_in_owner = true
+layout_mode = 0
 offset_top = 17.0
 offset_right = 24.0
 offset_bottom = 41.0

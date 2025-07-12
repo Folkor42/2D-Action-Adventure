@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=8 format=3 uid="uid://csp3lsot54ka6"]
+
+[ext_resource type="Script" uid="uid://bwy867h4ugey1" path="res://Items/item_effects/item_effect.gd" id="1_hygac"]
+[ext_resource type="Script" uid="uid://btck847c0r1db" path="res://Items/item_effects/item_effect_heal.gd" id="2_8uurm"]
+[ext_resource type="AudioStream" uid="uid://bnxxox5o6mnf4" path="res://Items/item_effects/hp-up.wav" id="3_hkb78"]
+[ext_resource type="Script" uid="uid://bvb25yh8slela" path="res://Items/Scripts/item_data.gd" id="4_aiwvc"]
+[ext_resource type="Texture2D" uid="uid://dk642v3uq6mum" path="res://Items/Sprites/items_02.png" id="5_6gcwn"]
+
+[sub_resource type="Resource" id="Resource_pi81c"]
+script = ExtResource("2_8uurm")
+heal_amount = 1
+sound = ExtResource("3_hkb78")
+use_description = ""
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j56mv"]
+atlas = ExtResource("5_6gcwn")
+region = Rect2(32, 0, 32, 32)
+
+[resource]
+script = ExtResource("4_aiwvc")
+name = "Arrow"
+description = ""
+texture = SubResource("AtlasTexture_j56mv")
+cost = 10
+effects = Array[ExtResource("1_hygac")]([SubResource("Resource_pi81c")])
