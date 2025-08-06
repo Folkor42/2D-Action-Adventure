@@ -23,7 +23,10 @@ func state_complete ( _a ) -> void:
 	state_machine.ChangeState(carry)
 	pass
 
-func Exit() -> void:
+func exit() -> void:
+	if player.animation_player.animation_finished.is_connected( state_complete ):
+		player.animation_player.animation_finished.disconnect( state_complete )
+		player.carry.throwable.drop()
 	start_anim_late = false
 	pass
 

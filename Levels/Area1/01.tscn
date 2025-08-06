@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://w8vxkvsl4mpv"]
+[gd_scene load_steps=14 format=4 uid="uid://w8vxkvsl4mpv"]
 
 [ext_resource type="Script" uid="uid://cp86arrmyhw7x" path="res://Levels/level.gd" id="1_vnxa4"]
 [ext_resource type="PackedScene" uid="uid://6itqmku4udbn" path="res://Levels/player_spawn.tscn" id="2_8fj0n"]
@@ -12,6 +12,7 @@
 [ext_resource type="Resource" uid="uid://xmyry3hinvxf" path="res://Items/stone.tres" id="10_bvd2h"]
 [ext_resource type="PackedScene" uid="uid://dwy6wfti8q67p" path="res://Enemies/Goblin/goblin.tscn" id="11_a7dab"]
 [ext_resource type="Resource" uid="uid://3x506ndblw7e" path="res://Items/gem.tres" id="11_rqify"]
+[ext_resource type="PackedScene" uid="uid://bn23a0iffxksv" path="res://Props/pot/pot.tscn" id="13_p5uw0"]
 
 [node name="01" type="Node2D"]
 script = ExtResource("1_vnxa4")
@@ -70,3 +71,12 @@ quantity = 30
 
 [node name="Goblin" parent="." instance=ExtResource("11_a7dab")]
 position = Vector2(396, 196)
+
+[node name="Pot" parent="." instance=ExtResource("13_p5uw0")]
+position = Vector2(309, 120)
+
+[node name="Pot2" parent="." instance=ExtResource("13_p5uw0")]
+position = Vector2(292, 120)
+
+[node name="Pot3" parent="." instance=ExtResource("13_p5uw0")]
+position = Vector2(303, 128)
