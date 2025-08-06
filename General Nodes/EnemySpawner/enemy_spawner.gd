@@ -6,14 +6,16 @@ enum SpawnMode { TIMER, TRIGGER, MANUAL }
 @export var spawn_mode : SpawnMode = SpawnMode.TIMER
 @export var enemies : Array[PackedScene] = []
 @export var spawn_points : Array[Marker2D] = []
+@export_category("Timer Spawn Settings")
 @export var spawn_timer : float = 2.0
 @export var spawn_limit : int = 5
+@export_category("Trigger Spawn Settings")
 @export var trigger_node : Area2D
-
 @export var waves : Array = [
 	{"count": 3, "interval": 1.0},
 	{"count": 5, "interval": 0.7}
 ]
+@export var time_between_waves : float = 1.5
 
 @onready var timer : Timer = $Timer
 
@@ -64,7 +66,7 @@ func _on_wave_spawn() -> void:
 		timer.timeout.disconnect(_on_wave_spawn)
 		current_wave += 1
 		if current_wave < waves.size():
-			await get_tree().create_timer(1.5).timeout
+			await get_tree().create_timer(time_between_waves).timeout
 			_start_wave_spawning()
 
 func _on_timer_timeout() -> void:
@@ -78,14 +80,13 @@ func _spawn_enemy() -> void:
 	var enemy_scene: PackedScene = enemies.pick_random()
 	var enemy = enemy_scene.instantiate()
 
-	# Pick spawn point or default to spawner position
+	enemy.global_position = global_position
 	if spawn_points.size() > 0:
 		var marker = spawn_points.pick_random()
 		if marker:
-			enemy.position = marker.position
-			# Make the Marker2Ds a child of the EnemySpawner as Global Position fails.
+			enemy.global_position = marker.global_position
 
-	add_child(enemy)
+	get_parent().add_child(enemy)
 
 	active_enemies.append(enemy)
 	enemy.tree_exited.connect(func(): active_enemies.erase(enemy))

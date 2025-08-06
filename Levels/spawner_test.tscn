@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://dsiu2e3gwwo52"]
+[gd_scene load_steps=11 format=4 uid="uid://dsiu2e3gwwo52"]
 
 [ext_resource type="Script" uid="uid://cp86arrmyhw7x" path="res://Levels/level.gd" id="1_p38a1"]
 [ext_resource type="PackedScene" uid="uid://cbdc82vqr78bl" path="res://TileMaps/Grass01-Layers.tscn" id="2_ugi7d"]
@@ -6,13 +6,14 @@
 [ext_resource type="PackedScene" uid="uid://qrpgovsg43s2" path="res://General Nodes/EnemySpawner/enemy_spawner.tscn" id="4_bewq4"]
 [ext_resource type="PackedScene" uid="uid://dwy6wfti8q67p" path="res://Enemies/Goblin/goblin.tscn" id="5_h56jg"]
 [ext_resource type="Script" uid="uid://cchb85dsjrm7i" path="res://Levels/MakeXp.gd" id="6_h56jg"]
+[ext_resource type="PackedScene" uid="uid://dencaf8xx08iu" path="res://Enemies/Slime/slime.tscn" id="6_hjlyn"]
 [ext_resource type="Texture2D" uid="uid://clbu1c4nb3i60" path="res://icon.svg" id="7_tydl1"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_bewq4"]
-radius = 39.0128
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tydl1"]
 size = Vector2(53, 22)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bewq4"]
+radius = 39.0128
 
 [node name="Spawner Test" type="Node2D"]
 script = ExtResource("1_p38a1")
@@ -23,43 +24,28 @@ tile_map_data = PackedByteArray("AAAAAAAAAAABAAIAAAAAAAEAAAABAAIAAAAAAAIAAAABAAI
 [node name="PlayerSpawn" parent="." instance=ExtResource("3_bewq4")]
 position = Vector2(241, 159)
 
-[node name="EnemySpawner" parent="." node_paths=PackedStringArray("spawn_points", "trigger_node") instance=ExtResource("4_bewq4")]
-position = Vector2(82, 208)
+[node name="EnemySpawner" parent="." instance=ExtResource("4_bewq4")]
+position = Vector2(270, 266)
 enemies = Array[PackedScene]([ExtResource("5_h56jg")])
-spawn_points = [NodePath("Marker2D"), NodePath("Marker2D2"), NodePath("Marker2D3")]
+spawn_timer = 3.0
 spawn_limit = 1
-trigger_node = NodePath("")
-
-[node name="Marker2D" type="Marker2D" parent="EnemySpawner"]
-position = Vector2(193, 63)
-
-[node name="Marker2D2" type="Marker2D" parent="EnemySpawner"]
-position = Vector2(145, 61)
-
-[node name="Marker2D3" type="Marker2D" parent="EnemySpawner"]
-position = Vector2(245, 63)
 
 [node name="EnemySpawner2" parent="." node_paths=PackedStringArray("spawn_points", "trigger_node") instance=ExtResource("4_bewq4")]
-position = Vector2(82, 208)
+position = Vector2(428, 212)
 spawn_mode = 1
-enemies = Array[PackedScene]([ExtResource("5_h56jg")])
+enemies = Array[PackedScene]([ExtResource("6_hjlyn")])
 spawn_points = [NodePath("Marker2D"), NodePath("Marker2D2"), NodePath("Marker2D3")]
-trigger_node = NodePath("Area2D")
+trigger_node = NodePath("../Area2D2")
+time_between_waves = 3.0
 
 [node name="Marker2D" type="Marker2D" parent="EnemySpawner2"]
-position = Vector2(193, 63)
+position = Vector2(-1, -40)
 
 [node name="Marker2D2" type="Marker2D" parent="EnemySpawner2"]
-position = Vector2(145, 61)
+position = Vector2(0, -1)
 
 [node name="Marker2D3" type="Marker2D" parent="EnemySpawner2"]
-position = Vector2(245, 63)
-
-[node name="Area2D" type="Area2D" parent="EnemySpawner2"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemySpawner2/Area2D"]
-position = Vector2(255, 0)
-shape = SubResource("CircleShape2D_bewq4")
+position = Vector2(-1, 38)
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(161, 206)
@@ -84,3 +70,33 @@ offset_right = 98.0
 offset_bottom = 32.0
 text = "Press Interact"
 horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="."]
+z_index = -1
+offset_left = 294.0
+offset_top = 156.0
+offset_right = 389.0
+offset_bottom = 174.0
+text = "Wave Spawner"
+
+[node name="Label2" type="Label" parent="."]
+z_index = -1
+offset_left = 121.0
+offset_top = 180.0
+offset_right = 216.0
+offset_bottom = 198.0
+text = "Manual Spawn"
+
+[node name="Label3" type="Label" parent="."]
+z_index = -1
+offset_left = 231.0
+offset_top = 276.0
+offset_right = 326.0
+offset_bottom = 294.0
+text = "Timed Spawn"
+
+[node name="Area2D2" type="Area2D" parent="."]
+position = Vector2(335, 210)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+shape = SubResource("CircleShape2D_bewq4")
