@@ -1,4 +1,4 @@
-[gd_scene load_steps=104 format=3 uid="uid://c1yldn01piade"]
+[gd_scene load_steps=105 format=3 uid="uid://c1yldn01piade"]
 
 [ext_resource type="Script" uid="uid://cqngh2w1h8h5b" path="res://player/player.gd" id="1_jfhlr"]
 [ext_resource type="Texture2D" uid="uid://bbn1y3etw8abv" path="res://player/assets/Shadow.png" id="2_x4wqo"]
@@ -37,6 +37,7 @@
 [ext_resource type="AudioStream" uid="uid://xalyfq1w8w1w" path="res://player/audio/level_up_jingle.wav" id="28_nanlg"]
 [ext_resource type="FontFile" uid="uid://ccjnepwjede8w" path="res://GUI/Fonts/m5x7.ttf" id="30_kqber"]
 [ext_resource type="PackedScene" uid="uid://by5d0yrlh07bw" path="res://General Nodes/footstep_audio_2d/footstep_audio_2d.tscn" id="34_kjcjy"]
+[ext_resource type="Texture2D" uid="uid://x61ka2jssmho" path="res://player/assets/grapple.png" id="38_1so5t"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_goj8y"]
 radius = 9.05539
@@ -1895,7 +1896,7 @@ color = Color(0, 1, 0.470588, 1)
 color_ramp = SubResource("GradientTexture1D_n2nec")
 
 [node name="Player" type="CharacterBody2D"]
-collision_mask = 17
+collision_mask = 25
 motion_mode = 1
 wall_min_slide_angle = 0.174533
 script = ExtResource("1_jfhlr")
@@ -2118,3 +2119,17 @@ explosiveness = 0.25
 process_material = SubResource("ParticleProcessMaterial_i8vuw")
 
 [node name="FootstepAudio2D" parent="." instance=ExtResource("34_kjcjy")]
+
+[node name="GrappleHook" type="Node2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -16)
+
+[node name="NinePatchRect" type="NinePatchRect" parent="GrappleHook"]
+offset_left = -16.0
+offset_right = 16.0
+offset_bottom = 25.0
+texture = ExtResource("38_1so5t")
+patch_margin_top = 16
+patch_margin_bottom = 9
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1

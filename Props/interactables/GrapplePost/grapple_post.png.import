@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://3qenvvui8j3d"
-path="res://.godot/imported/grapple_post.png-5ce65096ffb62bbf9bba906ff1dd2281.ctex"
+path="res://.godot/imported/grapple_post.png-212c10e81501eddbfedf889d1835bcb7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://player/assets/grapple_post.png"
-dest_files=["res://.godot/imported/grapple_post.png-5ce65096ffb62bbf9bba906ff1dd2281.ctex"]
+source_file="res://Props/interactables/GrapplePost/grapple_post.png"
+dest_files=["res://.godot/imported/grapple_post.png-212c10e81501eddbfedf889d1835bcb7.ctex"]
 
 [params]
 
