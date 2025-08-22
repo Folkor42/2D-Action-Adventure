@@ -42,4 +42,3 @@ func _check_for_dialog_branches() -> bool:
 			if _count > 1:
 				return true
 	return false
-
