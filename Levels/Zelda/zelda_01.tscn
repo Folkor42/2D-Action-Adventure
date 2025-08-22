@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=4 uid="uid://uqhh1ka0cukk"]
+[gd_scene load_steps=29 format=4 uid="uid://uqhh1ka0cukk"]
 
 [ext_resource type="Script" uid="uid://cp86arrmyhw7x" path="res://Levels/level.gd" id="1_g7gpy"]
 [ext_resource type="PackedScene" uid="uid://cbdc82vqr78bl" path="res://TileMaps/Grass01-Layers.tscn" id="2_egny0"]
@@ -22,7 +22,6 @@
 [ext_resource type="PackedScene" uid="uid://dtq5kja5b6d2m" path="res://Quests/Utility Nodes/quest_advanced_trigger.tscn" id="18_h7kuw"]
 [ext_resource type="Resource" uid="uid://xut5uqusvwjw" path="res://Quests/long_quest.tres" id="19_7gbtw"]
 [ext_resource type="PackedScene" uid="uid://bd18ibshsp8gh" path="res://Quests/Utility Nodes/QuestActivatedSwitch.tscn" id="21_c203d"]
-[ext_resource type="PackedScene" uid="uid://ci7vgquai2rn4" path="res://Props/interactables/arrow/Arrow.tscn" id="24_jfjgs"]
 [ext_resource type="PackedScene" uid="uid://b1e4t5l6ae54n" path="res://Items/Item_pickup/item_pickup.tscn" id="25_0h1cw"]
 [ext_resource type="Resource" uid="uid://csp3lsot54ka6" path="res://Items/arrow.tres" id="26_kpmsd"]
 [ext_resource type="PackedScene" uid="uid://dmt1dxewkti1m" path="res://Levels/level_transition_interact.tscn" id="26_x7a6h"]
@@ -384,15 +383,6 @@ level = "uid://nav6ct5sxo44"
 target_transition_area = "ShopDoor"
 center_player = true
 side = 2
-
-[node name="Arrow" parent="." instance=ExtResource("24_jfjgs")]
-position = Vector2(88, 144)
-
-[node name="Arrow2" parent="." instance=ExtResource("24_jfjgs")]
-position = Vector2(48, 112)
-
-[node name="Arrow3" parent="." instance=ExtResource("24_jfjgs")]
-position = Vector2(96, 88)
 
 [node name="ItemPickup" parent="." instance=ExtResource("25_0h1cw")]
 position = Vector2(183, 41.536)

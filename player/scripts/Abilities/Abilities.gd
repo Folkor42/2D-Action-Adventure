@@ -14,6 +14,8 @@ var boomerang_instance : Boomerang = null
 @onready var idle: State_Idle = $"../StateMachine/Idle"
 @onready var walk: State_Walk = $"../StateMachine/Walk"
 @onready var bow: State_Bow = $"../StateMachine/Bow"
+@onready var grapple: State_Grapple = $"../StateMachine/Grapple"
+
 
 
 func _ready() -> void:
@@ -25,7 +27,7 @@ func _unhandled_input( event : InputEvent ) -> void:
 	if event.is_action_pressed("ability"):
 		match selected_ability:
 			0: boomerang_ability()
-			1: print("Grapple")
+			1: grapple_ability()
 			2: bow_ability()
 			3: bomb_ability()
 	
@@ -81,3 +83,6 @@ func bow_ability() -> void:
 
 		state_machine.ChangeState(bow)
 	pass
+func grapple_ability() -> void:
+	if state_machine.current_state == idle or state_machine.current_state == walk:
+		state_machine.ChangeState(grapple)
