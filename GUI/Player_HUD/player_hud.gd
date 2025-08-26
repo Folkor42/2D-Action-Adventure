@@ -172,3 +172,13 @@ func _on_show_pause () -> void:
 func _on_hide_pause () -> void:
 	abilities.visible = true
 	pass
+
+func update_ability_items( items : Array [String] ) -> void:
+	var ability_items : Array [Node] = ability_items.get_children()
+	for i in ability_items.size():
+		if items[i] == "" : 
+			ability_items[i].visible=false
+		else:
+			ability_items[i].visible=true
+	
+	pass
