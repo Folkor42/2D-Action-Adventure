@@ -24,7 +24,8 @@ var current_save : Dictionary = {
 	locations= [],
 	quests = [
 		#{ title = "Not Found", is_complete = false, compelted_steps = [''] }
-	]
+	],
+	abilities = [ "", "", "", "" ]
 }
 
 func save_game() -> void:
@@ -59,9 +60,7 @@ func load_game() -> void:
 	PlayerManager.player.xp = current_save.player.xp
 	PlayerManager.player.atk = current_save.player.atk
 	PlayerManager.player.def = current_save.player.def
-		
-	print (current_save.items)
-	print (current_save.drops)
+	
 	PlayerManager.INVENTORY_DATA.parse_save_data( current_save.items )
 	QuestManager.current_quests = current_save.quests
 	PlayerManager.player._on_equipment_changed()
@@ -86,6 +85,7 @@ func update_player_data() -> void:
 	current_save.player.xp = p.xp
 	current_save.player.atk = p.atk
 	current_save.player.def = p.def
+	current_save.abilities = p.player_abilities.abilities
 	
 func update_scene_path() -> void:
 	var p : String = ""
