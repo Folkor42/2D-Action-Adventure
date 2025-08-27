@@ -3,7 +3,7 @@ class_name PlayerAbilites extends Node
 const BOOMERANG = preload("res://player/boomerang.tscn")
 const BOMB = preload("res://Props/interactables/bomb/bomb.tscn")
 
-var abilities : Array [ String ] = [ "BOOMERANG", "", "BOW", "" ] # Boom,Grapple,Bow,Bomb
+var abilities : Array [ String ] = [ "", "", "", "" ] # Boom,Grapple,Bow,Bomb
 
 var selected_ability : int = 0
 var player : Player
@@ -23,6 +23,7 @@ func _ready() -> void:
 	PlayerHud.update_arrow_count( player.arrow_count )
 	PlayerHud.update_bomb_count( player.bomb_count )
 	setup_abilities()
+	SaveManager.game_loaded.connect ( _on_game_loaded )
 	
 func setup_abilities() -> void:
 	# Update the Pause Menu
@@ -97,6 +98,12 @@ func bow_ability() -> void:
 
 		state_machine.ChangeState(bow)
 	pass
+
 func grapple_ability() -> void:
 	if state_machine.current_state == idle or state_machine.current_state == walk:
 		state_machine.ChangeState(grapple)
+
+func _on_game_loaded() -> void:
+	abilities = Array(SaveManager.current_save.abilities, TYPE_STRING,"",null)
+	setup_abilities()
+	pass

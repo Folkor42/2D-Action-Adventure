@@ -13,6 +13,7 @@ var direction : Vector2 = Vector2.ZERO
 @onready var pickup: State_Pickup = $StateMachine/Pickup
 @onready var held_item: Sprite2D = $Sprite2D/HeldItem
 @onready var carry = $StateMachine/Carry
+@onready var player_abilities: PlayerAbilites = $Abilities
 
 
 
