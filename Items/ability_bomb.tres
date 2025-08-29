@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="AbilityItemData" load_steps=5 format=3 uid="uid://bt3g86t4aujh5"]
+
+[ext_resource type="Script" uid="uid://bwy867h4ugey1" path="res://Items/item_effects/item_effect.gd" id="1_vd0mh"]
+[ext_resource type="Script" uid="uid://fxkqiocj6a2o" path="res://Items/Scripts/ability_item_data.gd" id="2_oi1kg"]
+[ext_resource type="Texture2D" uid="uid://b2sbtqud7ig14" path="res://player/assets/ability-icons.png" id="3_7eadf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sn5yh"]
+atlas = ExtResource("3_7eadf")
+region = Rect2(0, 0, 32, 0)
+
+[resource]
+script = ExtResource("2_oi1kg")
+type = 3
+name = "Bomb"
+description = ""
+texture = SubResource("AtlasTexture_sn5yh")
+cost = 10
+effects = Array[ExtResource("1_vd0mh")]([])
+metadata/_custom_type_script = "uid://fxkqiocj6a2o"
