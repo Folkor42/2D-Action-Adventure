@@ -15,7 +15,9 @@ var current_save : Dictionary = {
 		level = 1,
 		xp = 0,
 		atk = 1,
-		def = 0
+		def = 0,
+		arrow_count = 0,
+		bomb_count = 0
 	},
 	items = [],
 	drops = [],
@@ -60,6 +62,8 @@ func load_game() -> void:
 	PlayerManager.player.xp = current_save.player.xp
 	PlayerManager.player.atk = current_save.player.atk
 	PlayerManager.player.def = current_save.player.def
+	PlayerManager.player.arrow_count = current_save.player.arrow_count
+	PlayerManager.player.bomb_count = current_save.player.bomb_count
 	
 	PlayerManager.INVENTORY_DATA.parse_save_data( current_save.items )
 	QuestManager.current_quests = current_save.quests
@@ -85,6 +89,8 @@ func update_player_data() -> void:
 	current_save.player.xp = p.xp
 	current_save.player.atk = p.atk
 	current_save.player.def = p.def
+	current_save.player.arrow_count = p.arrow_count
+	current_save.player.bomb_count = p.bomb_count
 	current_save.abilities = p.player_abilities.abilities
 	
 func update_scene_path() -> void:

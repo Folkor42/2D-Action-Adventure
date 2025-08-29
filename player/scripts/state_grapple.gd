@@ -24,8 +24,8 @@ var nine_patch_size : float = 25.0
 var tween : Tween
 var next_state : State = null
 var positions : Array[ Vector3 ] = [
-	Vector3( 8,-20,180), # Up
-	Vector3( 8, -10, 0 ), # Down
+	Vector3( 0,-20,180), # Up
+	Vector3( 0, -10, 0 ), # Down
 	Vector3( -10, -15, 90 ), # Left
 	Vector3( 10, -15, -90) # Right
 ]
@@ -140,11 +140,11 @@ func grapple_player() -> void:
 	
 	var player_target : Vector2 = player.global_position
 	player_target += player.cardinal_direction * collision_distance
-	player_target -= player.cardinal_direction * 10
+	player_target -= player.cardinal_direction * nine_patch_size
 
-	var grapple_source : Vector2 = grapple_hook.position
-	grapple_source -= player.cardinal_direction * grapple_offset
-	tween.parallel().tween_property(grapple_hook,"position", grapple_source,tween_duration)
+	#var grapple_source : Vector2 = grapple_hook.position
+	#grapple_source -= player.cardinal_direction * grapple_offset
+	#tween.parallel().tween_property(grapple_hook,"position", grapple_source,tween_duration)
 
 	tween.parallel().tween_property(player,"global_position", player_target,tween_duration)
 	player.make_invulnerable(tween_duration)
