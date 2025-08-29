@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=4 uid="uid://uqhh1ka0cukk"]
+[gd_scene load_steps=34 format=4 uid="uid://uqhh1ka0cukk"]
 
 [ext_resource type="Script" uid="uid://cp86arrmyhw7x" path="res://Levels/level.gd" id="1_g7gpy"]
 [ext_resource type="PackedScene" uid="uid://cbdc82vqr78bl" path="res://TileMaps/Grass01-Layers.tscn" id="2_egny0"]
@@ -26,7 +26,12 @@
 [ext_resource type="Resource" uid="uid://csp3lsot54ka6" path="res://Items/arrow.tres" id="26_kpmsd"]
 [ext_resource type="PackedScene" uid="uid://dmt1dxewkti1m" path="res://Levels/level_transition_interact.tscn" id="26_x7a6h"]
 [ext_resource type="Resource" uid="uid://chu2h5efoem68" path="res://Items/bomb.tres" id="27_e1x0n"]
+[ext_resource type="PackedScene" uid="uid://dbnv814r0tw0b" path="res://Props/interactables/dungeon/treasure_chest/treasure_chest.tscn" id="28_e1x0n"]
 [ext_resource type="PackedScene" uid="uid://caxe61gbxeg2u" path="res://Props/interactables/GrapplePost/GrapplePost.tscn" id="28_kpmsd"]
+[ext_resource type="Resource" uid="uid://bt3g86t4aujh5" path="res://Items/ability_bomb.tres" id="29_0gada"]
+[ext_resource type="Resource" uid="uid://mcaarifagfom" path="res://Items/ability_boomerang.tres" id="30_ck8g3"]
+[ext_resource type="Resource" uid="uid://ebpc2ttuiky1" path="res://Items/ability_arrow.tres" id="31_a3la2"]
+[ext_resource type="Resource" uid="uid://dmcicybavsw3l" path="res://Items/ability_grapple.tres" id="32_s4qc8"]
 
 [sub_resource type="GDScript" id="GDScript_668tg"]
 script/source = "extends Node
@@ -52,7 +57,7 @@ y_sort_enabled = true
 tile_map_data = PackedByteArray("AAAHAPn/AAAKAAgAAAAHAPr/AAAKAAkAAAAHAPv/AAAKAAoAAAAHAPz/AAAKAAsAAAAIAPj/AAALAAcAAAAIAPn/AAALAAgAAAAIAPr/AAALAAkAAAAIAPv/AAALAAoAAAAIAPz/AAALAAsAAAAIAP3/AAAKAAwAAAAIAP7/AAAKAA0AAAAJAPf/AAALAAcAAAAJAPj/AAALAAgAAAAJAPn/AAALAAkAAAAJAPr/AAALAAoAAAAJAPv/AAALAAsAAAAJAPz/AAANAAwAAAAJAP3/AAAKAA4AAAAJAP7/AAAKAA8AAAAKAPf/AAAMAAcAAAAKAPj/AAAMAAgAAAAKAPn/AAAMAAkAAAAKAPr/AAAMAAoAAAAKAPv/AAAMAAsAAAAKAPz/AAALAAwAAAAKAP3/AAALAA4AAAAKAP7/AAALAA8AAAALAPf/AAANAAcAAAALAPj/AAANAAgAAAALAPn/AAANAAkAAAALAPr/AAANAAoAAAALAPv/AAANAAsAAAALAPz/AAALAAwAAAALAP3/AAAMAA4AAAALAP7/AAAMAA8AAAAMAPj/AAAOAAgAAAAMAPn/AAAOAAkAAAAMAPr/AAAOAAoAAAAMAPv/AAAOAAsAAAAMAPz/AAANAAwAAAAMAP3/AAANAA4AAAAMAP7/AAANAA8AAAANAPn/AAAOAAgAAAANAPr/AAAOAAkAAAANAPv/AAAOAAoAAAANAPz/AAAOAAsAAAAMAPf/AAAOAAcAAAANAPj/AAAOAAcAAAANAP3/AAAOAAwAAAANAP7/AAAOAA0AAAAOAPn/AAAPAAgAAAAOAPr/AAAPAAkAAAAOAPv/AAAPAAoAAAAOAPz/AAAPAAsAAAA=")
 
 [node name="PlayerSpawn" parent="." instance=ExtResource("4_3ljhm")]
-position = Vector2(205, 139)
+position = Vector2(193, -166)
 
 [node name="Left" parent="." instance=ExtResource("4_8rxlj")]
 position = Vector2(0, 160)
@@ -399,3 +404,19 @@ position = Vector2(157, -196)
 
 [node name="GrapplePost2" parent="." instance=ExtResource("28_kpmsd")]
 position = Vector2(216, -18)
+
+[node name="TreasureChest" parent="." instance=ExtResource("28_e1x0n")]
+position = Vector2(121, -230)
+item_data = ExtResource("29_0gada")
+
+[node name="TreasureChest2" parent="." instance=ExtResource("28_e1x0n")]
+position = Vector2(184, -230)
+item_data = ExtResource("30_ck8g3")
+
+[node name="TreasureChest3" parent="." instance=ExtResource("28_e1x0n")]
+position = Vector2(224, -230)
+item_data = ExtResource("31_a3la2")
+
+[node name="TreasureChest4" parent="." instance=ExtResource("28_e1x0n")]
+position = Vector2(262, -229)
+item_data = ExtResource("32_s4qc8")
