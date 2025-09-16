@@ -103,7 +103,7 @@ func raycast_detection() -> void:
 		collision_distance = grapple_ray_cast_2d.get_collision_point().distance_to( player.global_position)
 		return
 	grapple_ray_cast_2d.set_collision_mask_value( 5, true)
-	grapple_ray_cast_2d.set_collision_mask_value( 6, false)
+	grapple_ray_cast_2d.set_collision_mask_value( 7, false)
 	grapple_ray_cast_2d.force_raycast_update()
 	if grapple_ray_cast_2d.is_colliding():
 		collision_type = 1

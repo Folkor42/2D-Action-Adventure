@@ -66,6 +66,7 @@ func player_interact () -> void:
 		printerr("No Items in Chest!")
 		push_error("No Items in Chest! Chest Name: ", name)
 	pass
+
 func _on_area_enter( _a : Area2D ) -> void:
 	PlayerManager.interact_pressed.connect( player_interact )
 	pass
