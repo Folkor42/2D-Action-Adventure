@@ -16,12 +16,14 @@ var target_location : Vector2 = Vector2.ZERO
 var move_direction : Vector2 = Vector2.ZERO
 var distance_to_target : float = 0.0
 
-func ready() -> void:
+func _ready() -> void:
 	target_location = global_position
+	print (target_location)
 	pass
 
 func play() -> void:
 	if object_to_move:
+		print (object_to_move.global_position)
 		object_to_move.process_mode=Node.PROCESS_MODE_ALWAYS
 		distance_to_target=calculate_distance_to_target()
 		get_move_direction()
@@ -31,12 +33,20 @@ func play() -> void:
 		else:
 			move_speed = distance_to_target / move_duration
 		
-		# IF NPC ....
-		
+		if object_to_move is NPC:
+			var npc : NPC = object_to_move
+			npc.do_behavior = false
+			npc.state = "walk"
+			npc.direction = move_direction
+			npc.update_direction( target_location )
+			npc.update_animation()
+			npc.animation.speed_scale = move_speed / animation_speed_factor
+			pass
+			
 		var tween : Tween = create_tween()
 		tween.set_ease( easing_method )
 		tween.set_trans( transition_type )
-		tween.tween_property( object_to_move, "global_position", target_location, move_duration)
+		tween.tween_property( object_to_move, "global_position", target_location, move_duration).from(object_to_move.global_position)
 		tween.tween_callback( _on_tween_finished )
 		pass
 	else:
@@ -46,6 +56,14 @@ func play() -> void:
 func _on_tween_finished() -> void:
 	print("Tween Finished")
 	object_to_move.process_mode=Node.PROCESS_MODE_INHERIT
+	
+	if object_to_move is NPC:
+		var npc : NPC = object_to_move
+		npc.do_behavior = true
+		npc.state = "idle"
+		npc.animation.speed_scale = 1
+		npc.process_mode = Node.PROCESS_MODE_INHERIT
+	
 	finished.emit()
 
 func get_move_direction() -> void:

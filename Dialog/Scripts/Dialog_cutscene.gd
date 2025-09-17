@@ -5,13 +5,14 @@ class_name DialogCutscene extends DialogItem
 signal finished
 
 enum Mode { PARRALLEL, SEQUENTIAL }
-
 @export var playback_mode : Mode = Mode.SEQUENTIAL
 
 var actions : Array[ CutsceneAction ] = []
 var actions_finished_count : int = 0
 
 func _ready() -> void:
+	if Engine.is_editor_hint():
+		return
 	gather_actions()
 	pass
 	
@@ -32,7 +33,7 @@ func play() -> void:
 		await get_tree().process_frame
 		finished.emit()
 	elif playback_mode == Mode.SEQUENTIAL:
-		actions [ actions_finished_count ].play()
+		actions [ 0 ].play()
 	else:
 		for a in actions:
 			a.play()
