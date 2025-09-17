@@ -1,9 +1,74 @@
-[gd_scene load_steps=5 format=3 uid="uid://bsyfrdwpse67o"]
+[gd_scene load_steps=20 format=3 uid="uid://bsyfrdwpse67o"]
 
 [ext_resource type="Script" uid="uid://cp86arrmyhw7x" path="res://Levels/level.gd" id="1_5sd02"]
 [ext_resource type="PackedScene" uid="uid://bgtod07o6p5jg" path="res://TileMaps/Grass01.tscn" id="2_c5yok"]
 [ext_resource type="PackedScene" uid="uid://6itqmku4udbn" path="res://Levels/player_spawn.tscn" id="3_hyitg"]
 [ext_resource type="PackedScene" uid="uid://cqtftu4m687ui" path="res://Levels/level_transition.tscn" id="4_n0x2h"]
+[ext_resource type="PackedScene" uid="uid://b04ucc504op4r" path="res://NPCs/NPC.tscn" id="5_oq2dk"]
+[ext_resource type="PackedScene" uid="uid://233g56eroy73" path="res://Dialog/Dialog_interaction.tscn" id="6_e4ekq"]
+[ext_resource type="PackedScene" uid="uid://2ufqdi8ofh43" path="res://NPCs/npc_behavior_patrol.tscn" id="6_ts0fw"]
+[ext_resource type="Script" uid="uid://cmvjpelqev60u" path="res://Dialog/Scripts/Dialog_text.gd" id="7_hq4qf"]
+[ext_resource type="PackedScene" uid="uid://cfotd7m0rppnr" path="res://NPCs/patrol_location.tscn" id="7_ts0fw"]
+[ext_resource type="Script" uid="uid://d0q1311x3xe23" path="res://Dialog/Scripts/cutscene_action_animation.gd" id="8_hq4qf"]
+[ext_resource type="Resource" uid="uid://cilw0ibei8yb7" path="res://NPCs/NPC-Resources/npc_01.tres" id="8_yulrv"]
+[ext_resource type="Resource" uid="uid://d1gnresmkuws" path="res://NPCs/NPC-Resources/Hero.tres" id="9_od0b2"]
+[ext_resource type="Script" uid="uid://c0am3p2x5rqc6" path="res://Dialog/Scripts/Dialog_cutscene.gd" id="10_e4ekq"]
+[ext_resource type="Script" uid="uid://dbyqbob2ojs1" path="res://Dialog/Scripts/cutscene_action_move.gd" id="11_yulrv"]
+[ext_resource type="Texture2D" uid="uid://clbu1c4nb3i60" path="res://icon.svg" id="15_ts0fw"]
+
+[sub_resource type="Animation" id="Animation_od0b2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DirectionalLight2D:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_hq4qf"]
+resource_name = "fade_back_in"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DirectionalLight2D:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.5, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_yulrv"]
+resource_name = "fade_to_black"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DirectionalLight2D:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.5]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4fb22"]
+_data = {
+&"RESET": SubResource("Animation_od0b2"),
+&"fade_back_in": SubResource("Animation_hq4qf"),
+&"fade_to_black": SubResource("Animation_yulrv")
+}
 
 [node name="LEVEL1" type="Node2D"]
 script = ExtResource("1_5sd02")
@@ -20,3 +85,103 @@ level = "res://Levels/testing/level_2.tscn"
 target_transition_area = "LevelTransition"
 size = 4
 side = 3
+
+[node name="NPC2" parent="." instance=ExtResource("5_oq2dk")]
+position = Vector2(145, 152)
+
+[node name="NPC_Behavior_Patrol" parent="NPC2" instance=ExtResource("6_ts0fw")]
+
+[node name="PatrolLocation" parent="NPC2/NPC_Behavior_Patrol" instance=ExtResource("7_ts0fw")]
+modulate = Color(1, 0, 0, 1)
+position = Vector2(-39, 0)
+wait_time = 1.0
+
+[node name="PatrolLocation2" parent="NPC2/NPC_Behavior_Patrol" instance=ExtResource("7_ts0fw")]
+modulate = Color(1, 1, 0, 1)
+position = Vector2(48, 0)
+wait_time = 1.0
+
+[node name="DialogInteraction" parent="NPC2" instance=ExtResource("6_e4ekq")]
+
+[node name="DialogCutscene" type="Node" parent="NPC2/DialogInteraction"]
+script = ExtResource("10_e4ekq")
+metadata/_custom_type_script = "uid://c0am3p2x5rqc6"
+
+[node name="CutsceneActionAnimation" type="Node2D" parent="NPC2/DialogInteraction/DialogCutscene" node_paths=PackedStringArray("animation_player")]
+script = ExtResource("8_hq4qf")
+animation_player = NodePath("../../../../AnimationPlayer")
+animation_name = "fade_to_black"
+metadata/_custom_type_script = "uid://d0q1311x3xe23"
+
+[node name="DialogCutscene3" type="Node" parent="NPC2/DialogInteraction"]
+script = ExtResource("10_e4ekq")
+metadata/_custom_type_script = "uid://c0am3p2x5rqc6"
+
+[node name="CutsceneActionMove" type="Node2D" parent="NPC2/DialogInteraction/DialogCutscene3" node_paths=PackedStringArray("object_to_move")]
+position = Vector2(185, 102)
+script = ExtResource("11_yulrv")
+timing_method = 1
+object_to_move = NodePath("../../..")
+move_duration = 2.0
+move_speed = 100.0
+metadata/_custom_type_script = "uid://dbyqbob2ojs1"
+
+[node name="CutsceneActionMove2" type="Node2D" parent="NPC2/DialogInteraction/DialogCutscene3" node_paths=PackedStringArray("object_to_move")]
+position = Vector2(138, 212)
+script = ExtResource("11_yulrv")
+timing_method = 1
+object_to_move = NodePath("../../..")
+move_duration = 2.0
+move_speed = 100.0
+metadata/_custom_type_script = "uid://dbyqbob2ojs1"
+
+[node name="CutsceneActionMove3" type="Node2D" parent="NPC2/DialogInteraction/DialogCutscene3" node_paths=PackedStringArray("object_to_move")]
+position = Vector2(322, 217)
+script = ExtResource("11_yulrv")
+timing_method = 1
+object_to_move = NodePath("../../../../Node2D")
+move_duration = 2.0
+move_speed = 100.0
+metadata/_custom_type_script = "uid://dbyqbob2ojs1"
+
+[node name="DialogText" type="Node" parent="NPC2/DialogInteraction"]
+script = ExtResource("7_hq4qf")
+text = "
+Hey who turned out the lights?!"
+npc_info = ExtResource("8_yulrv")
+
+[node name="DialogText2" type="Node" parent="NPC2/DialogInteraction"]
+script = ExtResource("7_hq4qf")
+text = "
+[wave]It wasn't me!![/wave]"
+npc_info = ExtResource("9_od0b2")
+
+[node name="DialogCutscene2" type="Node" parent="NPC2/DialogInteraction"]
+script = ExtResource("10_e4ekq")
+metadata/_custom_type_script = "uid://c0am3p2x5rqc6"
+
+[node name="CutsceneActionAnimation" type="Node2D" parent="NPC2/DialogInteraction/DialogCutscene2" node_paths=PackedStringArray("animation_player")]
+script = ExtResource("8_hq4qf")
+animation_player = NodePath("../../../../AnimationPlayer")
+animation_name = "fade_back_in"
+metadata/_custom_type_script = "uid://d0q1311x3xe23"
+
+[node name="DialogText3" type="Node" parent="NPC2/DialogInteraction"]
+script = ExtResource("7_hq4qf")
+text = "Oh Nice, the lights are back!"
+npc_info = ExtResource("8_yulrv")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_4fb22")
+}
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+energy = 0.0
+blend_mode = 1
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(326, 112)
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D"]
+texture = ExtResource("15_ts0fw")

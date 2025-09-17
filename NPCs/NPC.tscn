@@ -144,7 +144,7 @@ hframes = 15
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_a8dpi")
+&"": SubResource("AnimationLibrary_a8dpi")
 }
 autoplay = "idle_down"
 
