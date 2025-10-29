@@ -76,3 +76,12 @@ func shake_camera ( tramua : float = 1 ) -> void:
 func interact() -> void:
 	interact_handled=false
 	interact_pressed.emit()
+
+func reset_camera_on_player () -> void:
+	var camera : Camera2D = get_viewport().get_camera_2d()
+	if camera:
+		if camera.get_parent()==Player:
+			return
+		camera.reparent(player)
+		camera.position = Vector2.ZERO
+	pass
