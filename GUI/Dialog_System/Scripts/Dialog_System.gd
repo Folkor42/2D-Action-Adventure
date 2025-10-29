@@ -95,6 +95,7 @@ func hide_dialog() -> void:
 	dialog_ui.process_mode = Node.PROCESS_MODE_DISABLED
 	get_tree().paused = false
 	finished.emit()
+	PlayerManager.reset_camera_on_player()
 	pass
 
 func start_dialog() -> void:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bsyfrdwpse67o"]
+[gd_scene load_steps=19 format=3 uid="uid://bsyfrdwpse67o"]
 
 [ext_resource type="Script" uid="uid://cp86arrmyhw7x" path="res://Levels/level.gd" id="1_5sd02"]
 [ext_resource type="PackedScene" uid="uid://bgtod07o6p5jg" path="res://TileMaps/Grass01.tscn" id="2_c5yok"]
@@ -9,10 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://2ufqdi8ofh43" path="res://NPCs/npc_behavior_patrol.tscn" id="6_ts0fw"]
 [ext_resource type="Script" uid="uid://cmvjpelqev60u" path="res://Dialog/Scripts/Dialog_text.gd" id="7_hq4qf"]
 [ext_resource type="PackedScene" uid="uid://cfotd7m0rppnr" path="res://NPCs/patrol_location.tscn" id="7_ts0fw"]
-[ext_resource type="Script" uid="uid://d0q1311x3xe23" path="res://Dialog/Scripts/cutscene_action_animation.gd" id="8_hq4qf"]
 [ext_resource type="Resource" uid="uid://cilw0ibei8yb7" path="res://NPCs/NPC-Resources/npc_01.tres" id="8_yulrv"]
-[ext_resource type="Resource" uid="uid://d1gnresmkuws" path="res://NPCs/NPC-Resources/Hero.tres" id="9_od0b2"]
 [ext_resource type="Script" uid="uid://c0am3p2x5rqc6" path="res://Dialog/Scripts/Dialog_cutscene.gd" id="10_e4ekq"]
+[ext_resource type="Script" uid="uid://drr8oqm7mtwg6" path="res://Dialog/Scripts/cutscene_action_camera.gd" id="11_eduyw"]
 [ext_resource type="Script" uid="uid://dbyqbob2ojs1" path="res://Dialog/Scripts/cutscene_action_move.gd" id="11_yulrv"]
 [ext_resource type="Texture2D" uid="uid://clbu1c4nb3i60" path="res://icon.svg" id="15_ts0fw"]
 
@@ -103,19 +102,15 @@ wait_time = 1.0
 
 [node name="DialogInteraction" parent="NPC2" instance=ExtResource("6_e4ekq")]
 
-[node name="DialogCutscene" type="Node" parent="NPC2/DialogInteraction"]
-script = ExtResource("10_e4ekq")
-metadata/_custom_type_script = "uid://c0am3p2x5rqc6"
-
-[node name="CutsceneActionAnimation" type="Node2D" parent="NPC2/DialogInteraction/DialogCutscene" node_paths=PackedStringArray("animation_player")]
-script = ExtResource("8_hq4qf")
-animation_player = NodePath("../../../../AnimationPlayer")
-animation_name = "fade_to_black"
-metadata/_custom_type_script = "uid://d0q1311x3xe23"
-
 [node name="DialogCutscene3" type="Node" parent="NPC2/DialogInteraction"]
 script = ExtResource("10_e4ekq")
 metadata/_custom_type_script = "uid://c0am3p2x5rqc6"
+
+[node name="CutsceneActionCamera" type="Node2D" parent="NPC2/DialogInteraction/DialogCutscene3"]
+position = Vector2(141, 156)
+script = ExtResource("11_eduyw")
+move_duration = 2.0
+metadata/_custom_type_script = "uid://drr8oqm7mtwg6"
 
 [node name="CutsceneActionMove" type="Node2D" parent="NPC2/DialogInteraction/DialogCutscene3" node_paths=PackedStringArray("object_to_move")]
 position = Vector2(185, 102)
@@ -150,27 +145,6 @@ text = "
 Hey who turned out the lights?!"
 npc_info = ExtResource("8_yulrv")
 
-[node name="DialogText2" type="Node" parent="NPC2/DialogInteraction"]
-script = ExtResource("7_hq4qf")
-text = "
-[wave]It wasn't me!![/wave]"
-npc_info = ExtResource("9_od0b2")
-
-[node name="DialogCutscene2" type="Node" parent="NPC2/DialogInteraction"]
-script = ExtResource("10_e4ekq")
-metadata/_custom_type_script = "uid://c0am3p2x5rqc6"
-
-[node name="CutsceneActionAnimation" type="Node2D" parent="NPC2/DialogInteraction/DialogCutscene2" node_paths=PackedStringArray("animation_player")]
-script = ExtResource("8_hq4qf")
-animation_player = NodePath("../../../../AnimationPlayer")
-animation_name = "fade_back_in"
-metadata/_custom_type_script = "uid://d0q1311x3xe23"
-
-[node name="DialogText3" type="Node" parent="NPC2/DialogInteraction"]
-script = ExtResource("7_hq4qf")
-text = "Oh Nice, the lights are back!"
-npc_info = ExtResource("8_yulrv")
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_4fb22")
@@ -184,4 +158,5 @@ blend_mode = 1
 position = Vector2(326, 112)
 
 [node name="Sprite2D" type="Sprite2D" parent="Node2D"]
+scale = Vector2(0.25, 0.25)
 texture = ExtResource("15_ts0fw")
