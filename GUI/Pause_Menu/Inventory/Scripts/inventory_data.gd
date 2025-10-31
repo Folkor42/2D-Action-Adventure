@@ -121,7 +121,7 @@ func equip_item ( slot : SlotData ) -> void:
 		EquipableItemData.Type.AMULET:
 			equipment_index+=2
 		EquipableItemData.Type.RING:
-			equipment_index+=0
+			equipment_index+=3
 	
 	var unequiped_slot : SlotData = slots[ equipment_index ]
 	
