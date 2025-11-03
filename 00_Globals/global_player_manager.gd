@@ -77,11 +77,14 @@ func interact() -> void:
 	interact_handled=false
 	interact_pressed.emit()
 
-func reset_camera_on_player () -> void:
+func reset_camera_on_player ( tween_duration : float = 0.5 ) -> void:
 	var camera : Camera2D = get_viewport().get_camera_2d()
 	if camera:
 		if camera.get_parent()==Player:
 			return
 		camera.reparent(player)
-		camera.position = Vector2.ZERO
+		var tween : Tween = create_tween()
+		tween.set_ease( Tween.EASE_OUT )
+		tween.set_trans(Tween.TRANS_QUAD)
+		tween.tween_property(camera, "position", Vector2.ZERO, tween_duration)
 	pass
