@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bsyfrdwpse67o"]
+[gd_scene load_steps=20 format=3 uid="uid://bsyfrdwpse67o"]
 
 [ext_resource type="Script" uid="uid://cp86arrmyhw7x" path="res://Levels/level.gd" id="1_5sd02"]
 [ext_resource type="PackedScene" uid="uid://bgtod07o6p5jg" path="res://TileMaps/Grass01.tscn" id="2_c5yok"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" uid="uid://c0am3p2x5rqc6" path="res://Dialog/Scripts/Dialog_cutscene.gd" id="10_e4ekq"]
 [ext_resource type="Script" uid="uid://drr8oqm7mtwg6" path="res://Dialog/Scripts/cutscene_action_camera.gd" id="11_eduyw"]
 [ext_resource type="Script" uid="uid://dbyqbob2ojs1" path="res://Dialog/Scripts/cutscene_action_move.gd" id="11_yulrv"]
+[ext_resource type="Script" uid="uid://bmq2d2v2bxjth" path="res://Dialog/Scripts/cutscene_action_player.gd" id="12_ts0fw"]
 [ext_resource type="Texture2D" uid="uid://clbu1c4nb3i60" path="res://icon.svg" id="15_ts0fw"]
 
 [sub_resource type="Animation" id="Animation_od0b2"]
@@ -105,6 +106,15 @@ wait_time = 1.0
 [node name="DialogCutscene3" type="Node" parent="NPC2/DialogInteraction"]
 script = ExtResource("10_e4ekq")
 metadata/_custom_type_script = "uid://c0am3p2x5rqc6"
+
+[node name="CutsceneActionPlayer" type="Node2D" parent="NPC2/DialogInteraction/DialogCutscene3"]
+position = Vector2(242, 200)
+script = ExtResource("12_ts0fw")
+animation_name = null
+finish_direction = null
+reset_camera_to_player = null
+timing_method = 1
+metadata/_custom_type_script = "uid://bmq2d2v2bxjth"
 
 [node name="CutsceneActionCamera" type="Node2D" parent="NPC2/DialogInteraction/DialogCutscene3"]
 position = Vector2(141, 156)

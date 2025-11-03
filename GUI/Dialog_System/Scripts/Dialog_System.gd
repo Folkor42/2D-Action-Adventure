@@ -3,6 +3,7 @@
 class_name DialogSystemNode extends CanvasLayer
 
 signal finished
+signal started
 signal letter_added ( letter : String )
 
 var is_active : bool = false
@@ -82,6 +83,7 @@ func show_dialog( _items : Array[ DialogItem ] ) -> void:
 	dialog_item_index = 0
 	get_tree().paused = true
 	await get_tree().process_frame
+	started.emit()
 	if dialog_items.size() == 0:
 		hide_dialog()
 	else:
