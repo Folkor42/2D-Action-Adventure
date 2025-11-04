@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://c2pc2sv28xvo0"]
+
+[ext_resource type="Script" uid="uid://c0mqi4djtenxe" path="res://General Nodes/Area_Trigger/area_trigger.gd" id="1_dlx8v"]
+
+[node name="CustsceneTrigger" type="Area2D"]
+collision_layer = 0
+script = ExtResource("1_dlx8v")
