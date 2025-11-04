@@ -1,7 +1,8 @@
-[gd_scene load_steps=20 format=3 uid="uid://bsyfrdwpse67o"]
+[gd_scene load_steps=25 format=3 uid="uid://bsyfrdwpse67o"]
 
 [ext_resource type="Script" uid="uid://cp86arrmyhw7x" path="res://Levels/level.gd" id="1_5sd02"]
 [ext_resource type="PackedScene" uid="uid://bgtod07o6p5jg" path="res://TileMaps/Grass01.tscn" id="2_c5yok"]
+[ext_resource type="AudioStream" uid="uid://bacwqmcu7jbu2" path="res://Levels/Music/example_music_01.ogg" id="2_r4k7b"]
 [ext_resource type="PackedScene" uid="uid://6itqmku4udbn" path="res://Levels/player_spawn.tscn" id="3_hyitg"]
 [ext_resource type="PackedScene" uid="uid://cqtftu4m687ui" path="res://Levels/level_transition.tscn" id="4_n0x2h"]
 [ext_resource type="PackedScene" uid="uid://b04ucc504op4r" path="res://NPCs/NPC.tscn" id="5_oq2dk"]
@@ -10,10 +11,13 @@
 [ext_resource type="Script" uid="uid://cmvjpelqev60u" path="res://Dialog/Scripts/Dialog_text.gd" id="7_hq4qf"]
 [ext_resource type="PackedScene" uid="uid://cfotd7m0rppnr" path="res://NPCs/patrol_location.tscn" id="7_ts0fw"]
 [ext_resource type="Resource" uid="uid://cilw0ibei8yb7" path="res://NPCs/NPC-Resources/npc_01.tres" id="8_yulrv"]
+[ext_resource type="PackedScene" uid="uid://c2pc2sv28xvo0" path="res://General Nodes/Area_Trigger/Area_Trigger.tscn" id="10_8q0jr"]
 [ext_resource type="Script" uid="uid://c0am3p2x5rqc6" path="res://Dialog/Scripts/Dialog_cutscene.gd" id="10_e4ekq"]
 [ext_resource type="Script" uid="uid://drr8oqm7mtwg6" path="res://Dialog/Scripts/cutscene_action_camera.gd" id="11_eduyw"]
 [ext_resource type="Script" uid="uid://dbyqbob2ojs1" path="res://Dialog/Scripts/cutscene_action_move.gd" id="11_yulrv"]
 [ext_resource type="Script" uid="uid://bmq2d2v2bxjth" path="res://Dialog/Scripts/cutscene_action_player.gd" id="12_ts0fw"]
+[ext_resource type="Script" uid="uid://bjf7qw4sckldw" path="res://Dialog/Scripts/cutscene_action_music.gd" id="13_ps6vx"]
+[ext_resource type="AudioStream" uid="uid://b2pqhvv2kqubq" path="res://Levels/Music/example_music_02.ogg" id="14_r4k7b"]
 [ext_resource type="Texture2D" uid="uid://clbu1c4nb3i60" path="res://icon.svg" id="15_ts0fw"]
 
 [sub_resource type="Animation" id="Animation_od0b2"]
@@ -70,11 +74,14 @@ _data = {
 &"fade_to_black": SubResource("Animation_yulrv")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_b0xgk"]
+
 [node name="LEVEL1" type="Node2D"]
 script = ExtResource("1_5sd02")
+music = ExtResource("2_r4k7b")
 
 [node name="Grass01" parent="." instance=ExtResource("2_c5yok")]
-layer_0/tile_data = PackedInt32Array(13, 917504, 6, 65549, 917504, 7, 6, 786432, 6, 65542, 786432, 7, 7, 720896, 6, 65543, 720896, 7, 8, 786432, 6, 65544, 786432, 7, 9, 851968, 6, 65545, 851968, 7, 10, 720896, 6, 65546, 720896, 7, 11, 786432, 6, 65547, 786432, 7, 12, 851968, 6, 65548, 851968, 7, 0, 655360, 5, 65536, 655360, 6, 131072, 655360, 5, 196608, 655360, 6, 262144, 655360, 5, 327680, 655360, 6, 393216, 655360, 5, 458752, 655360, 6, 524288, 655360, 5, 589824, 655360, 6, 14, 655360, 5, 65550, 655360, 5, 131086, 655360, 5, 196622, 655360, 5, 393230, 655360, 5, 458766, 655360, 5, 524302, 655360, 5, 589838, 655360, 5, 589825, 655360, 4, 589826, 720896, 4, 589827, 786432, 4, 589828, 851968, 4, 589829, 917504, 4, 589833, 655360, 4, 589834, 720896, 4, 589835, 786432, 4, 589836, 851968, 4, 589837, 917504, 4, 131073, 0, 0, 131074, 65536, 0, 131075, 131072, 0, 131076, 0, 0, 131077, 65536, 0, 131078, 131072, 0, 131079, 0, 0, 131080, 65536, 0, 131081, 131072, 0, 131082, 0, 0, 131083, 65536, 0, 131084, 131072, 0, 196618, 0, 0, 196619, 65536, 0, 196620, 131072, 0, 262154, 0, 0, 262155, 65536, 0, 262156, 131072, 0, 262151, 0, 0, 262152, 65536, 0, 262153, 131072, 0, 262148, 0, 0, 262149, 65536, 0, 262150, 131072, 0, 262145, 0, 0, 262146, 65536, 0, 262147, 131072, 0, 196609, 0, 0, 196610, 65536, 0, 196611, 131072, 0, 196612, 0, 0, 196613, 65536, 0, 196614, 131072, 0, 196615, 0, 0, 196616, 65536, 0, 196617, 131072, 0, 327684, 0, 0, 327685, 65536, 0, 327686, 131072, 0, 327681, 0, 0, 327682, 65536, 0, 327683, 131072, 0, 393217, 0, 0, 393218, 65536, 0, 393219, 131072, 0, 458753, 0, 0, 458754, 65536, 0, 458755, 131072, 0, 524289, 0, 0, 524290, 65536, 0, 524291, 131072, 0, 524292, 0, 0, 524293, 65536, 0, 524297, 196608, 3, 524298, 0, 0, 524299, 65536, 0, 524300, 131072, 0, 458762, 0, 0, 458763, 65536, 0, 458764, 131072, 0, 393226, 0, 0, 393227, 65536, 0, 393228, 131072, 0, 327690, 0, 0, 327691, 65536, 0, 327692, 131072, 0, 327687, 0, 0, 327688, 65536, 0, 327689, 131072, 0, 393223, 65536, 1, 393224, 131072, 1, 393225, 196608, 1, 393220, 0, 0, 393221, 65536, 0, 393222, 0, 1, 458756, 0, 0, 458757, 65536, 0, 458761, 196608, 2, 131085, 0, 0, 196621, 0, 0, 262157, 0, 0, 327693, 0, 0, 393229, 0, 0, 458765, 0, 0, 524301, 0, 0, 262158, 655360, 5, 327694, 655360, 5, 4, 851968, 6, 65540, 851968, 7, 5, 720896, 6, 65541, 720896, 7, 1, 655360, 6, 65537, 655360, 7, 2, 720896, 6, 65538, 720896, 7, 3, 786432, 6, 65539, 786432, 7, 458758, 0, 2, 524294, 0, 3, 458759, 65536, 2, 524295, 65536, 3, 458760, 131072, 2, 524296, 131072, 3, 589830, 65536, 2, 589831, 131072, 2, 589832, 196608, 2)
+layer_0/tile_data = PackedInt32Array(13, 917504, 6, 65549, 917504, 7, 6, 786432, 6, 65542, 786432, 7, 7, 720896, 6, 65543, 720896, 7, 8, 786432, 6, 65544, 786432, 7, 9, 851968, 6, 65545, 851968, 7, 10, 720896, 6, 65546, 720896, 7, 11, 786432, 6, 65547, 786432, 7, 12, 851968, 6, 65548, 851968, 7, 0, 655360, 5, 65536, 655360, 6, 131072, 655360, 5, 196608, 655360, 6, 262144, 655360, 5, 327680, 655360, 6, 393216, 655360, 5, 458752, 655360, 6, 524288, 655360, 5, 589824, 655360, 6, 14, 655360, 5, 65550, 655360, 5, 131086, 655360, 5, 196622, 655360, 5, 393230, 655360, 5, 458766, 655360, 5, 524302, 655360, 5, 589838, 655360, 5, 589825, 655360, 4, 589826, 720896, 4, 589827, 786432, 4, 589828, 851968, 4, 589829, 917504, 4, 589833, 655360, 4, 589834, 720896, 4, 589835, 786432, 4, 589836, 851968, 4, 589837, 917504, 4, 131073, 0, 0, 131074, 65536, 0, 131075, 131072, 0, 131076, 0, 0, 131077, 65536, 0, 131078, 131072, 0, 131079, 0, 0, 131080, 65536, 0, 131081, 131072, 0, 131082, 0, 0, 131083, 65536, 0, 131084, 131072, 0, 196618, 0, 0, 196619, 65536, 0, 196620, 131072, 0, 262154, 0, 0, 262155, 65536, 0, 262156, 131072, 0, 262151, 0, 0, 262152, 65536, 0, 262153, 131072, 0, 262148, 0, 0, 262149, 65536, 0, 262150, 131072, 0, 262145, 0, 0, 262146, 65536, 0, 262147, 131072, 0, 196609, 0, 0, 196610, 262144, 3, 196611, 131072, 0, 196612, 0, 0, 196613, 65536, 0, 196614, 131072, 0, 196615, 0, 0, 196616, 65536, 0, 196617, 131072, 0, 327684, 0, 0, 327685, 65536, 0, 327686, 131072, 0, 327681, 0, 0, 327682, 65536, 0, 327683, 131072, 0, 393217, 0, 0, 393218, 65536, 0, 393219, 131072, 0, 458753, 0, 0, 458754, 65536, 0, 458755, 131072, 0, 524289, 0, 0, 524290, 65536, 0, 524291, 131072, 0, 524292, 0, 0, 524293, 65536, 0, 524297, 196608, 3, 524298, 0, 0, 524299, 65536, 0, 524300, 131072, 0, 458762, 0, 0, 458763, 65536, 0, 458764, 131072, 0, 393226, 0, 0, 393227, 65536, 0, 393228, 131072, 0, 327690, 0, 0, 327691, 65536, 0, 327692, 131072, 0, 327687, 0, 0, 327688, 65536, 0, 327689, 131072, 0, 393223, 65536, 1, 393224, 131072, 1, 393225, 196608, 1, 393220, 0, 0, 393221, 65536, 0, 393222, 0, 1, 458756, 0, 0, 458757, 65536, 0, 458761, 196608, 2, 131085, 0, 0, 196621, 0, 0, 262157, 0, 0, 327693, 0, 0, 393229, 0, 0, 458765, 0, 0, 524301, 0, 0, 262158, 655360, 5, 327694, 655360, 5, 4, 851968, 6, 65540, 851968, 7, 5, 720896, 6, 65541, 720896, 7, 1, 655360, 6, 65537, 655360, 7, 2, 720896, 6, 65538, 720896, 7, 3, 786432, 6, 65539, 786432, 7, 458758, 0, 2, 524294, 0, 3, 458759, 65536, 2, 524295, 65536, 3, 458760, 131072, 2, 524296, 131072, 3, 589830, 65536, 2, 589831, 131072, 2, 589832, 196608, 2)
 
 [node name="PlayerSpawn" parent="." instance=ExtResource("3_hyitg")]
 position = Vector2(239, 166)
@@ -101,60 +108,6 @@ modulate = Color(1, 1, 0, 1)
 position = Vector2(48, 0)
 wait_time = 1.0
 
-[node name="DialogInteraction" parent="NPC2" instance=ExtResource("6_e4ekq")]
-
-[node name="DialogCutscene3" type="Node" parent="NPC2/DialogInteraction"]
-script = ExtResource("10_e4ekq")
-metadata/_custom_type_script = "uid://c0am3p2x5rqc6"
-
-[node name="CutsceneActionPlayer" type="Node2D" parent="NPC2/DialogInteraction/DialogCutscene3"]
-position = Vector2(242, 200)
-script = ExtResource("12_ts0fw")
-animation_name = null
-finish_direction = null
-reset_camera_to_player = null
-timing_method = 1
-metadata/_custom_type_script = "uid://bmq2d2v2bxjth"
-
-[node name="CutsceneActionCamera" type="Node2D" parent="NPC2/DialogInteraction/DialogCutscene3"]
-position = Vector2(141, 156)
-script = ExtResource("11_eduyw")
-move_duration = 2.0
-metadata/_custom_type_script = "uid://drr8oqm7mtwg6"
-
-[node name="CutsceneActionMove" type="Node2D" parent="NPC2/DialogInteraction/DialogCutscene3" node_paths=PackedStringArray("object_to_move")]
-position = Vector2(185, 102)
-script = ExtResource("11_yulrv")
-timing_method = 1
-object_to_move = NodePath("../../..")
-move_duration = 2.0
-move_speed = 100.0
-metadata/_custom_type_script = "uid://dbyqbob2ojs1"
-
-[node name="CutsceneActionMove2" type="Node2D" parent="NPC2/DialogInteraction/DialogCutscene3" node_paths=PackedStringArray("object_to_move")]
-position = Vector2(138, 212)
-script = ExtResource("11_yulrv")
-timing_method = 1
-object_to_move = NodePath("../../..")
-move_duration = 2.0
-move_speed = 100.0
-metadata/_custom_type_script = "uid://dbyqbob2ojs1"
-
-[node name="CutsceneActionMove3" type="Node2D" parent="NPC2/DialogInteraction/DialogCutscene3" node_paths=PackedStringArray("object_to_move")]
-position = Vector2(322, 217)
-script = ExtResource("11_yulrv")
-timing_method = 1
-object_to_move = NodePath("../../../../Node2D")
-move_duration = 2.0
-move_speed = 100.0
-metadata/_custom_type_script = "uid://dbyqbob2ojs1"
-
-[node name="DialogText" type="Node" parent="NPC2/DialogInteraction"]
-script = ExtResource("7_hq4qf")
-text = "
-Hey who turned out the lights?!"
-npc_info = ExtResource("8_yulrv")
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_4fb22")
@@ -170,3 +123,65 @@ position = Vector2(326, 112)
 [node name="Sprite2D" type="Sprite2D" parent="Node2D"]
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("15_ts0fw")
+
+[node name="CustsceneTrigger" parent="." instance=ExtResource("10_8q0jr")]
+position = Vector2(80, 112)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CustsceneTrigger"]
+shape = SubResource("CircleShape2D_b0xgk")
+
+[node name="DialogInteraction" parent="CustsceneTrigger" instance=ExtResource("6_e4ekq")]
+
+[node name="DialogCutscene3" type="Node" parent="CustsceneTrigger/DialogInteraction"]
+script = ExtResource("10_e4ekq")
+metadata/_custom_type_script = "uid://c0am3p2x5rqc6"
+
+[node name="CutsceneActionMusic" type="Node2D" parent="CustsceneTrigger/DialogInteraction/DialogCutscene3"]
+script = ExtResource("13_ps6vx")
+track = ExtResource("14_r4k7b")
+metadata/_custom_type_script = "uid://bjf7qw4sckldw"
+
+[node name="CutsceneActionPlayer" type="Node2D" parent="CustsceneTrigger/DialogInteraction/DialogCutscene3"]
+position = Vector2(242, 200)
+script = ExtResource("12_ts0fw")
+timing_method = 1
+metadata/_custom_type_script = "uid://bmq2d2v2bxjth"
+
+[node name="CutsceneActionCamera" type="Node2D" parent="CustsceneTrigger/DialogInteraction/DialogCutscene3"]
+position = Vector2(141, 156)
+script = ExtResource("11_eduyw")
+move_duration = 2.0
+metadata/_custom_type_script = "uid://drr8oqm7mtwg6"
+
+[node name="CutsceneActionMove" type="Node2D" parent="CustsceneTrigger/DialogInteraction/DialogCutscene3" node_paths=PackedStringArray("object_to_move")]
+position = Vector2(185, 102)
+script = ExtResource("11_yulrv")
+timing_method = 1
+object_to_move = NodePath("../../../../NPC2")
+move_duration = 2.0
+move_speed = 100.0
+metadata/_custom_type_script = "uid://dbyqbob2ojs1"
+
+[node name="CutsceneActionMove2" type="Node2D" parent="CustsceneTrigger/DialogInteraction/DialogCutscene3" node_paths=PackedStringArray("object_to_move")]
+position = Vector2(138, 212)
+script = ExtResource("11_yulrv")
+timing_method = 1
+object_to_move = NodePath("../../../../NPC2")
+move_duration = 2.0
+move_speed = 100.0
+metadata/_custom_type_script = "uid://dbyqbob2ojs1"
+
+[node name="CutsceneActionMove3" type="Node2D" parent="CustsceneTrigger/DialogInteraction/DialogCutscene3" node_paths=PackedStringArray("object_to_move")]
+position = Vector2(322, 217)
+script = ExtResource("11_yulrv")
+timing_method = 1
+object_to_move = NodePath("../../../../Node2D")
+move_duration = 2.0
+move_speed = 100.0
+metadata/_custom_type_script = "uid://dbyqbob2ojs1"
+
+[node name="DialogText" type="Node" parent="CustsceneTrigger/DialogInteraction"]
+script = ExtResource("7_hq4qf")
+text = "
+Hey who turned out the lights?!"
+npc_info = ExtResource("8_yulrv")
